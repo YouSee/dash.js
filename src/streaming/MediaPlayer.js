@@ -1294,6 +1294,30 @@ function MediaPlayer() {
     }
 
     /**
+     * Forces the player to handle an dynamic manifest as a static manifest for start over manifests
+     * where duration is 0
+     *
+     * @param {boolean} value
+     * @default false
+     * @memberof module:MediaPlayer
+     * @instance
+     */
+    function setForceStartOver(value) {
+        mediaPlayerModel.setForceStartOver(value);
+    }
+
+    /**
+     * Returns the current value for forced start over.
+     * @return {boolean}
+     * @see {@link module:MediaPlayer#setForceStartOver setForceStartOver()}
+     * @memberof module:MediaPlayer
+     * @instance
+     */
+    function getForceStartOver() {
+        return mediaPlayerModel.getForceStartOver();
+    }
+
+    /**
      * Enable/disable builtin dashjs ABR rules
      * @param {boolean} value
      * @default true
@@ -2985,6 +3009,8 @@ function MediaPlayer() {
         setAutoSwitchQualityFor: setAutoSwitchQualityFor,
         setABRStrategy: setABRStrategy,
         getABRStrategy: getABRStrategy,
+        setForceStartOver: setForceStartOver,
+        getForceStartOver: getForceStartOver,
         useDefaultABRRules: useDefaultABRRules,
         addABRCustomRule: addABRCustomRule,
         removeABRCustomRule: removeABRCustomRule,

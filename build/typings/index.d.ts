@@ -254,6 +254,8 @@ declare namespace dashjs {
         getMovingAverageMethod(): string;
         setABRStrategy(value: string): void;
         getABRStrategy(): string;
+        setForceStartOver(value: string): void;
+        getForceStartOver(): boolean;
         useDefaultABRRules(value: boolean): void;
         getAverageThroughput(value: number): void;
         setBufferAheadToKeep(value: number): void;

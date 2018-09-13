@@ -618,12 +618,12 @@ function MssParser(config) {
         period = manifest.Period;
         period.start = 0;
 
-        // Uncomment to test live to static manifests
-        // if (manifest.type !== 'static') {
-        //     manifest.type = 'static';
-        //     manifest.mediaPresentationDuration = manifest.timeShiftBufferDepth;
-        //     manifest.timeShiftBufferDepth = null;
-        // }
+        // Live manifest with Duration that is 0 but is startover
+        if (mediaPlayerModel.getForceStartOver() && manifest.type !== 'static') {
+            manifest.type = 'static';
+            manifest.mediaPresentationDuration = manifest.timeShiftBufferDepth;
+            manifest.timeShiftBufferDepth = null;
+        }
 
         // ContentProtection node
         if (protection !== undefined) {

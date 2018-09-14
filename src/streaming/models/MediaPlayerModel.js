@@ -105,7 +105,7 @@ function MediaPlayerModel() {
         retryIntervals,
         wallclockTimeUpdateInterval,
         ABRStrategy,
-        forceStartOver,
+        startLiveStreamOver,
         useDefaultABRRules,
         xhrWithCredentials,
         fastSwitchEnabled,
@@ -124,7 +124,7 @@ function MediaPlayerModel() {
         useManifestDateHeaderTimeSource = true;
         scheduleWhilePaused = true;
         ABRStrategy = Constants.ABR_STRATEGY_DYNAMIC;
-        forceStartOver = false;
+        startLiveStreamOver = false;
         useDefaultABRRules = true;
         fastSwitchEnabled = false;
         lastBitrateCachingInfo = {
@@ -195,12 +195,12 @@ function MediaPlayerModel() {
         return ABRStrategy;
     }
 
-    function setForceStartOver(value) {
-        forceStartOver = value;
+    function setStartLiveStreamOver(value) {
+        startLiveStreamOver = value;
     }
 
-    function getForceStartOver() {
-        return forceStartOver;
+    function getStartLiveStreamOver() {
+        return startLiveStreamOver;
     }
 
     function setUseDefaultABRRules(value) {
@@ -562,8 +562,8 @@ function MediaPlayerModel() {
     instance = {
         setABRStrategy: setABRStrategy,
         getABRStrategy: getABRStrategy,
-        setForceStartOver: setForceStartOver,
-        getForceStartOver: getForceStartOver,
+        setStartLiveStreamOver: setStartLiveStreamOver,
+        getStartLiveStreamOver: getStartLiveStreamOver,
         setUseDefaultABRRules: setUseDefaultABRRules,
         getUseDefaultABRRules: getUseDefaultABRRules,
         getABRCustomRules: getABRCustomRules,

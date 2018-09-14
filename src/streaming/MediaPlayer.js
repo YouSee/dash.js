@@ -1294,27 +1294,26 @@ function MediaPlayer() {
     }
 
     /**
-     * Forces the player to handle an dynamic manifest as a static manifest for start over manifests
-     * where duration is 0
+     * Sets the starttime for dynamic manifests to 0, this is used for dynamic startover manifests
      *
      * @param {boolean} value
      * @default false
      * @memberof module:MediaPlayer
      * @instance
      */
-    function setForceStartOver(value) {
-        mediaPlayerModel.setForceStartOver(value);
+    function setStartLiveStreamOver(value) {
+        mediaPlayerModel.setStartLiveStreamOver(value);
     }
 
     /**
      * Returns the current value for forced start over.
      * @return {boolean}
-     * @see {@link module:MediaPlayer#setForceStartOver setForceStartOver()}
+     * @see {@link module:MediaPlayer#setStartLiveStreamOver setStartLiveStreamOver()}
      * @memberof module:MediaPlayer
      * @instance
      */
-    function getForceStartOver() {
-        return mediaPlayerModel.getForceStartOver();
+    function getStartLiveStreamOver() {
+        return mediaPlayerModel.getStartLiveStreamOver();
     }
 
     /**
@@ -3009,8 +3008,8 @@ function MediaPlayer() {
         setAutoSwitchQualityFor: setAutoSwitchQualityFor,
         setABRStrategy: setABRStrategy,
         getABRStrategy: getABRStrategy,
-        setForceStartOver: setForceStartOver,
-        getForceStartOver: getForceStartOver,
+        setStartLiveStreamOver: setStartLiveStreamOver,
+        getStartLiveStreamOver: getStartLiveStreamOver,
         useDefaultABRRules: useDefaultABRRules,
         addABRCustomRule: addABRCustomRule,
         removeABRCustomRule: removeABRCustomRule,

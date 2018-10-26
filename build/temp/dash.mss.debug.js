@@ -527,7 +527,7 @@ function MssFragmentMoofProcessor(config) {
             // => set range end to end time of current segment
             range = {
                 start: segments[0].t / timescale,
-                end: tfdt.baseMediaDecodeTime / timescale + request.duration
+                end: segments[segments.length - 1].t / timescale
             };
 
             updateDVR(request.mediaType, range, streamProcessor.getStreamInfo().manifestInfo);

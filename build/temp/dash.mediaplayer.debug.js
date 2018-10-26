@@ -33869,7 +33869,7 @@ function ScheduleController(config) {
         if (liveEdgeFinder) {
             var liveEdge = liveEdgeFinder.getLiveEdge();
             var dvrWindowSize = currentRepresentationInfo.mediaInfo.streamInfo.manifestInfo.DVRWindowSize / 2;
-            var startTime = mediaPlayerModel.getStartLiveStreamOver() ? 2 : liveEdge - playbackController.computeLiveDelay(currentRepresentationInfo.fragmentDuration, dvrWindowSize);
+            var startTime = mediaPlayerModel.getStartLiveStreamOver() ? currentRepresentationInfo.fragmentDuration : liveEdge - playbackController.computeLiveDelay(currentRepresentationInfo.fragmentDuration, dvrWindowSize);
             var request = adapter.getFragmentRequest(streamProcessor, currentRepresentationInfo, startTime, {
                 ignoreIsFinished: true
             });

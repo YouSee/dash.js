@@ -245,7 +245,7 @@ timelineConverter = (0,_dashUtilsTimelineConverter2['default'])(context).getInst
      * @returns {number} The current playhead time of the media, or null.
      * @memberof module:MediaPlayer
      * @instance
-     */function time(streamId){if(!playbackInitialized){throw PLAYBACK_NOT_INITIALIZED_ERROR;}var t=getVideoElement().currentTime;if(streamId !== undefined){t = streamController.getTimeRelativeToStreamId(t,streamId);}else if(playbackController.getIsDynamic()){var metric=getDVRInfoMetric();t = metric === null?0:duration() - (metric.range.end - metric.time);}return t;} /**
+     */function time(streamId){if(!playbackInitialized){throw PLAYBACK_NOT_INITIALIZED_ERROR;}var t=getVideoElement().currentTime;if(streamId !== undefined){t = streamController.getTimeRelativeToStreamId(t,streamId);}else if(playbackController.getIsDynamic() && !mediaPlayerModel.getStartLiveStreamOver()){var metric=getDVRInfoMetric();t = metric === null?0:duration() - (metric.range.durationEnd - metric.time);}return t;} /**
      * Duration of the media's playback, in seconds.
      *
      * @returns {number} The current duration of the media.

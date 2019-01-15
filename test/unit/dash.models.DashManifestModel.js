@@ -1,21 +1,20 @@
 import DashManifestModel from '../../src/dash/models/DashManifestModel';
-import TimelineConverter from '../../src/dash/utils/TimelineConverter';
 import BaseURL from '../../src/dash/vo/BaseURL';
-import MpdHelper from './helpers/MPDHelper';
 
-import AdapterMock from './mocks/AdapterMock';
-import MediaControllerMock from './mocks/MediaControllerMock';
+import MpdHelper from './helpers/MPDHelper';
+import ObjectsHelper from './helpers/ObjectsHelper';
+
+import ErrorHandlerMock from './mocks/ErrorHandlerMock';
 
 const expect = require('chai').expect;
 
 const context = {};
-const adapterMock = new AdapterMock();
-const mediaControllerMock = new MediaControllerMock();
-const timelineConverter = TimelineConverter(context).getInstance();
+const objectsHelper = new ObjectsHelper();
+const errorHandlerMock = new ErrorHandlerMock();
+const timelineConverterMock = objectsHelper.getDummyTimelineConverter();
 const dashManifestModel = DashManifestModel(context).getInstance({
-    mediaController: mediaControllerMock,
-    timelineConverter: timelineConverter,
-    adapter: adapterMock
+    timelineConverter: timelineConverterMock,
+    errHandler: errorHandlerMock
 });
 
 const TEST_URL = 'http://www.example.com/';
@@ -185,34 +184,6 @@ describe('DashManifestModel', function () {
         expect(dashManifestModel.getAdaptationsForType.bind(dashManifestModel, manifest, 0, undefined)).to.throw('type is not defined');
     });
 
-    it('should return an empty array when getAdaptationForType is called and streamInfo is undefined', () => {
-        const manifest = { Period_asArray: [{ AdaptationSet_asArray: [{ id: 0, mimeType: 'video' }] }] };
-        const adaptation = dashManifestModel.getAdaptationForType(manifest, 0, 'video', undefined);
-
-        expect(adaptation.id).to.equal(0); // jshint ignore:line
-    });
-
-    it('should return the correct adaptation when getAdaptationForType is called', () => {
-        const manifest = { Period_asArray: [{ AdaptationSet_asArray: [{ id: undefined, mimeType: 'audio', lang: 'eng', Role_asArray: [{ value: 'main' }] }, { id: undefined, mimeType: 'audio', lang: 'deu', Role_asArray: [{ value: 'main' }] }] }] };
-
-        const streamInfo = {
-            id: 'id'
-        };
-
-        const track1 = { codec: 'audio/mp4;codecs="mp4a.40.2"', id: undefined, index: 0, isText: false, lang: 'eng', mimeType: 'audio/mp4', roles: ['main'], streamInfo: streamInfo };
-        const track2 = { codec: 'audio/mp4;codecs="mp4a.40.2"', id: undefined, index: 1, isText: false, lang: 'deu', mimeType: 'audio/mp4', roles: ['main'], streamInfo: streamInfo };
-
-        mediaControllerMock.addTrack(track1);
-        mediaControllerMock.addTrack(track2);
-        mediaControllerMock.setTrack(track2);
-
-        const adaptation = dashManifestModel.getAdaptationForType(manifest, 0, 'audio', streamInfo);
-
-        //in the mediaControllerMock, the currentTrack is lang= deu
-
-        expect(adaptation.lang).to.equal('deu'); // jshint ignore:line
-    });
-
     it('should return null when getCodec is called and adaptation is undefined', () => {
         const codec = dashManifestModel.getCodec();
 
@@ -362,6 +333,35 @@ describe('DashManifestModel', function () {
         const mpd = dashManifestModel.getMpd();
 
         expect(mpd.manifest).to.be.null;                // jshint ignore:line
+    });
+
+    it('should return an error when getRegularPeriods and getEndTimeForLastPeriod are called and duration is undefined', () => {
+        const manifest = {
+            'manifest': {
+                'Period': [
+                    {
+                        'id': '153199'
+                    },
+                    {
+                        'id': '153202'
+                    }
+                ],
+                'Period_asArray': [
+                    {
+                        'id': '153199'
+                    },
+                    {
+                        'id': '153202'
+                    }
+                ],
+                'type': 'static'
+            },
+            'maxSegmentDuration': 4.5,
+            'mediaPresentationDuration': 300.0
+        };
+        dashManifestModel.getRegularPeriods(manifest);
+
+        expect(errorHandlerMock.errorValue).to.equal('Must have @mediaPresentationDuration on MPD or an explicit @duration on the last period.');
     });
 
     it('should return an empty array when getRegularPeriods is called and mpd is undefined', () => {

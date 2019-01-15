@@ -15,6 +15,9 @@ _SpecRunner.html
 reports
 jsdoc
 dist
+build/temp
+build/es5
+build/typings
 coverage
 
 #################
@@ -180,3 +183,4 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+build/typings/

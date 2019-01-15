@@ -43,7 +43,6 @@ function StreamProcessor(config) {
     config = config || {};
     let context = this.context;
 
-    let indexHandler;
     let type = config.type;
     let errHandler = config.errHandler;
     let mimeType = config.mimeType;
@@ -70,7 +69,8 @@ function StreamProcessor(config) {
         liveEdgeFinder,
         representationController,
         fragmentModel,
-        spExternalControllers;
+        spExternalControllers,
+        indexHandler;
 
     function setup() {
         if (playbackController && playbackController.getIsDynamic()) {
@@ -161,7 +161,6 @@ function StreamProcessor(config) {
     }
 
     function reset(errored, keepBuffers) {
-
         indexHandler.reset();
 
         if (bufferController) {
@@ -239,8 +238,10 @@ function StreamProcessor(config) {
         return stream ? stream.getStreamInfo() : null;
     }
 
-    function getEventController() {
-        return stream ? stream.getEventController() : null;
+    function addInbandEvents(events) {
+        if (stream) {
+            stream.addInbandEvents(events);
+        }
     }
 
     function selectMediaInfo(newMediaInfo) {
@@ -361,10 +362,6 @@ function StreamProcessor(config) {
         return controller;
     }
 
-    function getPlaybackController() {
-        return playbackController;
-    }
-
     instance = {
         initialize: initialize,
         isUpdating: isUpdating,
@@ -373,11 +370,9 @@ function StreamProcessor(config) {
         getFragmentModel: getFragmentModel,
         getScheduleController: getScheduleController,
         getLiveEdgeFinder: getLiveEdgeFinder,
-        getEventController: getEventController,
         getFragmentController: getFragmentController,
         getRepresentationController: getRepresentationController,
         getIndexHandler: getIndexHandler,
-        getPlaybackController: getPlaybackController,
         getRepresentationInfo: getRepresentationInfo,
         getBufferLevel: getBufferLevel,
         switchInitData: switchInitData,
@@ -399,10 +394,12 @@ function StreamProcessor(config) {
         unregisterExternalController: unregisterExternalController,
         getExternalControllers: getExternalControllers,
         unregisterAllExternalController: unregisterAllExternalController,
+        addInbandEvents: addInbandEvents,
         reset: reset
     };
 
     setup();
+
     return instance;
 }
 StreamProcessor.__dashjs_factory_name = 'StreamProcessor';

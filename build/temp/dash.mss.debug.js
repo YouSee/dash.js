@@ -43,6 +43,78 @@ var _createClass = (function () { function defineProperties(target, props) { for
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
+var ErrorsBase = (function () {
+    function ErrorsBase() {
+        _classCallCheck(this, ErrorsBase);
+    }
+
+    _createClass(ErrorsBase, [{
+        key: 'extend',
+        value: function extend(errors, config) {
+            if (!errors) return;
+
+            var override = config ? config.override : false;
+            var publicOnly = config ? config.publicOnly : false;
+
+            for (var err in errors) {
+                if (!errors.hasOwnProperty(err) || this[err] && !override) continue;
+                if (publicOnly && errors[err].indexOf('public_') === -1) continue;
+                this[err] = errors[err];
+            }
+        }
+    }]);
+
+    return ErrorsBase;
+})();
+
+exports['default'] = ErrorsBase;
+module.exports = exports['default'];
+
+},{}],2:[function(_dereq_,module,exports){
+/**
+ * The copyright in this software is being made available under the BSD License,
+ * included below. This software may be subject to other third party and contributor
+ * rights, including patent rights, and no such rights are granted under this license.
+ *
+ * Copyright (c) 2013, Dash Industry Forum.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *  * Redistributions of source code must retain the above copyright notice, this
+ *  list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright notice,
+ *  this list of conditions and the following disclaimer in the documentation and/or
+ *  other materials provided with the distribution.
+ *  * Neither the name of Dash Industry Forum nor the names of its
+ *  contributors may be used to endorse or promote products derived from this software
+ *  without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS AS IS AND ANY
+ *  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ *  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ *  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ *  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ *  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ */
+/**
+ * @class
+ * @ignore
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
 var EventsBase = (function () {
     function EventsBase() {
         _classCallCheck(this, EventsBase);
@@ -70,7 +142,7 @@ var EventsBase = (function () {
 exports['default'] = EventsBase;
 module.exports = exports['default'];
 
-},{}],2:[function(_dereq_,module,exports){
+},{}],3:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -115,7 +187,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _coreEventsEventsBase = _dereq_(1);
+var _coreEventsEventsBase = _dereq_(2);
 
 var _coreEventsEventsBase2 = _interopRequireDefault(_coreEventsEventsBase);
 
@@ -137,7 +209,7 @@ var mssEvents = new MssEvents();
 exports['default'] = mssEvents;
 module.exports = exports['default'];
 
-},{"1":1}],3:[function(_dereq_,module,exports){
+},{"2":2}],4:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -177,15 +249,15 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _MssEvents = _dereq_(2);
+var _MssEvents = _dereq_(3);
 
 var _MssEvents2 = _interopRequireDefault(_MssEvents);
 
-var _MssFragmentMoofProcessor = _dereq_(4);
+var _MssFragmentMoofProcessor = _dereq_(5);
 
 var _MssFragmentMoofProcessor2 = _interopRequireDefault(_MssFragmentMoofProcessor);
 
-var _streamingVoFragmentRequest = _dereq_(12);
+var _streamingVoFragmentRequest = _dereq_(15);
 
 var _streamingVoFragmentRequest2 = _interopRequireDefault(_streamingVoFragmentRequest);
 
@@ -194,15 +266,15 @@ function MssFragmentInfoController(config) {
     config = config || {};
     var context = this.context;
 
-    var instance = undefined;
-    var logger = undefined;
-    var fragmentModel = undefined;
-    var started = undefined;
-    var type = undefined;
-    var bufferTimeout = undefined;
-    var startTime = undefined;
-    var startFragmentTime = undefined;
-    var index = undefined;
+    var instance = undefined,
+        logger = undefined,
+        fragmentModel = undefined,
+        started = undefined,
+        type = undefined,
+        bufferTimeout = undefined,
+        startTime = undefined,
+        startFragmentTime = undefined,
+        index = undefined;
 
     var streamProcessor = config.streamProcessor;
     var eventBus = config.eventBus;
@@ -402,7 +474,7 @@ exports['default'] = dashjs.FactoryMaker.getClassFactory(MssFragmentInfoControll
 /* jshint ignore:line */
 module.exports = exports['default'];
 
-},{"12":12,"2":2,"4":4}],4:[function(_dereq_,module,exports){
+},{"15":15,"3":3,"5":5}],5:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -433,7 +505,6 @@ module.exports = exports['default'];
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -442,7 +513,15 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _streamingMediaPlayerEvents = _dereq_(10);
+var _streamingVoDashJSError = _dereq_(13);
+
+var _streamingVoDashJSError2 = _interopRequireDefault(_streamingVoDashJSError);
+
+var _errorsMssErrors = _dereq_(9);
+
+var _errorsMssErrors2 = _interopRequireDefault(_errorsMssErrors);
+
+var _streamingMediaPlayerEvents = _dereq_(12);
 
 var _streamingMediaPlayerEvents2 = _interopRequireDefault(_streamingMediaPlayerEvents);
 
@@ -484,7 +563,7 @@ function MssFragmentMoofProcessor(config) {
         }
 
         if (!tfrf) {
-            errorHandler.mssError('MSS_NO_TFRF : Missing tfrf in live media segment');
+            errorHandler.error(new _streamingVoDashJSError2['default'](_errorsMssErrors2['default'].MSS_NO_TFRF_CODE, _errorsMssErrors2['default'].MSS_NO_TFRF_MESSAGE));
             return;
         }
 
@@ -492,11 +571,11 @@ function MssFragmentMoofProcessor(config) {
         var segments = adaptation.SegmentTemplate.SegmentTimeline.S;
         var entries = tfrf.entry;
         var entry = undefined,
-            segmentTime = undefined;
+            segmentTime = undefined,
+            range = undefined;
         var segment = null;
         var t = 0;
         var availabilityStartTime = null;
-        var range = undefined;
 
         if (entries.length === 0) {
             return;
@@ -610,7 +689,6 @@ function MssFragmentMoofProcessor(config) {
     }
 
     function convertFragment(e, sp) {
-
         var i = undefined;
 
         // e.request contains request description object
@@ -755,7 +833,7 @@ exports['default'] = dashjs.FactoryMaker.getClassFactory(MssFragmentMoofProcesso
 /* jshint ignore:line */
 module.exports = exports['default'];
 
-},{"10":10}],5:[function(_dereq_,module,exports){
+},{"12":12,"13":13,"9":9}],6:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -787,15 +865,22 @@ module.exports = exports['default'];
  *  POSSIBILITY OF SUCH DAMAGE.
  */
 
-/**
- * @module MssFragmentMoovProcessor
- * @param {Object} config object
- */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
     value: true
 });
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _errorsMssErrors = _dereq_(9);
+
+var _errorsMssErrors2 = _interopRequireDefault(_errorsMssErrors);
+
+/**
+ * @module MssFragmentMoovProcessor
+ * @param {Object} config object
+ */
 function MssFragmentMoovProcessor(config) {
     config = config || {};
     var NALUTYPE_SPS = 7;
@@ -1063,8 +1148,8 @@ function MssFragmentMoovProcessor(config) {
                 return createMP4AudioSampleEntry(stsd, codec);
             default:
                 throw {
-                    name: 'Unsupported codec',
-                    message: 'Unsupported codec',
+                    code: _errorsMssErrors2['default'].MSS_UNSUPPORTED_CODEC_CODE,
+                    message: _errorsMssErrors2['default'].MSS_UNSUPPORTED_CODEC_MESSAGE,
                     data: {
                         codec: codec
                     }
@@ -1312,10 +1397,10 @@ function MssFragmentMoovProcessor(config) {
     }
 
     function createProtectionSystemSpecificHeaderBox(moov, keySystems) {
-        var pssh_bytes = undefined;
-        var pssh = undefined;
-        var i = undefined;
-        var parsedBuffer = undefined;
+        var pssh_bytes = undefined,
+            pssh = undefined,
+            i = undefined,
+            parsedBuffer = undefined;
 
         for (i = 0; i < keySystems.length; i += 1) {
             pssh_bytes = keySystems[i].initData;
@@ -1339,7 +1424,6 @@ function MssFragmentMoovProcessor(config) {
     }
 
     function createTrexBox(moov) {
-
         var trex = ISOBoxer.createFullBox('trex', moov);
 
         trex.track_ID = trackId;
@@ -1409,7 +1493,7 @@ exports['default'] = dashjs.FactoryMaker.getClassFactory(MssFragmentMoovProcesso
 /* jshint ignore:line */
 module.exports = exports['default'];
 
-},{}],6:[function(_dereq_,module,exports){
+},{"9":9}],7:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -1449,15 +1533,15 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _MssFragmentMoofProcessor = _dereq_(4);
+var _MssFragmentMoofProcessor = _dereq_(5);
 
 var _MssFragmentMoofProcessor2 = _interopRequireDefault(_MssFragmentMoofProcessor);
 
-var _MssFragmentMoovProcessor = _dereq_(5);
+var _MssFragmentMoovProcessor = _dereq_(6);
 
 var _MssFragmentMoovProcessor2 = _interopRequireDefault(_MssFragmentMoovProcessor);
 
-var _MssEvents = _dereq_(2);
+var _MssEvents = _dereq_(3);
 
 var _MssEvents2 = _interopRequireDefault(_MssEvents);
 
@@ -1555,8 +1639,8 @@ function MssFragmentProcessor(config) {
     var ISOBoxer = config.ISOBoxer;
     var debug = config.debug;
     var mssFragmentMoovProcessor = undefined,
-        mssFragmentMoofProcessor = undefined;
-    var instance = undefined;
+        mssFragmentMoofProcessor = undefined,
+        instance = undefined;
 
     function setup() {
         ISOBoxer.addBoxProcessor('uuid', uuidProcessor);
@@ -1619,7 +1703,7 @@ exports['default'] = dashjs.FactoryMaker.getClassFactory(MssFragmentProcessor);
 /* jshint ignore:line */
 module.exports = exports['default'];
 
-},{"2":2,"4":4,"5":5}],7:[function(_dereq_,module,exports){
+},{"3":3,"5":5,"6":6}],8:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -1659,25 +1743,33 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _streamingVoDataChunk = _dereq_(11);
+var _streamingVoDataChunk = _dereq_(14);
 
 var _streamingVoDataChunk2 = _interopRequireDefault(_streamingVoDataChunk);
 
-var _streamingVoFragmentRequest = _dereq_(12);
+var _streamingVoFragmentRequest = _dereq_(15);
 
 var _streamingVoFragmentRequest2 = _interopRequireDefault(_streamingVoFragmentRequest);
 
-var _MssFragmentInfoController = _dereq_(3);
+var _MssFragmentInfoController = _dereq_(4);
 
 var _MssFragmentInfoController2 = _interopRequireDefault(_MssFragmentInfoController);
 
-var _MssFragmentProcessor = _dereq_(6);
+var _MssFragmentProcessor = _dereq_(7);
 
 var _MssFragmentProcessor2 = _interopRequireDefault(_MssFragmentProcessor);
 
-var _parserMssParser = _dereq_(9);
+var _parserMssParser = _dereq_(11);
 
 var _parserMssParser2 = _interopRequireDefault(_parserMssParser);
+
+var _errorsMssErrors = _dereq_(9);
+
+var _errorsMssErrors2 = _interopRequireDefault(_errorsMssErrors);
+
+var _streamingVoDashJSError = _dereq_(13);
+
+var _streamingVoDashJSError2 = _interopRequireDefault(_streamingVoDashJSError);
 
 function MssHandler(config) {
 
@@ -1700,9 +1792,8 @@ function MssHandler(config) {
         debug: config.debug,
         errHandler: config.errHandler
     });
-    var mssParser = undefined;
-
-    var instance = undefined;
+    var mssParser = undefined,
+        instance = undefined;
 
     function setup() {}
 
@@ -1711,25 +1802,22 @@ function MssHandler(config) {
         var request = new _streamingVoFragmentRequest2['default']();
         var representationController = streamProcessor.getRepresentationController();
         var representation = representationController.getCurrentRepresentation();
-        var period = undefined,
-            presentationStartTime = undefined;
-
-        period = representation.adaptation.period;
 
         request.mediaType = representation.adaptation.type;
         request.type = initSegmentType;
         request.range = representation.range;
-        presentationStartTime = period.start;
-        //request.availabilityStartTime = timelineConverter.calcAvailabilityStartTimeFromPresentationTime(presentationStartTime, representation.adaptation.period.mpd, isDynamic);
-        //request.availabilityEndTime = timelineConverter.calcAvailabilityEndTimeFromPresentationTime(presentationStartTime + period.duration, period.mpd, isDynamic);
         request.quality = representation.index;
         request.mediaInfo = streamProcessor.getMediaInfo();
         request.representationId = representation.id;
 
         var chunk = createDataChunk(request, streamProcessor.getStreamInfo().id, e.type !== events.FRAGMENT_LOADING_PROGRESS);
 
-        // Generate initialization segment (moov)
-        chunk.bytes = mssFragmentProcessor.generateMoov(representation);
+        try {
+            // Generate initialization segment (moov)
+            chunk.bytes = mssFragmentProcessor.generateMoov(representation);
+        } catch (e) {
+            config.errHandler.error(new _streamingVoDashJSError2['default'](e.code, e.message, e.data));
+        }
 
         eventBus.trigger(events.INIT_FRAGMENT_LOADED, {
             chunk: chunk,
@@ -1828,9 +1916,7 @@ function MssHandler(config) {
             return;
         }
 
-        while (ttmlSubtitles.data.indexOf('http://www.w3.org/2006/10/ttaf1') !== -1) {
-            ttmlSubtitles.data = ttmlSubtitles.data.replace('http://www.w3.org/2006/10/ttaf1', 'http://www.w3.org/ns/ttml');
-        }
+        ttmlSubtitles.data = ttmlSubtitles.data.replace(/http:\/\/www.w3.org\/2006\/10\/ttaf1/gi, 'http://www.w3.org/ns/ttml');
     }
 
     function registerEvents() {
@@ -1866,11 +1952,94 @@ function MssHandler(config) {
 }
 
 MssHandler.__dashjs_factory_name = 'MssHandler';
-exports['default'] = dashjs.FactoryMaker.getClassFactory(MssHandler);
+var factory = dashjs.FactoryMaker.getClassFactory(MssHandler); /* jshint ignore:line */
+factory.errors = _errorsMssErrors2['default'];
+dashjs.FactoryMaker.updateClassFactory(MssHandler.__dashjs_factory_name, factory); /* jshint ignore:line */
+exports['default'] = factory;
 /* jshint ignore:line */
 module.exports = exports['default'];
 
-},{"11":11,"12":12,"3":3,"6":6,"9":9}],8:[function(_dereq_,module,exports){
+},{"11":11,"13":13,"14":14,"15":15,"4":4,"7":7,"9":9}],9:[function(_dereq_,module,exports){
+/**
+ * The copyright in this software is being made available under the BSD License,
+ * included below. This software may be subject to other third party and contributor
+ * rights, including patent rights, and no such rights are granted under this license.
+ *
+ * Copyright (c) 2013, Dash Industry Forum.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *  * Redistributions of source code must retain the above copyright notice, this
+ *  list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright notice,
+ *  this list of conditions and the following disclaimer in the documentation and/or
+ *  other materials provided with the distribution.
+ *  * Neither the name of Dash Industry Forum nor the names of its
+ *  contributors may be used to endorse or promote products derived from this software
+ *  without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS AS IS AND ANY
+ *  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ *  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ *  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ *  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ *  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _coreErrorsErrorsBase = _dereq_(1);
+
+var _coreErrorsErrorsBase2 = _interopRequireDefault(_coreErrorsErrorsBase);
+
+/**
+ * @class
+ *
+ */
+
+var MssErrors = (function (_ErrorsBase) {
+  _inherits(MssErrors, _ErrorsBase);
+
+  function MssErrors() {
+    _classCallCheck(this, MssErrors);
+
+    _get(Object.getPrototypeOf(MssErrors.prototype), 'constructor', this).call(this);
+    /**
+     * Error code returned when no tfrf box is detected in MSS live stream
+     */
+    this.MSS_NO_TFRF_CODE = 200;
+    this.MSS_UNSUPPORTED_CODEC_CODE = 201;
+    /**
+     * Error message returned when no tfrf box is detected in MSS live stream
+     */
+    this.MSS_NO_TFRF_MESSAGE = 'Missing tfrf in live media segment';
+    this.MSS_UNSUPPORTED_CODEC_MESSAGE = 'Unsupported codec';
+  }
+
+  return MssErrors;
+})(_coreErrorsErrorsBase2['default']);
+
+var mssErrors = new MssErrors();
+exports['default'] = mssErrors;
+module.exports = exports['default'];
+
+},{"1":1}],10:[function(_dereq_,module,exports){
 (function (global){
 /**
  * The copyright in this software is being made available under the BSD License,
@@ -1911,7 +2080,7 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _MssHandler = _dereq_(7);
+var _MssHandler = _dereq_(8);
 
 var _MssHandler2 = _interopRequireDefault(_MssHandler);
 
@@ -1930,7 +2099,7 @@ exports.MssHandler = _MssHandler2['default'];
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"7":7}],9:[function(_dereq_,module,exports){
+},{"8":8}],11:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -2268,10 +2437,10 @@ function MssParser(config) {
         var segmentTimeline = {};
         var chunks = streamIndex.getElementsByTagName('c');
         var segments = [];
-        var segment = undefined;
-        var prevSegment = undefined;
-        var tManifest = undefined;
-        var i = undefined,
+        var segment = undefined,
+            prevSegment = undefined,
+            tManifest = undefined,
+            i = undefined,
             j = undefined,
             r = undefined;
         var duration = 0;
@@ -2726,7 +2895,7 @@ exports['default'] = dashjs.FactoryMaker.getClassFactory(MssParser);
 /* jshint ignore:line */
 module.exports = exports['default'];
 
-},{}],10:[function(_dereq_,module,exports){
+},{}],12:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -2771,7 +2940,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _coreEventsEventsBase = _dereq_(1);
+var _coreEventsEventsBase = _dereq_(2);
 
 var _coreEventsEventsBase2 = _interopRequireDefault(_coreEventsEventsBase);
 
@@ -2850,7 +3019,6 @@ var MediaPlayerEvents = (function (_EventsBase) {
     /**
      * Triggered when {@link module:Debug} logger methods are called.
      * @event MediaPlayerEvents#LOG
-     * @deprecated
      */
     this.LOG = 'log';
 
@@ -2978,23 +3146,6 @@ var MediaPlayerEvents = (function (_EventsBase) {
     this.CAN_PLAY = 'canPlay';
 
     /**
-     * Sent when live catch mechanism has been activated, which implies the measured latency of the low latency
-     * stream that is been played has gone beyond the target one.
-     * @see {@link module:MediaPlayer#setCatchUpPlaybackRate setCatchUpPlaybackRate()}
-     * @see {@link module:MediaPlayer#setLiveDelay setLiveDelay()}
-     * @event MediaPlayerEvents#PLAYBACK_CATCHUP_START
-     */
-    this.PLAYBACK_CATCHUP_START = 'playbackCatchupStart';
-
-    /**
-     * Sent live catch up mechanism has been deactivated.
-     * @see {@link module:MediaPlayer#setCatchUpPlaybackRate setCatchUpPlaybackRate()}
-     * @see {@link module:MediaPlayer#setLiveDelay setLiveDelay()}
-     * @event MediaPlayerEvents#PLAYBACK_CATCHUP_END
-     */
-    this.PLAYBACK_CATCHUP_END = 'playbackCatchupEnd';
-
-    /**
      * Sent when playback completes.
      * @event MediaPlayerEvents#PLAYBACK_ENDED
      */
@@ -3107,7 +3258,61 @@ var mediaPlayerEvents = new MediaPlayerEvents();
 exports['default'] = mediaPlayerEvents;
 module.exports = exports['default'];
 
-},{"1":1}],11:[function(_dereq_,module,exports){
+},{"2":2}],13:[function(_dereq_,module,exports){
+/**
+ * The copyright in this software is being made available under the BSD License,
+ * included below. This software may be subject to other third party and contributor
+ * rights, including patent rights, and no such rights are granted under this license.
+ *
+ * Copyright (c) 2013, Dash Industry Forum.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *  * Redistributions of source code must retain the above copyright notice, this
+ *  list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright notice,
+ *  this list of conditions and the following disclaimer in the documentation and/or
+ *  other materials provided with the distribution.
+ *  * Neither the name of Dash Industry Forum nor the names of its
+ *  contributors may be used to endorse or promote products derived from this software
+ *  without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS AS IS AND ANY
+ *  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ *  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ *  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ *  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ *  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ */
+/**
+ * @class
+ * @ignore
+ */
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var DashJSError = function DashJSError(code, message, data) {
+  _classCallCheck(this, DashJSError);
+
+  this.code = code || null;
+  this.message = message || null;
+  this.data = data || null;
+};
+
+exports["default"] = DashJSError;
+module.exports = exports["default"];
+
+},{}],14:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -3172,7 +3377,7 @@ function DataChunk() {
 exports["default"] = DataChunk;
 module.exports = exports["default"];
 
-},{}],12:[function(_dereq_,module,exports){
+},{}],15:[function(_dereq_,module,exports){
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -3249,5 +3454,5 @@ FragmentRequest.ACTION_COMPLETE = 'complete';
 exports['default'] = FragmentRequest;
 module.exports = exports['default'];
 
-},{}]},{},[8])
+},{}]},{},[10])
 //# sourceMappingURL=dash.mss.debug.js.map

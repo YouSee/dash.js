@@ -30,12 +30,12 @@
  */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _streamingVoMetricsHTTPRequest=require('../streaming/vo/metrics/HTTPRequest');var _coreFactoryMaker=require('../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker);var _streamingConstantsMetricsConstants=require('../streaming/constants/MetricsConstants');var _streamingConstantsMetricsConstants2=_interopRequireDefault(_streamingConstantsMetricsConstants);var _utilsRound10=require('./utils/Round10');var _utilsRound102=_interopRequireDefault(_utilsRound10); /**
  * @module DashMetrics
  * @param {object} config configuration passed to DashMetrics
- */function DashMetrics(config){config = config || {};var instance=undefined;var dashManifestModel=config.dashManifestModel;var manifestModel=config.manifestModel;function getBandwidthForRepresentation(representationId,periodId){var representation=undefined;var manifest=manifestModel.getValue();var period=manifest.Period_asArray[periodId];representation = findRepresentation(period,representationId);if(representation === null){return null;}return representation.bandwidth;} /**
+ */function DashMetrics(config){config = config || {};var instance=undefined;var dashManifestModel=config.dashManifestModel;var manifestModel=config.manifestModel;function getPeriod(periodId){var manifest=manifestModel.getValue();if(!manifest){return -1;}return manifest.Period_asArray[periodId];}function getBandwidthForRepresentation(representationId,periodId){var representation=undefined;var period=getPeriod(periodId);representation = findRepresentation(period,representationId);if(representation === null){return null;}return representation.bandwidth;} /**
      *
      * @param {string} representationId
      * @param {number} periodIdx
      * @returns {*}
-     */function getIndexForRepresentation(representationId,periodIdx){var representationIndex=undefined;var manifest=manifestModel.getValue();var period=manifest.Period_asArray[periodIdx];representationIndex = findRepresentationIndex(period,representationId);return representationIndex;} /**
+     */function getIndexForRepresentation(representationId,periodIdx){var period=getPeriod(periodIdx);return findRepresentationIndex(period,representationId);} /**
      * This method returns the current max index based on what is defined in the MPD.
      *
      * @param {string} bufferType - String 'audio' or 'video',
@@ -43,7 +43,7 @@
      * @return {number}
      * @memberof module:DashMetrics
      * @instance
-     */function getMaxIndexForBufferType(bufferType,periodIdx){var maxIndex=undefined;var manifest=manifestModel.getValue();if(!manifest){return -1;}var period=manifest.Period_asArray[periodIdx];maxIndex = findMaxBufferIndex(period,bufferType);return maxIndex;} /**
+     */function getMaxIndexForBufferType(bufferType,periodIdx){var period=getPeriod(periodIdx);return findMaxBufferIndex(period,bufferType);} /**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics
@@ -79,7 +79,7 @@
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getCurrent(metrics,metricName){if(!metrics){return null;}var list=metrics[metricName];if(!list){return null;}var length=list.length;if(length <= 0){return null;}return list[length - 1];} /**
+     */function getCurrent(metrics,metricName){if(!metrics){return null;}var list=metrics[metricName];if(!list || list.length <= 0){return null;}return list[list.length - 1];} /**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics

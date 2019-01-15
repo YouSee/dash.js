@@ -27,9 +27,45 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _coreEventBus=require('../../core/EventBus');var _coreEventBus2=_interopRequireDefault(_coreEventBus);var _coreEventsEvents=require('../../core/events/Events');var _coreEventsEvents2=_interopRequireDefault(_coreEventsEvents);var _coreFactoryMaker=require('../../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker);var CAPABILITY_ERROR_MEDIASOURCE='mediasource';var CAPABILITY_ERROR_MEDIAKEYS='mediakeys';var DOWNLOAD_ERROR_ID_MANIFEST='manifest';var DOWNLOAD_ERROR_ID_SIDX='SIDX';var DOWNLOAD_ERROR_ID_CONTENT='content';var DOWNLOAD_ERROR_ID_INITIALIZATION='initialization';var DOWNLOAD_ERROR_ID_XLINK='xlink';var MANIFEST_ERROR_ID_CODEC='codec';var MANIFEST_ERROR_ID_PARSE='parse';var MANIFEST_ERROR_ID_NOSTREAMS='nostreams';var TIMED_TEXT_ERROR_ID_PARSE='parse';function ErrorHandler(){var instance=undefined;var context=this.context;var eventBus=(0,_coreEventBus2['default'])(context).getInstance(); // "mediasource"|"mediakeys"
-function capabilityError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'capability',event:err});} // {id: "manifest"|"SIDX"|"content"|"initialization"|"xlink", url: "", request: {XMLHttpRequest instance}}
-function downloadError(id,url,request){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'download',event:{id:id,url:url,request:request}});} // {message: "", id: "parse"|"nostreams", manifest: {parsed manifest}}
-function manifestError(message,id,manifest,err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'manifestError',event:{message:message,id:id,manifest:manifest,event:err}});} // {message: '', id: 'parse', cc: ''}
-function timedTextError(message,id,ccContent){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'cc',event:{message:message,id:id,cc:ccContent}});}function mediaSourceError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'mediasource',event:err});}function mediaKeySessionError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'key_session',event:err});}function mediaKeyMessageError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'key_message',event:err});}function mssError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'mssError',event:err});}instance = {capabilityError:capabilityError,downloadError:downloadError,manifestError:manifestError,timedTextError:timedTextError,mediaSourceError:mediaSourceError,mediaKeySessionError:mediaKeySessionError,mediaKeyMessageError:mediaKeyMessageError,mssError:mssError};return instance;}ErrorHandler.__dashjs_factory_name = 'ErrorHandler';var factory=_coreFactoryMaker2['default'].getSingletonFactory(ErrorHandler);factory.CAPABILITY_ERROR_MEDIASOURCE = CAPABILITY_ERROR_MEDIASOURCE;factory.CAPABILITY_ERROR_MEDIAKEYS = CAPABILITY_ERROR_MEDIAKEYS;factory.DOWNLOAD_ERROR_ID_MANIFEST = DOWNLOAD_ERROR_ID_MANIFEST;factory.DOWNLOAD_ERROR_ID_SIDX = DOWNLOAD_ERROR_ID_SIDX;factory.DOWNLOAD_ERROR_ID_CONTENT = DOWNLOAD_ERROR_ID_CONTENT;factory.DOWNLOAD_ERROR_ID_INITIALIZATION = DOWNLOAD_ERROR_ID_INITIALIZATION;factory.DOWNLOAD_ERROR_ID_XLINK = DOWNLOAD_ERROR_ID_XLINK;factory.MANIFEST_ERROR_ID_CODEC = MANIFEST_ERROR_ID_CODEC;factory.MANIFEST_ERROR_ID_PARSE = MANIFEST_ERROR_ID_PARSE;factory.MANIFEST_ERROR_ID_NOSTREAMS = MANIFEST_ERROR_ID_NOSTREAMS;factory.TIMED_TEXT_ERROR_ID_PARSE = TIMED_TEXT_ERROR_ID_PARSE;_coreFactoryMaker2['default'].updateSingletonFactory(ErrorHandler.__dashjs_factory_name,factory);exports['default'] = factory;module.exports = exports['default'];
+ */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _coreEventBus=require('../../core/EventBus');var _coreEventBus2=_interopRequireDefault(_coreEventBus);var _coreEventsEvents=require('../../core/events/Events');var _coreEventsEvents2=_interopRequireDefault(_coreEventsEvents);var _coreFactoryMaker=require('../../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker); /**
+ * @module ErrorHandler
+ */function ErrorHandler(){var instance=undefined;var context=this.context;var eventBus=(0,_coreEventBus2['default'])(context).getInstance(); /**
+     * @param {number} err  "mediasource"|"mediakeys"
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function capabilityError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'capability',event:err});} /**
+     * @param {string} id "manifest"|"SIDX"|"content"|"initialization"|"xlink"
+     * @param {string} url ""
+     * @param {object} request {XMLHttpRequest instance}
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function downloadError(id,url,request){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'download',event:{id:id,url:url,request:request}});} /**
+     * @param {string} message ""
+     * @param {string} id "parse"|"nostreams"
+     * @param {obj} manifest {parsed manifest}
+     * @param {obj} err
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function manifestError(message,id,manifest,err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'manifestError',event:{message:message,id:id,manifest:manifest,event:err}});} /**
+     * @param {string} message ''
+     * @param {string} id 'parse'
+     * @param {string} ccContent ''
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function timedTextError(message,id,ccContent){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'cc',event:{message:message,id:id,cc:ccContent}});} /**
+     * @param {string} err
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function mediaSourceError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'mediasource',event:err});} /**
+     * @param {string} err
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function mediaKeySessionError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'key_session',event:err});} /**
+     * @param {string} err
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function mediaKeyMessageError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'key_message',event:err});} /**
+     * @param {object} err DashJSError with code, message and data attributes
+     * @memberof module:ErrorHandler
+     */function error(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:err});}instance = {capabilityError:capabilityError,downloadError:downloadError,manifestError:manifestError,timedTextError:timedTextError,mediaSourceError:mediaSourceError,mediaKeySessionError:mediaKeySessionError,mediaKeyMessageError:mediaKeyMessageError,error:error};return instance;}ErrorHandler.__dashjs_factory_name = 'ErrorHandler';exports['default'] = _coreFactoryMaker2['default'].getSingletonFactory(ErrorHandler);module.exports = exports['default'];
 //# sourceMappingURL=ErrorHandler.js.map

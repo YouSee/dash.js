@@ -89,7 +89,7 @@ keySystem = (0,_drmKeySystemW3CClearKey2['default'])(context).getInstance({BASE6
      * @memberof module:ProtectionKeyController
      * @instance
      */function getSupportedKeySystemsFromContentProtection(cps){var cp=undefined,ks=undefined,ksIdx=undefined,cpIdx=undefined;var supportedKS=[];if(cps){for(ksIdx = 0;ksIdx < keySystems.length;++ksIdx) {ks = keySystems[ksIdx];for(cpIdx = 0;cpIdx < cps.length;++cpIdx) {cp = cps[cpIdx];if(cp.schemeIdUri.toLowerCase() === ks.schemeIdURI){ // Look for DRM-specific ContentProtection
-supportedKS.push({ks:ks,initData:ks.getInitData(cp),cdmData:ks.getCDMData(),sessionId:ks.getSessionId(cp)});}}}}return supportedKS;} /**
+var initData=ks.getInitData(cp);if(!!initData){supportedKS.push({ks:keySystems[ksIdx],initData:initData,cdmData:ks.getCDMData(),sessionId:ks.getSessionId(cp)});}else if(this.isClearKey(ks)){supportedKS.push({ks:ks,initData:null});}}}}}return supportedKS;} /**
      * Returns key systems supported by this player for the given PSSH
      * initializationData. Only key systems supported by this player
      * that have protection data present will be returned.  Key systems are returned in priority order

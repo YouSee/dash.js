@@ -65,7 +65,6 @@
          */this.FRAGMENT_LOADING_ABANDONED = 'fragmentLoadingAbandoned'; /**
          * Triggered when {@link module:Debug} logger methods are called.
          * @event MediaPlayerEvents#LOG
-         * @deprecated
          */this.LOG = 'log'; //TODO refactor with internal event
 /**
          * Triggered when the manifest load is complete
@@ -130,17 +129,6 @@
          * HAVE_ENOUGH_DATA readyState.
          * @event MediaPlayerEvents#CAN_PLAY
          */this.CAN_PLAY = 'canPlay'; /**
-         * Sent when live catch mechanism has been activated, which implies the measured latency of the low latency
-         * stream that is been played has gone beyond the target one.
-         * @see {@link module:MediaPlayer#setCatchUpPlaybackRate setCatchUpPlaybackRate()}
-         * @see {@link module:MediaPlayer#setLiveDelay setLiveDelay()}
-         * @event MediaPlayerEvents#PLAYBACK_CATCHUP_START
-         */this.PLAYBACK_CATCHUP_START = 'playbackCatchupStart'; /**
-         * Sent live catch up mechanism has been deactivated.
-         * @see {@link module:MediaPlayer#setCatchUpPlaybackRate setCatchUpPlaybackRate()}
-         * @see {@link module:MediaPlayer#setLiveDelay setLiveDelay()}
-         * @event MediaPlayerEvents#PLAYBACK_CATCHUP_END
-         */this.PLAYBACK_CATCHUP_END = 'playbackCatchupEnd'; /**
          * Sent when playback completes.
          * @event MediaPlayerEvents#PLAYBACK_ENDED
          */this.PLAYBACK_ENDED = 'playbackEnded'; /**

@@ -27,19 +27,19 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _constantsConstants=require('./constants/Constants');var _constantsConstants2=_interopRequireDefault(_constantsConstants);var _constantsMetricsConstants=require('./constants/MetricsConstants');var _constantsMetricsConstants2=_interopRequireDefault(_constantsMetricsConstants);var _dashVoUTCTiming=require('../dash/vo/UTCTiming');var _dashVoUTCTiming2=_interopRequireDefault(_dashVoUTCTiming);var _controllersPlaybackController=require('./controllers/PlaybackController');var _controllersPlaybackController2=_interopRequireDefault(_controllersPlaybackController);var _controllersStreamController=require('./controllers/StreamController');var _controllersStreamController2=_interopRequireDefault(_controllersStreamController);var _controllersMediaController=require('./controllers/MediaController');var _controllersMediaController2=_interopRequireDefault(_controllersMediaController);var _controllersBaseURLController=require('./controllers/BaseURLController');var _controllersBaseURLController2=_interopRequireDefault(_controllersBaseURLController);var _ManifestLoader=require('./ManifestLoader');var _ManifestLoader2=_interopRequireDefault(_ManifestLoader);var _utilsErrorHandler=require('./utils/ErrorHandler');var _utilsErrorHandler2=_interopRequireDefault(_utilsErrorHandler);var _utilsCapabilities=require('./utils/Capabilities');var _utilsCapabilities2=_interopRequireDefault(_utilsCapabilities);var _textTextTracks=require('./text/TextTracks');var _textTextTracks2=_interopRequireDefault(_textTextTracks);var _utilsRequestModifier=require('./utils/RequestModifier');var _utilsRequestModifier2=_interopRequireDefault(_utilsRequestModifier);var _textTextController=require('./text/TextController');var _textTextController2=_interopRequireDefault(_textTextController);var _modelsURIFragmentModel=require('./models/URIFragmentModel');var _modelsURIFragmentModel2=_interopRequireDefault(_modelsURIFragmentModel);var _modelsManifestModel=require('./models/ManifestModel');var _modelsManifestModel2=_interopRequireDefault(_modelsManifestModel);var _modelsMediaPlayerModel=require('./models/MediaPlayerModel');var _modelsMediaPlayerModel2=_interopRequireDefault(_modelsMediaPlayerModel);var _modelsMetricsModel=require('./models/MetricsModel');var _modelsMetricsModel2=_interopRequireDefault(_modelsMetricsModel);var _controllersAbrController=require('./controllers/AbrController');var _controllersAbrController2=_interopRequireDefault(_controllersAbrController);var _modelsVideoModel=require('./models/VideoModel');var _modelsVideoModel2=_interopRequireDefault(_modelsVideoModel);var _utilsDOMStorage=require('./utils/DOMStorage');var _utilsDOMStorage2=_interopRequireDefault(_utilsDOMStorage);var _coreDebug=require('./../core/Debug');var _coreDebug2=_interopRequireDefault(_coreDebug);var _coreEventBus=require('./../core/EventBus');var _coreEventBus2=_interopRequireDefault(_coreEventBus);var _coreEventsEvents=require('./../core/events/Events');var _coreEventsEvents2=_interopRequireDefault(_coreEventsEvents);var _MediaPlayerEvents=require('./MediaPlayerEvents');var _MediaPlayerEvents2=_interopRequireDefault(_MediaPlayerEvents);var _coreFactoryMaker=require('../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker);var _coreVersion=require('./../core/Version'); //Dash
-var _dashDashAdapter=require('../dash/DashAdapter');var _dashDashAdapter2=_interopRequireDefault(_dashDashAdapter);var _dashModelsDashManifestModel=require('../dash/models/DashManifestModel');var _dashModelsDashManifestModel2=_interopRequireDefault(_dashModelsDashManifestModel);var _dashDashMetrics=require('../dash/DashMetrics');var _dashDashMetrics2=_interopRequireDefault(_dashDashMetrics);var _dashUtilsTimelineConverter=require('../dash/utils/TimelineConverter');var _dashUtilsTimelineConverter2=_interopRequireDefault(_dashUtilsTimelineConverter);var _voMetricsHTTPRequest=require('./vo/metrics/HTTPRequest');var _externalsBase64=require('../../externals/base64');var _externalsBase642=_interopRequireDefault(_externalsBase64);var _codemIsoboxer=require('codem-isoboxer');var _codemIsoboxer2=_interopRequireDefault(_codemIsoboxer); /**
+ */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _constantsConstants=require('./constants/Constants');var _constantsConstants2=_interopRequireDefault(_constantsConstants);var _constantsMetricsConstants=require('./constants/MetricsConstants');var _constantsMetricsConstants2=_interopRequireDefault(_constantsMetricsConstants);var _controllersPlaybackController=require('./controllers/PlaybackController');var _controllersPlaybackController2=_interopRequireDefault(_controllersPlaybackController);var _controllersStreamController=require('./controllers/StreamController');var _controllersStreamController2=_interopRequireDefault(_controllersStreamController);var _controllersMediaController=require('./controllers/MediaController');var _controllersMediaController2=_interopRequireDefault(_controllersMediaController);var _controllersBaseURLController=require('./controllers/BaseURLController');var _controllersBaseURLController2=_interopRequireDefault(_controllersBaseURLController);var _ManifestLoader=require('./ManifestLoader');var _ManifestLoader2=_interopRequireDefault(_ManifestLoader);var _utilsErrorHandler=require('./utils/ErrorHandler');var _utilsErrorHandler2=_interopRequireDefault(_utilsErrorHandler);var _utilsCapabilities=require('./utils/Capabilities');var _utilsCapabilities2=_interopRequireDefault(_utilsCapabilities);var _textTextTracks=require('./text/TextTracks');var _textTextTracks2=_interopRequireDefault(_textTextTracks);var _utilsRequestModifier=require('./utils/RequestModifier');var _utilsRequestModifier2=_interopRequireDefault(_utilsRequestModifier);var _textTextController=require('./text/TextController');var _textTextController2=_interopRequireDefault(_textTextController);var _modelsURIFragmentModel=require('./models/URIFragmentModel');var _modelsURIFragmentModel2=_interopRequireDefault(_modelsURIFragmentModel);var _modelsManifestModel=require('./models/ManifestModel');var _modelsManifestModel2=_interopRequireDefault(_modelsManifestModel);var _modelsMediaPlayerModel=require('./models/MediaPlayerModel');var _modelsMediaPlayerModel2=_interopRequireDefault(_modelsMediaPlayerModel);var _modelsMetricsModel=require('./models/MetricsModel');var _modelsMetricsModel2=_interopRequireDefault(_modelsMetricsModel);var _controllersAbrController=require('./controllers/AbrController');var _controllersAbrController2=_interopRequireDefault(_controllersAbrController);var _modelsVideoModel=require('./models/VideoModel');var _modelsVideoModel2=_interopRequireDefault(_modelsVideoModel);var _utilsDOMStorage=require('./utils/DOMStorage');var _utilsDOMStorage2=_interopRequireDefault(_utilsDOMStorage);var _coreDebug=require('./../core/Debug');var _coreDebug2=_interopRequireDefault(_coreDebug);var _coreErrorsErrors=require('./../core/errors/Errors');var _coreErrorsErrors2=_interopRequireDefault(_coreErrorsErrors);var _coreEventBus=require('./../core/EventBus');var _coreEventBus2=_interopRequireDefault(_coreEventBus);var _coreEventsEvents=require('./../core/events/Events');var _coreEventsEvents2=_interopRequireDefault(_coreEventsEvents);var _MediaPlayerEvents=require('./MediaPlayerEvents');var _MediaPlayerEvents2=_interopRequireDefault(_MediaPlayerEvents);var _coreFactoryMaker=require('../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker);var _coreVersion=require('./../core/Version'); //Dash
+var _dashDashAdapter=require('../dash/DashAdapter');var _dashDashAdapter2=_interopRequireDefault(_dashDashAdapter);var _dashModelsDashManifestModel=require('../dash/models/DashManifestModel');var _dashModelsDashManifestModel2=_interopRequireDefault(_dashModelsDashManifestModel);var _dashDashMetrics=require('../dash/DashMetrics');var _dashDashMetrics2=_interopRequireDefault(_dashDashMetrics);var _dashUtilsTimelineConverter=require('../dash/utils/TimelineConverter');var _dashUtilsTimelineConverter2=_interopRequireDefault(_dashUtilsTimelineConverter);var _voMetricsHTTPRequest=require('./vo/metrics/HTTPRequest');var _externalsBase64=require('../../externals/base64');var _externalsBase642=_interopRequireDefault(_externalsBase64);var _codemIsoboxer=require('codem-isoboxer');var _codemIsoboxer2=_interopRequireDefault(_codemIsoboxer);var _voDashJSError=require('./vo/DashJSError');var _voDashJSError2=_interopRequireDefault(_voDashJSError);var _utilsSupervisorTools=require('./utils/SupervisorTools'); /**
  * @module MediaPlayer
  * @description The MediaPlayer is the primary dash.js Module and a Facade to build your player around.
  * It will allow you access to all the important dash.js properties/methods via the public API and all the
  * events to build a robust DASH media player.
- */function MediaPlayer(){var STREAMING_NOT_INITIALIZED_ERROR='You must first call initialize() and set a source before calling this method';var PLAYBACK_NOT_INITIALIZED_ERROR='You must first call initialize() and set a valid source and view before calling this method';var ELEMENT_NOT_ATTACHED_ERROR='You must first call attachView() to set the video element before calling this method';var SOURCE_NOT_ATTACHED_ERROR='You must first call attachSource() with a valid source before calling this method';var MEDIA_PLAYER_NOT_INITIALIZED_ERROR='MediaPlayer not initialized!';var MEDIA_PLAYER_BAD_ARGUMENT_ERROR='MediaPlayer Invalid Arguments!';var PLAYBACK_CATCHUP_RATE_BAD_ARGUMENT_ERROR='Playback catchup rate invalid argument! Use a number from 0 to 0.2';var context=this.context;var eventBus=(0,_coreEventBus2['default'])(context).getInstance();var debug=(0,_coreDebug2['default'])(context).getInstance();var instance=undefined,logger=undefined,source=undefined,protectionData=undefined,mediaPlayerInitialized=undefined,streamingInitialized=undefined,playbackInitialized=undefined,autoPlay=undefined,abrController=undefined,timelineConverter=undefined,mediaController=undefined,protectionController=undefined,metricsReportingController=undefined,mssHandler=undefined,adapter=undefined,metricsModel=undefined,mediaPlayerModel=undefined,errHandler=undefined,capabilities=undefined,streamController=undefined,playbackController=undefined,dashMetrics=undefined,dashManifestModel=undefined,manifestModel=undefined,videoModel=undefined,textController=undefined,domStorage=undefined; /*
+ */function MediaPlayer(){var STREAMING_NOT_INITIALIZED_ERROR='You must first call initialize() and set a source before calling this method';var PLAYBACK_NOT_INITIALIZED_ERROR='You must first call initialize() and set a valid source and view before calling this method';var ELEMENT_NOT_ATTACHED_ERROR='You must first call attachView() to set the video element before calling this method';var SOURCE_NOT_ATTACHED_ERROR='You must first call attachSource() with a valid source before calling this method';var MEDIA_PLAYER_NOT_INITIALIZED_ERROR='MediaPlayer not initialized!';var PLAYBACK_LOW_LATENCY_MIN_DRIFT_BAD_ARGUMENT_ERROR='Playback minimum drift has an invalid value! Use a number from 0 to 0.5';var PLAYBACK_LOW_LATENCY_MAX_DRIFT_BAD_ARGUMENT_ERROR='Playback maximum drift has an invalid value! Use a number greater or equal to 0';var context=this.context;var eventBus=(0,_coreEventBus2['default'])(context).getInstance();var debug=(0,_coreDebug2['default'])(context).getInstance();var instance=undefined,logger=undefined,source=undefined,protectionData=undefined,mediaPlayerInitialized=undefined,streamingInitialized=undefined,playbackInitialized=undefined,autoPlay=undefined,abrController=undefined,timelineConverter=undefined,mediaController=undefined,protectionController=undefined,metricsReportingController=undefined,mssHandler=undefined,adapter=undefined,metricsModel=undefined,mediaPlayerModel=undefined,errHandler=undefined,capabilities=undefined,streamController=undefined,playbackController=undefined,dashMetrics=undefined,dashManifestModel=undefined,manifestModel=undefined,videoModel=undefined,textController=undefined,uriFragmentModel=undefined,domStorage=undefined; /*
     ---------------------------------------------------------------------------
 
         INIT FUNCTIONS
 
     ---------------------------------------------------------------------------
-    */function setup(){logger = debug.getLogger(instance);mediaPlayerInitialized = false;playbackInitialized = false;streamingInitialized = false;autoPlay = true;protectionController = null;protectionData = null;adapter = null;_coreEventsEvents2['default'].extend(_MediaPlayerEvents2['default']);mediaPlayerModel = (0,_modelsMediaPlayerModel2['default'])(context).getInstance();videoModel = (0,_modelsVideoModel2['default'])(context).getInstance();} /**
+    */function setup(){logger = debug.getLogger(instance);mediaPlayerInitialized = false;playbackInitialized = false;streamingInitialized = false;autoPlay = true;protectionController = null;protectionData = null;adapter = null;_coreEventsEvents2['default'].extend(_MediaPlayerEvents2['default']);mediaPlayerModel = (0,_modelsMediaPlayerModel2['default'])(context).getInstance();videoModel = (0,_modelsVideoModel2['default'])(context).getInstance();uriFragmentModel = (0,_modelsURIFragmentModel2['default'])(context).getInstance();} /**
      * Configure media player with customs controllers. Helpful for tests
      *
      * @param {object=} config controllers configuration
@@ -61,8 +61,8 @@ var _dashDashAdapter=require('../dash/DashAdapter');var _dashDashAdapter2=_inter
      * @see {@link module:MediaPlayer#setAutoPlay setAutoPlay()}
      * @memberof module:MediaPlayer
      * @instance
-     */function initialize(view,source,AutoPlay){if(!capabilities){capabilities = (0,_utilsCapabilities2['default'])(context).getInstance();}errHandler = (0,_utilsErrorHandler2['default'])(context).getInstance();if(!capabilities.supportsMediaSource()){errHandler.capabilityError('mediasource');return;}if(mediaPlayerInitialized)return;mediaPlayerInitialized = true; // init some controllers and models
-timelineConverter = (0,_dashUtilsTimelineConverter2['default'])(context).getInstance();if(!abrController){abrController = (0,_controllersAbrController2['default'])(context).getInstance();}if(!playbackController){playbackController = (0,_controllersPlaybackController2['default'])(context).getInstance();}if(!mediaController){mediaController = (0,_controllersMediaController2['default'])(context).getInstance();}adapter = (0,_dashDashAdapter2['default'])(context).getInstance();dashManifestModel = (0,_dashModelsDashManifestModel2['default'])(context).getInstance({mediaController:mediaController,timelineConverter:timelineConverter,adapter:adapter});manifestModel = (0,_modelsManifestModel2['default'])(context).getInstance();dashMetrics = (0,_dashDashMetrics2['default'])(context).getInstance({manifestModel:manifestModel,dashManifestModel:dashManifestModel});metricsModel = (0,_modelsMetricsModel2['default'])(context).getInstance();textController = (0,_textTextController2['default'])(context).getInstance();domStorage = (0,_utilsDOMStorage2['default'])(context).getInstance({mediaPlayerModel:mediaPlayerModel});adapter.setConfig({dashManifestModel:dashManifestModel});metricsModel.setConfig({adapter:adapter});restoreDefaultUTCTimingSources();setAutoPlay(AutoPlay !== undefined?AutoPlay:true);if(view){attachView(view);}if(source){attachSource(source);}logger.info('[dash.js ' + getVersion() + '] ' + 'MediaPlayer has been initialized');} /**
+     */function initialize(view,source,AutoPlay){if(!capabilities){capabilities = (0,_utilsCapabilities2['default'])(context).getInstance();}errHandler = (0,_utilsErrorHandler2['default'])(context).getInstance();if(!capabilities.supportsMediaSource()){errHandler.capabilityError('mediasource');errHandler.error(new _voDashJSError2['default'](_coreErrorsErrors2['default'].CAPABILITY_MEDIASOURCE_ERROR_CODE,_coreErrorsErrors2['default'].CAPABILITY_MEDIASOURCE_ERROR_MESSAGE));return;}if(mediaPlayerInitialized)return;mediaPlayerInitialized = true; // init some controllers and models
+timelineConverter = (0,_dashUtilsTimelineConverter2['default'])(context).getInstance();if(!abrController){abrController = (0,_controllersAbrController2['default'])(context).getInstance();}if(!playbackController){playbackController = (0,_controllersPlaybackController2['default'])(context).getInstance();}if(!mediaController){mediaController = (0,_controllersMediaController2['default'])(context).getInstance();}adapter = (0,_dashDashAdapter2['default'])(context).getInstance();dashManifestModel = (0,_dashModelsDashManifestModel2['default'])(context).getInstance({timelineConverter:timelineConverter,errHandler:errHandler,BASE64:_externalsBase642['default']});manifestModel = (0,_modelsManifestModel2['default'])(context).getInstance();dashMetrics = (0,_dashDashMetrics2['default'])(context).getInstance({manifestModel:manifestModel,dashManifestModel:dashManifestModel});metricsModel = (0,_modelsMetricsModel2['default'])(context).getInstance();textController = (0,_textTextController2['default'])(context).getInstance();domStorage = (0,_utilsDOMStorage2['default'])(context).getInstance({mediaPlayerModel:mediaPlayerModel});adapter.setConfig({dashManifestModel:dashManifestModel});restoreDefaultUTCTimingSources();setAutoPlay(AutoPlay !== undefined?AutoPlay:true);if(view){attachView(view);}if(source){attachSource(source);}logger.info('[dash.js ' + getVersion() + '] ' + 'MediaPlayer has been initialized');} /**
      * Sets the MPD source and the video element to null. You can also reset the MediaPlayer by
      * calling attachSource with a new source file.
      *
@@ -145,7 +145,7 @@ timelineConverter = (0,_dashUtilsTimelineConverter2['default'])(context).getInst
      * @see {@link module:MediaPlayer#getDVRSeekOffset getDVRSeekOffset()}
      * @memberof module:MediaPlayer
      * @instance
-     */function seek(value){if(!playbackInitialized){throw PLAYBACK_NOT_INITIALIZED_ERROR;}if(typeof value !== 'number' || isNaN(value)){throw MEDIA_PLAYER_BAD_ARGUMENT_ERROR;}var s=playbackController.getIsDynamic()?getDVRSeekOffset(value):value;playbackController.seek(s);} /**
+     */function seek(value){if(!playbackInitialized){throw PLAYBACK_NOT_INITIALIZED_ERROR;}(0,_utilsSupervisorTools.checkParameterType)(value,'number');if(isNaN(value)){throw _constantsConstants2['default'].BAD_ARGUMENT_ERROR;}var s=playbackController.getIsDynamic()?getDVRSeekOffset(value):value;playbackController.seek(s);} /**
      * Returns a Boolean that indicates whether the media is in the process of seeking to a new position.
      * @return {boolean}
      * @memberof module:MediaPlayer
@@ -160,52 +160,96 @@ timelineConverter = (0,_dashUtilsTimelineConverter2['default'])(context).getInst
      * @param {number} value
      * @memberof module:MediaPlayer
      * @instance
-     */function setPlaybackRate(value){if(!videoModel.getElement()){throw ELEMENT_NOT_ATTACHED_ERROR;}getVideoElement().playbackRate = value;} /**
+     */function setPlaybackRate(value){getVideoElement().playbackRate = value;} /**
      * Returns the current playback rate.
      * @returns {number}
      * @memberof module:MediaPlayer
      * @instance
-     */function getPlaybackRate(){if(!videoModel.getElement()){throw ELEMENT_NOT_ATTACHED_ERROR;}return getVideoElement().playbackRate;} /**
-     * Use this method to set the catch up rate, as a percentage, for low latency live streams. In low latency mode,
-     * when measured latency is higher than the target one ({@link module:MediaPlayer#setLiveDelay setLiveDelay()}),
-     * dash.js increases playback rate the percentage defined with this method until target is reached.
+     */function getPlaybackRate(){return getVideoElement().playbackRate;} /**
+     * Use this method to set the maximum catch up rate, as a percentage, for low latency live streams. In low latency mode,
+     * when measured latency is higher/lower than the target one ({@link module:MediaPlayer#setLiveDelay setLiveDelay()}),
+     * dash.js increases/decreases playback rate respectively up to (+/-) the percentage defined with this method until target is reached.
      *
-     * Valid values for catch up rate are in range 0-20%. Set it to 0% to turn off live catch up feature.
+     * Valid values for catch up rate are in range 0-0.5 (0-50%). Set it to 0 to turn off live catch up feature.
      *
      * Note: Catch-up mechanism is only applied when playing low latency live streams.
      *
-     * @param {number} value Percentage in which playback rate is increased when live catch up mechanism is activated.
+     * @param {number} value Percentage in which playback rate is increased/decreased when live catch up mechanism is activated.
      * @memberof module:MediaPlayer
      * @see {@link module:MediaPlayer#setLiveDelay setLiveDelay()}
-     * @default {number} 0.05
+     * @default {number} 0.5
      * @instance
-     */function setCatchUpPlaybackRate(value){if(typeof value !== 'number' || isNaN(value) || value < 0.0 || value > 0.20){throw PLAYBACK_CATCHUP_RATE_BAD_ARGUMENT_ERROR;}playbackController.setCatchUpPlaybackRate(value);} /**
+     */function setCatchUpPlaybackRate(value){mediaPlayerModel.setCatchUpPlaybackRate(value);} /**
      * Returns the current catchup playback rate.
      * @returns {number}
      * @see {@link module:MediaPlayer#setCatchUpPlaybackRate setCatchUpPlaybackRate()}
      * @memberof module:MediaPlayer
      * @instance
-     */function getCatchUpPlaybackRate(){return playbackController.getCatchUpPlaybackRate();} /**
+     */function getCatchUpPlaybackRate(){return mediaPlayerModel.getCatchUpPlaybackRate();} /**
+     * Use this method to set the minimum latency deviation allowed before activating catch-up mechanism. In low latency mode,
+     * when the difference between the measured latency and the target one ({@link module:MediaPlayer#setLiveDelay setLiveDelay()}),
+     * as an absolute number, is higher than the one sets with this method, then dash.js increases/decreases
+     * playback rate until target latency is reached.
+     *
+     * LowLatencyMinDrift should be provided in seconds, and it uses values between 0.0 and 0.5.
+     *
+     * Note: Catch-up mechanism is only applied when playing low latency live streams.
+     *
+     * @param {number} value Maximum difference between measured latency and the target one before applying playback rate modifications.
+     * @memberof module:MediaPlayer
+     * @see {@link module:MediaPlayer#setLiveDelay setLiveDelay()}
+     * @default {number} 0.05
+     * @instance
+     */function setLowLatencyMinDrift(value){if(typeof value !== 'number' || isNaN(value) || value < 0.0 || value > 0.50){throw PLAYBACK_LOW_LATENCY_MIN_DRIFT_BAD_ARGUMENT_ERROR;}mediaPlayerModel.setLowLatencyMinDrift(value);} /**
+     * Returns the current latency minimum allowed drift.
+     * @returns {number}
+     * @see {@link module:MediaPlayer#setLowLatencyMinDrift setLowLatencyMinDrift()}
+     * @memberof module:MediaPlayer
+     * @instance
+     */function getLowLatencyMinDrift(){return mediaPlayerModel.getLowLatencyMinDrift();} /**
+     * Use this method to set the maximum latency deviation allowed before dash.js to do a seeking to live position. In low latency mode,
+     * when the difference between the measured latency and the target one ({@link module:MediaPlayer#setLiveDelay setLiveDelay()}),
+     * as an absolute number, is higher than the one sets with this method, then dash.js does a seek to live edge position minus
+     * the target live delay.
+     *
+     * LowLatencyMaxDriftBeforeSeeking should be provided in seconds. If 0, then seeking operations won't be used for
+     * fixing latency deviations.
+     *
+     * Note: Catch-up mechanism is only applied when playing low latency live streams.
+     *
+     * @param {number} value Maximum difference between measured latency and the target one before using seek to
+     * fix drastically live latency deviations.
+     * @memberof module:MediaPlayer
+     * @see {@link module:MediaPlayer#setLiveDelay setLiveDelay()}
+     * @default {number} 0
+     * @instance
+     */function setLowLatencyMaxDriftBeforeSeeking(value){if(typeof value !== 'number' || isNaN(value) || value < 0){throw PLAYBACK_LOW_LATENCY_MAX_DRIFT_BAD_ARGUMENT_ERROR;}mediaPlayerModel.setLowLatencyMaxDriftBeforeSeeking(value);} /**
+     * Returns the maximum latency drift before applying a seek operation to reduce the latency.
+     * @returns {number}
+     * @see {@link module:MediaPlayer#setLowLatencyMaxDriftBeforeSeeking setLowLatencyMaxDriftBeforeSeeking()}
+     * @memberof module:MediaPlayer
+     * @instance
+     */function getLowLatencyMaxDriftBeforeSeeking(){return mediaPlayerModel.getLowLatencyMaxDriftBeforeSeeking();} /**
      * Use this method to set the native Video Element's muted state. Takes a Boolean that determines whether audio is muted. true if the audio is muted and false otherwise.
      * @param {boolean} value
      * @memberof module:MediaPlayer
      * @instance
-     */function setMute(value){if(!videoModel.getElement()){throw ELEMENT_NOT_ATTACHED_ERROR;}getVideoElement().muted = value;} /**
+     */function setMute(value){(0,_utilsSupervisorTools.checkParameterType)(value,'boolean');getVideoElement().muted = value;} /**
      * A Boolean that determines whether audio is muted.
      * @returns {boolean}
      * @memberof module:MediaPlayer
      * @instance
-     */function isMuted(){if(!videoModel.getElement()){throw ELEMENT_NOT_ATTACHED_ERROR;}return getVideoElement().muted;} /**
+     */function isMuted(){return getVideoElement().muted;} /**
      * A double indicating the audio volume, from 0.0 (silent) to 1.0 (loudest).
      * @param {number} value
      * @memberof module:MediaPlayer
      * @instance
-     */function setVolume(value){if(!videoModel.getElement()){throw ELEMENT_NOT_ATTACHED_ERROR;}getVideoElement().volume = value;} /**
+     */function setVolume(value){if(typeof value !== 'number' || isNaN(value) || value < 0.0 || value > 1.0){throw _constantsConstants2['default'].BAD_ARGUMENT_ERROR;}getVideoElement().volume = value;} /**
      * Returns the current audio volume, from 0.0 (silent) to 1.0 (loudest).
      * @returns {number}
      * @memberof module:MediaPlayer
      * @instance
-     */function getVolume(){if(!videoModel.getElement()){throw ELEMENT_NOT_ATTACHED_ERROR;}return getVideoElement().volume;} /**
+     */function getVolume(){return getVideoElement().volume;} /**
      * The length of the buffer for a given media type, in seconds. Valid media
      * types are "video", "audio" and "fragmentedText". If no type is passed
      * in, then the minimum of video, audio and fragmentedText buffer length is
@@ -444,7 +488,7 @@ timelineConverter = (0,_dashUtilsTimelineConverter2['default'])(context).getInst
      *
      * @memberof module:MediaPlayer
      * @instance
-     */function setUseDeadTimeLatencyForAbr(useDeadTimeLatency){if(typeof useDeadTimeLatency !== 'boolean'){throw MEDIA_PLAYER_BAD_ARGUMENT_ERROR;}abrController.setUseDeadTimeLatency(useDeadTimeLatency);} /*
+     */function setUseDeadTimeLatencyForAbr(useDeadTimeLatency){abrController.setUseDeadTimeLatency(useDeadTimeLatency);} /*
     ---------------------------------------------------------------------------
 
         MEDIA PLAYER CONFIGURATION
@@ -459,7 +503,7 @@ timelineConverter = (0,_dashUtilsTimelineConverter2['default'])(context).getInst
      * @see {@link module:MediaPlayer#attachView attachView()}
      * @instance
      *
-     */function setAutoPlay(value){autoPlay = value;} /**
+     */function setAutoPlay(value){(0,_utilsSupervisorTools.checkParameterType)(value,'boolean');autoPlay = value;} /**
      * @returns {boolean} The current autoPlay state.
      * @memberof module:MediaPlayer
      * @instance
@@ -582,7 +626,7 @@ mediaPlayerModel.setFastSwitchEnabled(value);} /**
      * @default "abrDynamic"
      * @memberof module:MediaPlayer
      * @instance
-     */function setABRStrategy(value){if(value === _constantsConstants2['default'].ABR_STRATEGY_DYNAMIC || value === _constantsConstants2['default'].ABR_STRATEGY_BOLA || value === _constantsConstants2['default'].ABR_STRATEGY_THROUGHPUT){mediaPlayerModel.setABRStrategy(value);}else {logger.warn('Ignoring setABRStrategy(' + value + ') - unknown value.');}} /**
+     */function setABRStrategy(value){mediaPlayerModel.setABRStrategy(value);} /**
      * Returns the current ABR strategy being used.
      * @return {string} "abrDynamic", "abrBola" or "abrThroughput"
      * @see {@link module:MediaPlayer#setABRStrategy setABRStrategy()}
@@ -626,7 +670,7 @@ mediaPlayerModel.setFastSwitchEnabled(value);} /**
      * Remove all custom rules
      * @memberof module:MediaPlayer
      * @instance
-     */function removeAllABRCustomRule(){mediaPlayerModel.removeAllABRCustomRule();} /**
+     */function removeAllABRCustomRule(){mediaPlayerModel.removeABRCustomRule();} /**
      * Sets the moving average method used for smoothing throughput estimates. Valid methods are
      * "slidingWindow" and "ewma". The call has no effect if an invalid method is passed.
      *
@@ -643,7 +687,7 @@ mediaPlayerModel.setFastSwitchEnabled(value);} /**
      * @default {string} 'slidingWindow'
      * @memberof module:MediaPlayer
      * @instance
-     */function setMovingAverageMethod(value){if(value === _constantsConstants2['default'].MOVING_AVERAGE_SLIDING_WINDOW || value === _constantsConstants2['default'].MOVING_AVERAGE_EWMA){mediaPlayerModel.setMovingAverageMethod(value);}else {logger.warn('Warning: Ignoring setMovingAverageMethod(' + value + ') - unknown value.');}} /**
+     */function setMovingAverageMethod(value){mediaPlayerModel.setMovingAverageMethod(value);} /**
      * Return the current moving average method used for smoothing throughput estimates.
      * @return {string} Returns "slidingWindow" or "ewma".
      * @see {@link module:MediaPlayer#setMovingAverageMethod setMovingAverageMethod()}
@@ -689,8 +733,7 @@ mediaPlayerModel.setFastSwitchEnabled(value);} /**
      * @memberof module:MediaPlayer
      * @see {@link module:MediaPlayer#removeUTCTimingSource removeUTCTimingSource()}
      * @instance
-     */function addUTCTimingSource(schemeIdUri,value){removeUTCTimingSource(schemeIdUri,value); //check if it already exists and remove if so.
-var vo=new _dashVoUTCTiming2['default']();vo.schemeIdUri = schemeIdUri;vo.value = value;mediaPlayerModel.getUTCTimingSources().push(vo);} /**
+     */function addUTCTimingSource(schemeIdUri,value){mediaPlayerModel.addUTCTimingSource(schemeIdUri,value);} /**
      * <p>Allows you to remove a UTC time source. Both schemeIdUri and value need to match the Dash.vo.UTCTiming properties in order for the
      * entry to be removed from the array</p>
      * @param {string} schemeIdUri - see {@link module:MediaPlayer#addUTCTimingSource addUTCTimingSource()}
@@ -698,7 +741,7 @@ var vo=new _dashVoUTCTiming2['default']();vo.schemeIdUri = schemeIdUri;vo.value 
      * @memberof module:MediaPlayer
      * @see {@link module:MediaPlayer#clearDefaultUTCTimingSources clearDefaultUTCTimingSources()}
      * @instance
-     */function removeUTCTimingSource(schemeIdUri,value){var UTCTimingSources=mediaPlayerModel.getUTCTimingSources();UTCTimingSources.forEach(function(obj,idx){if(obj.schemeIdUri === schemeIdUri && obj.value === value){UTCTimingSources.splice(idx,1);}});} /**
+     */function removeUTCTimingSource(schemeIdUri,value){mediaPlayerModel.removeUTCTimingSource(schemeIdUri,value);} /**
      * <p>Allows you to clear the stored array of time sources.</p>
      * <p>Example use: If you have exposed the Date header, calling this method
      * will allow the date header on the manifest to be used instead of the time server.</p>
@@ -708,7 +751,7 @@ var vo=new _dashVoUTCTiming2['default']();vo.schemeIdUri = schemeIdUri;vo.value 
      * @memberof module:MediaPlayer
      * @see {@link module:MediaPlayer#restoreDefaultUTCTimingSources restoreDefaultUTCTimingSources()}
      * @instance
-     */function clearDefaultUTCTimingSources(){mediaPlayerModel.setUTCTimingSources([]);} /**
+     */function clearDefaultUTCTimingSources(){mediaPlayerModel.clearDefaultUTCTimingSources();} /**
      * <p>Allows you to restore the default time sources after calling {@link module:MediaPlayer#clearDefaultUTCTimingSources clearDefaultUTCTimingSources()}</p>
      *
      * @default
@@ -720,7 +763,7 @@ var vo=new _dashVoUTCTiming2['default']();vo.schemeIdUri = schemeIdUri;vo.value 
      * @memberof module:MediaPlayer
      * @see {@link module:MediaPlayer#addUTCTimingSource addUTCTimingSource()}
      * @instance
-     */function restoreDefaultUTCTimingSources(){addUTCTimingSource(_modelsMediaPlayerModel2['default'].DEFAULT_UTC_TIMING_SOURCE.scheme,_modelsMediaPlayerModel2['default'].DEFAULT_UTC_TIMING_SOURCE.value);} /**
+     */function restoreDefaultUTCTimingSources(){mediaPlayerModel.restoreDefaultUTCTimingSources();} /**
      * <p>Allows you to enable the use of the Date Header, if exposed with CORS, as a timing source for live edge detection. The
      * use of the date header will happen only after the other timing source that take precedence fail or are omitted as described.
      * {@link module:MediaPlayer#clearDefaultUTCTimingSources clearDefaultUTCTimingSources()} </p>
@@ -782,14 +825,6 @@ var vo=new _dashVoUTCTiming2['default']();vo.schemeIdUri = schemeIdUri;vo.value 
      * @memberof module:MediaPlayer
      * @instance
      */function getStableBufferTime(){return mediaPlayerModel.getStableBufferTime();} /**
-     * The time that the internal buffer target will be set to once playing the top quality.
-     * If there are multiple bitrates in your adaptation, and the media is playing at the highest
-     * bitrate, then we try to build a larger buffer at the top quality to increase stability
-     * and to maintain media quality.
-     *
-     * @default 30 seconds.
-     * @param {int} value
-    /**
      * The time that the internal buffer target will be set to once playing the top quality.
      * If there are multiple bitrates in your adaptation, and the media is playing at the highest
      * bitrate, then we try to build a larger buffer at the top quality to increase stability
@@ -902,28 +937,28 @@ var vo=new _dashVoUTCTiming2['default']();vo.schemeIdUri = schemeIdUri;vo.value 
      * @param {int} value
      * @memberof module:MediaPlayer
      * @instance
-     */function setFragmentLoaderRetryAttempts(value){mediaPlayerModel.setFragmentRetryAttempts(value);} /**
+     */function setFragmentLoaderRetryAttempts(value){mediaPlayerModel.setRetryAttemptsForType(_voMetricsHTTPRequest.HTTPRequest.MEDIA_SEGMENT_TYPE,value);} /**
      * Time in milliseconds of which to reload a failed fragment load attempt.
      *
      * @default 1000 milliseconds
      * @param {int} value
      * @memberof module:MediaPlayer
      * @instance
-     */function setFragmentLoaderRetryInterval(value){mediaPlayerModel.setFragmentRetryInterval(value);} /**
+     */function setFragmentLoaderRetryInterval(value){mediaPlayerModel.setRetryIntervalForType(_voMetricsHTTPRequest.HTTPRequest.MEDIA_SEGMENT_TYPE,value);} /**
      * Total number of retry attempts that will occur on a manifest load before it fails.
      *
      * @default 4
      * @param {int} value
      * @memberof module:MediaPlayer
      * @instance
-     */function setManifestLoaderRetryAttempts(value){mediaPlayerModel.setManifestRetryAttempts(value);} /**
+     */function setManifestLoaderRetryAttempts(value){mediaPlayerModel.setRetryAttemptsForType(_voMetricsHTTPRequest.HTTPRequest.MPD_TYPE,value);} /**
      * Time in milliseconds of which to reload a failed manifest load attempt.
      *
      * @default 1000 milliseconds
      * @param {int} value
      * @memberof module:MediaPlayer
      * @instance
-     */function setManifestLoaderRetryInterval(value){mediaPlayerModel.setManifestRetryInterval(value);} /**
+     */function setManifestLoaderRetryInterval(value){mediaPlayerModel.setRetryIntervalForType(_voMetricsHTTPRequest.HTTPRequest.MPD_TYPE,value);} /**
      * Sets whether withCredentials on XHR requests for a particular request
      * type is true or false
      *
@@ -1083,17 +1118,13 @@ var vo=new _dashVoUTCTiming2['default']();vo.schemeIdUri = schemeIdUri;vo.value 
      * @memberof module:MediaPlayer
      * @instance
      */function getVideoElement(){if(!videoModel.getElement()){throw ELEMENT_NOT_ATTACHED_ERROR;}return videoModel.getElement();} /**
-     * Returns instance of Video Container that was attached by calling attachVideoContainer()
-     * @returns {Object}
-     * @memberof module:MediaPlayer
-     * @instance
-     */function getVideoContainer(){return videoModel?videoModel.getVideoContainer():null;} /**
      * Use this method to attach an HTML5 element that wraps the video element.
      *
      * @param {HTMLElement} container - The HTML5 element containing the video element.
      * @memberof module:MediaPlayer
      * @instance
-     */function attachVideoContainer(container){if(!videoModel.getElement()){throw ELEMENT_NOT_ATTACHED_ERROR;}videoModel.setVideoContainer(container);} /**
+     * @deprecated
+     */function attachVideoContainer(container){ /* jshint ignore:line */logger.warn('attachVideoContainer method has been deprecated and will be removed in dash.js v3.0.0');} /**
      * Use this method to attach an HTML5 VideoElement for dash.js to operate upon.
      *
      * @param {Object} element - An HTMLMediaElement that has already been defined in the DOM (or equivalent stub).
@@ -1134,7 +1165,7 @@ resetPlaybackControllers();}initializePlayback();} /**
      * @returns {Array} list of {@link MediaInfo}
      * @memberof module:MediaPlayer
      * @instance
-     */function getTracksFor(type){if(!streamingInitialized){throw STREAMING_NOT_INITIALIZED_ERROR;}var streamInfo=streamController.getActiveStreamInfo();if(!streamInfo)return [];return mediaController.getTracksFor(type,streamInfo);} /**
+     */function getTracksFor(type){if(!streamingInitialized){throw STREAMING_NOT_INITIALIZED_ERROR;}var streamInfo=streamController.getActiveStreamInfo();return mediaController.getTracksFor(type,streamInfo);} /**
      * This method returns the list of all available tracks for a given media type and streamInfo from a given manifest
      * @param {string} type
      * @param {Object} manifest
@@ -1148,7 +1179,7 @@ resetPlaybackControllers();}initializePlayback();} /**
      *
      * @memberof module:MediaPlayer
      * @instance
-     */function getCurrentTrackFor(type){if(!streamingInitialized){throw STREAMING_NOT_INITIALIZED_ERROR;}var streamInfo=streamController.getActiveStreamInfo();if(!streamInfo)return null;return mediaController.getCurrentTrackFor(type,streamInfo);} /**
+     */function getCurrentTrackFor(type){if(!streamingInitialized){throw STREAMING_NOT_INITIALIZED_ERROR;}var streamInfo=streamController.getActiveStreamInfo();return mediaController.getCurrentTrackFor(type,streamInfo);} /**
      * This method allows to set media settings that will be used to pick the initial track. Format of the settings
      * is following:
      * {lang: langValue,
@@ -1255,9 +1286,10 @@ if(streamController){streamController.setProtectionData(protectionData);}} /*
      * @returns {Thumbnail|null} - Thumbnail for the given time position. It returns null in case there are is not a thumbnails representation or
      * if it doesn't contain a thumbnail for the given time position.
      * @param {number} time - A relative time, in seconds, based on the return value of the {@link module:MediaPlayer#duration duration()} method is expected
+     * @param {function} callback - A Callback function provided when retrieving thumbnail
      * @memberof module:MediaPlayer
      * @instance
-     */function getThumbnail(time){if(time < 0){return null;}var s=playbackController.getIsDynamic()?getDVRSeekOffset(time):time;var stream=streamController.getStreamForTime(s);if(stream === null){return null;}var thumbnailController=stream.getThumbnailController();var streamInfo=stream.getStreamInfo();if(!thumbnailController || !streamInfo){return null;}var timeInPeriod=streamController.getTimeRelativeToStreamId(s,stream.getId());return thumbnailController.get(timeInPeriod);} /*
+     */function getThumbnail(time,callback){if(time < 0){return null;}var s=playbackController.getIsDynamic()?getDVRSeekOffset(time):time;var stream=streamController.getStreamForTime(s);if(stream === null){return null;}var thumbnailController=stream.getThumbnailController();if(!thumbnailController){return null;}var timeInPeriod=streamController.getTimeRelativeToStreamId(s,stream.getId());return thumbnailController.get(timeInPeriod,callback);} /*
     ---------------------------------------------------------------------------
 
         PROTECTION CONTROLLER MANAGEMENT
@@ -1287,7 +1319,7 @@ if(streamController){streamController.setProtectionData(protectionData);}} /*
      * @param {function} callback - A Callback function provided when retrieving manifests
      * @memberof module:MediaPlayer
      * @instance
-     */function retrieveManifest(url,callback){var manifestLoader=createManifestLoader();var self=this;var handler=function handler(e){if(!e.error){callback(e.manifest);}else {callback(null,e.error);}eventBus.off(_coreEventsEvents2['default'].INTERNAL_MANIFEST_LOADED,handler,self);manifestLoader.reset();};eventBus.on(_coreEventsEvents2['default'].INTERNAL_MANIFEST_LOADED,handler,self);(0,_modelsURIFragmentModel2['default'])(context).getInstance().initialize(url);manifestLoader.load(url);} /**
+     */function retrieveManifest(url,callback){var manifestLoader=createManifestLoader();var self=this;var handler=function handler(e){if(!e.error){callback(e.manifest);}else {callback(null,e.error);}eventBus.off(_coreEventsEvents2['default'].INTERNAL_MANIFEST_LOADED,handler,self);manifestLoader.reset();};eventBus.on(_coreEventsEvents2['default'].INTERNAL_MANIFEST_LOADED,handler,self);uriFragmentModel.initialize(url);manifestLoader.load(url);} /**
      * Returns the source string or manifest that was attached by calling attachSource()
      * @returns {string | manifest}
      * @memberof module:MediaPlayer
@@ -1305,7 +1337,7 @@ if(streamController){streamController.setProtectionData(protectionData);}} /*
      *
      * @memberof module:MediaPlayer
      * @instance
-     */function attachSource(urlOrManifest){if(!mediaPlayerInitialized){throw MEDIA_PLAYER_NOT_INITIALIZED_ERROR;}if(typeof urlOrManifest === 'string'){(0,_modelsURIFragmentModel2['default'])(context).getInstance().initialize(urlOrManifest);}source = urlOrManifest;if(streamingInitialized || playbackInitialized){resetPlaybackControllers();}if(isReady()){initializePlayback();}} /**
+     */function attachSource(urlOrManifest){if(!mediaPlayerInitialized){throw MEDIA_PLAYER_NOT_INITIALIZED_ERROR;}if(typeof urlOrManifest === 'string'){uriFragmentModel.initialize(urlOrManifest);}source = urlOrManifest;if(streamingInitialized || playbackInitialized){resetPlaybackControllers();}if(isReady()){initializePlayback();}} /**
      * A utility methods which converts UTC timestamp value into a valid time and date string.
      *
      * @param {number} time - UTC timestamp to be converted into date and time.
@@ -1346,17 +1378,17 @@ if(streamController){streamController.setProtectionData(protectionData);}} /*
      * @param {boolean} override - replace only some methods (true) or the whole object (false)
      * @memberof module:MediaPlayer
      * @instance
-     */function extend(parentNameString,childInstance,override){_coreFactoryMaker2['default'].extend(parentNameString,childInstance,override,context);} //***********************************
+     */function extend(parentNameString,childInstance,override){_coreFactoryMaker2['default'].extend(parentNameString,childInstance,override,context);}function getActiveStream(){if(!streamingInitialized){throw STREAMING_NOT_INITIALIZED_ERROR;}var streamInfo=streamController.getActiveStreamInfo();return streamInfo?streamController.getStreamById(streamInfo.id):null;} //***********************************
 // PRIVATE METHODS
 //***********************************
 function resetPlaybackControllers(){playbackInitialized = false;streamingInitialized = false;adapter.reset();streamController.reset();playbackController.reset();abrController.reset();mediaController.reset();textController.reset();if(protectionController){if(mediaPlayerModel.getKeepProtectionMediaKeys()){protectionController.stop();}else {protectionController.reset();protectionController = null;detectProtection();}}}function createPlaybackControllers(){ // creates or get objects instances
 var manifestLoader=createManifestLoader();if(!streamController){streamController = (0,_controllersStreamController2['default'])(context).getInstance();} // configure controllers
-mediaController.setConfig({errHandler:errHandler,domStorage:domStorage});streamController.setConfig({capabilities:capabilities,manifestLoader:manifestLoader,manifestModel:manifestModel,dashManifestModel:dashManifestModel,mediaPlayerModel:mediaPlayerModel,protectionController:protectionController,adapter:adapter,metricsModel:metricsModel,dashMetrics:dashMetrics,errHandler:errHandler,timelineConverter:timelineConverter,videoModel:videoModel,playbackController:playbackController,domStorage:domStorage,abrController:abrController,mediaController:mediaController,textController:textController});playbackController.setConfig({streamController:streamController,metricsModel:metricsModel,dashMetrics:dashMetrics,manifestModel:manifestModel,mediaPlayerModel:mediaPlayerModel,dashManifestModel:dashManifestModel,adapter:adapter,videoModel:videoModel});abrController.setConfig({streamController:streamController,domStorage:domStorage,mediaPlayerModel:mediaPlayerModel,metricsModel:metricsModel,dashMetrics:dashMetrics,dashManifestModel:dashManifestModel,manifestModel:manifestModel,videoModel:videoModel,adapter:adapter});abrController.createAbrRulesCollection();textController.setConfig({errHandler:errHandler,manifestModel:manifestModel,dashManifestModel:dashManifestModel,mediaController:mediaController,streamController:streamController,videoModel:videoModel}); // initialises controller
+mediaController.setConfig({domStorage:domStorage});streamController.setConfig({capabilities:capabilities,manifestLoader:manifestLoader,manifestModel:manifestModel,dashManifestModel:dashManifestModel,mediaPlayerModel:mediaPlayerModel,protectionController:protectionController,adapter:adapter,metricsModel:metricsModel,dashMetrics:dashMetrics,errHandler:errHandler,timelineConverter:timelineConverter,videoModel:videoModel,playbackController:playbackController,domStorage:domStorage,abrController:abrController,mediaController:mediaController,textController:textController});playbackController.setConfig({streamController:streamController,metricsModel:metricsModel,dashMetrics:dashMetrics,manifestModel:manifestModel,mediaPlayerModel:mediaPlayerModel,dashManifestModel:dashManifestModel,adapter:adapter,videoModel:videoModel,timelineConverter:timelineConverter,uriFragmentModel:uriFragmentModel});abrController.setConfig({streamController:streamController,domStorage:domStorage,mediaPlayerModel:mediaPlayerModel,metricsModel:metricsModel,dashMetrics:dashMetrics,manifestModel:manifestModel,videoModel:videoModel,adapter:adapter});abrController.createAbrRulesCollection();textController.setConfig({errHandler:errHandler,manifestModel:manifestModel,dashManifestModel:dashManifestModel,mediaController:mediaController,streamController:streamController,videoModel:videoModel}); // initialises controller
 streamController.initialize(autoPlay,protectionData);}function createManifestLoader(){return (0,_ManifestLoader2['default'])(context).create({errHandler:errHandler,metricsModel:metricsModel,mediaPlayerModel:mediaPlayerModel,requestModifier:(0,_utilsRequestModifier2['default'])(context).getInstance(),mssHandler:mssHandler});}function detectProtection(){if(protectionController){return protectionController;} // do not require Protection as dependencies as this is optional and intended to be loaded separately
 var Protection=dashjs.Protection; /* jshint ignore:line */if(typeof Protection === 'function'){ //TODO need a better way to register/detect plugin components
-var protection=Protection(context).create();_coreEventsEvents2['default'].extend(Protection.events);_MediaPlayerEvents2['default'].extend(Protection.events,{publicOnly:true});if(!capabilities){capabilities = (0,_utilsCapabilities2['default'])(context).getInstance();}protectionController = protection.createProtectionSystem({debug:debug,errHandler:errHandler,videoModel:videoModel,capabilities:capabilities,eventBus:eventBus,events:_coreEventsEvents2['default'],BASE64:_externalsBase642['default'],constants:_constantsConstants2['default']});return protectionController;}return null;}function detectMetricsReporting(){if(metricsReportingController){return;} // do not require MetricsReporting as dependencies as this is optional and intended to be loaded separately
+var protection=Protection(context).create();_coreEventsEvents2['default'].extend(Protection.events);_MediaPlayerEvents2['default'].extend(Protection.events,{publicOnly:true});_coreErrorsErrors2['default'].extend(Protection.errors);if(!capabilities){capabilities = (0,_utilsCapabilities2['default'])(context).getInstance();}protectionController = protection.createProtectionSystem({debug:debug,errHandler:errHandler,videoModel:videoModel,capabilities:capabilities,eventBus:eventBus,events:_coreEventsEvents2['default'],BASE64:_externalsBase642['default'],constants:_constantsConstants2['default']});return protectionController;}return null;}function detectMetricsReporting(){if(metricsReportingController){return;} // do not require MetricsReporting as dependencies as this is optional and intended to be loaded separately
 var MetricsReporting=dashjs.MetricsReporting; /* jshint ignore:line */if(typeof MetricsReporting === 'function'){ //TODO need a better way to register/detect plugin components
 var metricsReporting=MetricsReporting(context).create();metricsReportingController = metricsReporting.createMetricsReporting({debug:debug,eventBus:eventBus,mediaElement:getVideoElement(),dashManifestModel:dashManifestModel,metricsModel:metricsModel,events:_coreEventsEvents2['default'],constants:_constantsConstants2['default'],metricsConstants:_constantsMetricsConstants2['default']});}}function detectMss(){if(mssHandler){return;} // do not require MssHandler as dependencies as this is optional and intended to be loaded separately
 var MssHandler=dashjs.MssHandler; /* jshint ignore:line */if(typeof MssHandler === 'function'){ //TODO need a better way to register/detect plugin components
-mssHandler = MssHandler(context).create({eventBus:eventBus,mediaPlayerModel:mediaPlayerModel,metricsModel:metricsModel,playbackController:playbackController,protectionController:protectionController,baseURLController:(0,_controllersBaseURLController2['default'])(context).getInstance(),errHandler:errHandler,events:_coreEventsEvents2['default'],constants:_constantsConstants2['default'],debug:debug,initSegmentType:_voMetricsHTTPRequest.HTTPRequest.INIT_SEGMENT_TYPE,BASE64:_externalsBase642['default'],ISOBoxer:_codemIsoboxer2['default']});}}function getDVRInfoMetric(){var metric=metricsModel.getReadOnlyMetricsFor(_constantsConstants2['default'].VIDEO) || metricsModel.getReadOnlyMetricsFor(_constantsConstants2['default'].AUDIO);return dashMetrics.getCurrentDVRInfo(metric);}function getAsUTC(valToConvert){var metric=getDVRInfoMetric();var availableFrom=undefined,utcValue=undefined;if(!metric){return 0;}availableFrom = metric.manifestInfo.availableFrom.getTime() / 1000;utcValue = valToConvert + (availableFrom + metric.range.start);return utcValue;}function getActiveStream(){if(!streamingInitialized){throw STREAMING_NOT_INITIALIZED_ERROR;}var streamInfo=streamController.getActiveStreamInfo();return streamInfo?streamController.getStreamById(streamInfo.id):null;}function initializePlayback(){if(!streamingInitialized && source){streamingInitialized = true;logger.info('Streaming Initialized');createPlaybackControllers();if(typeof source === 'string'){streamController.load(source);}else {streamController.loadWithManifest(source);}}if(!playbackInitialized && isReady()){playbackInitialized = true;logger.info('Playback Initialized');}}instance = {initialize:initialize,setConfig:setConfig,on:on,off:off,extend:extend,attachView:attachView,attachSource:attachSource,isReady:isReady,preload:preload,play:play,isPaused:isPaused,pause:pause,isSeeking:isSeeking,isDynamic:isDynamic,seek:seek,setPlaybackRate:setPlaybackRate,getPlaybackRate:getPlaybackRate,setCatchUpPlaybackRate:setCatchUpPlaybackRate,getCatchUpPlaybackRate:getCatchUpPlaybackRate,setMute:setMute,isMuted:isMuted,setVolume:setVolume,getVolume:getVolume,time:time,duration:duration,timeAsUTC:timeAsUTC,durationAsUTC:durationAsUTC,getActiveStream:getActiveStream,getDVRWindowSize:getDVRWindowSize,getDVRSeekOffset:getDVRSeekOffset,convertToTimeCode:convertToTimeCode,formatUTC:formatUTC,getVersion:getVersion,getDebug:getDebug,getBufferLength:getBufferLength,getVideoContainer:getVideoContainer,getTTMLRenderingDiv:getTTMLRenderingDiv,getVideoElement:getVideoElement,getSource:getSource,setLiveDelayFragmentCount:setLiveDelayFragmentCount,setLiveDelay:setLiveDelay,getLiveDelay:getLiveDelay,getCurrentLiveLatency:getCurrentLiveLatency,useSuggestedPresentationDelay:useSuggestedPresentationDelay,enableLastBitrateCaching:enableLastBitrateCaching,enableLastMediaSettingsCaching:enableLastMediaSettingsCaching,setMaxAllowedBitrateFor:setMaxAllowedBitrateFor,getMaxAllowedBitrateFor:getMaxAllowedBitrateFor,getTopBitrateInfoFor:getTopBitrateInfoFor,setMinAllowedBitrateFor:setMinAllowedBitrateFor,getMinAllowedBitrateFor:getMinAllowedBitrateFor,setMaxAllowedRepresentationRatioFor:setMaxAllowedRepresentationRatioFor,getMaxAllowedRepresentationRatioFor:getMaxAllowedRepresentationRatioFor,setAutoPlay:setAutoPlay,getAutoPlay:getAutoPlay,setScheduleWhilePaused:setScheduleWhilePaused,getScheduleWhilePaused:getScheduleWhilePaused,getDashMetrics:getDashMetrics,getMetricsFor:getMetricsFor,getQualityFor:getQualityFor,setQualityFor:setQualityFor,updatePortalSize:updatePortalSize,getLimitBitrateByPortal:getLimitBitrateByPortal,setLimitBitrateByPortal:setLimitBitrateByPortal,getUsePixelRatioInLimitBitrateByPortal:getUsePixelRatioInLimitBitrateByPortal,setUsePixelRatioInLimitBitrateByPortal:setUsePixelRatioInLimitBitrateByPortal,setTextDefaultLanguage:setTextDefaultLanguage,getTextDefaultLanguage:getTextDefaultLanguage,setTextDefaultEnabled:setTextDefaultEnabled,getTextDefaultEnabled:getTextDefaultEnabled,enableText:enableText,enableForcedTextStreaming:enableForcedTextStreaming,isTextEnabled:isTextEnabled,setTextTrack:setTextTrack,getBitrateInfoListFor:getBitrateInfoListFor,setInitialBitrateFor:setInitialBitrateFor,getInitialBitrateFor:getInitialBitrateFor,setInitialRepresentationRatioFor:setInitialRepresentationRatioFor,getInitialRepresentationRatioFor:getInitialRepresentationRatioFor,getStreamsFromManifest:getStreamsFromManifest,getTracksFor:getTracksFor,getTracksForTypeFromManifest:getTracksForTypeFromManifest,getCurrentTrackFor:getCurrentTrackFor,setInitialMediaSettingsFor:setInitialMediaSettingsFor,getInitialMediaSettingsFor:getInitialMediaSettingsFor,setCurrentTrack:setCurrentTrack,getTrackSwitchModeFor:getTrackSwitchModeFor,setTrackSwitchModeFor:setTrackSwitchModeFor,setSelectionModeForInitialTrack:setSelectionModeForInitialTrack,getSelectionModeForInitialTrack:getSelectionModeForInitialTrack,setFastSwitchEnabled:setFastSwitchEnabled,getFastSwitchEnabled:getFastSwitchEnabled,setMovingAverageMethod:setMovingAverageMethod,getMovingAverageMethod:getMovingAverageMethod,getAutoSwitchQualityFor:getAutoSwitchQualityFor,setAutoSwitchQualityFor:setAutoSwitchQualityFor,setABRStrategy:setABRStrategy,getABRStrategy:getABRStrategy,setStartLiveStreamOver:setStartLiveStreamOver,getStartLiveStreamOver:getStartLiveStreamOver,useDefaultABRRules:useDefaultABRRules,addABRCustomRule:addABRCustomRule,removeABRCustomRule:removeABRCustomRule,removeAllABRCustomRule:removeAllABRCustomRule,setBandwidthSafetyFactor:setBandwidthSafetyFactor,getBandwidthSafetyFactor:getBandwidthSafetyFactor,getAverageThroughput:getAverageThroughput,setAbandonLoadTimeout:setAbandonLoadTimeout,retrieveManifest:retrieveManifest,addUTCTimingSource:addUTCTimingSource,removeUTCTimingSource:removeUTCTimingSource,clearDefaultUTCTimingSources:clearDefaultUTCTimingSources,restoreDefaultUTCTimingSources:restoreDefaultUTCTimingSources,setBufferToKeep:setBufferToKeep,setBufferAheadToKeep:setBufferAheadToKeep,setBufferPruningInterval:setBufferPruningInterval,setStableBufferTime:setStableBufferTime,getStableBufferTime:getStableBufferTime,setBufferTimeAtTopQuality:setBufferTimeAtTopQuality,getBufferTimeAtTopQuality:getBufferTimeAtTopQuality,setBufferTimeAtTopQualityLongForm:setBufferTimeAtTopQualityLongForm,getBufferTimeAtTopQualityLongForm:getBufferTimeAtTopQualityLongForm,setFragmentLoaderRetryAttempts:setFragmentLoaderRetryAttempts,setFragmentLoaderRetryInterval:setFragmentLoaderRetryInterval,setManifestLoaderRetryAttempts:setManifestLoaderRetryAttempts,setManifestLoaderRetryInterval:setManifestLoaderRetryInterval,setXHRWithCredentialsForType:setXHRWithCredentialsForType,getXHRWithCredentialsForType:getXHRWithCredentialsForType,setJumpGaps:setJumpGaps,getJumpGaps:getJumpGaps,setSmallGapLimit:setSmallGapLimit,getSmallGapLimit:getSmallGapLimit,getLowLatencyEnabled:getLowLatencyEnabled,setLowLatencyEnabled:setLowLatencyEnabled,setManifestUpdateRetryInterval:setManifestUpdateRetryInterval,getManifestUpdateRetryInterval:getManifestUpdateRetryInterval,setLongFormContentDurationThreshold:setLongFormContentDurationThreshold,setSegmentOverlapToleranceTime:setSegmentOverlapToleranceTime,setCacheLoadThresholdForType:setCacheLoadThresholdForType,getProtectionController:getProtectionController,attachProtectionController:attachProtectionController,setProtectionData:setProtectionData,enableManifestDateHeaderTimeSource:enableManifestDateHeaderTimeSource,displayCaptionsOnTop:displayCaptionsOnTop,attachVideoContainer:attachVideoContainer,attachTTMLRenderingDiv:attachTTMLRenderingDiv,getCurrentTextTrackIndex:getCurrentTextTrackIndex,getUseDeadTimeLatencyForAbr:getUseDeadTimeLatencyForAbr,setUseDeadTimeLatencyForAbr:setUseDeadTimeLatencyForAbr,getThumbnail:getThumbnail,keepProtectionMediaKeys:keepProtectionMediaKeys,reset:reset};setup();return instance;}MediaPlayer.__dashjs_factory_name = 'MediaPlayer';var factory=_coreFactoryMaker2['default'].getClassFactory(MediaPlayer);factory.events = _MediaPlayerEvents2['default'];_coreFactoryMaker2['default'].updateClassFactory(MediaPlayer.__dashjs_factory_name,factory);exports['default'] = factory;module.exports = exports['default'];
+_coreErrorsErrors2['default'].extend(MssHandler.errors);mssHandler = MssHandler(context).create({eventBus:eventBus,mediaPlayerModel:mediaPlayerModel,metricsModel:metricsModel,playbackController:playbackController,protectionController:protectionController,baseURLController:(0,_controllersBaseURLController2['default'])(context).getInstance(),errHandler:errHandler,events:_coreEventsEvents2['default'],constants:_constantsConstants2['default'],debug:debug,initSegmentType:_voMetricsHTTPRequest.HTTPRequest.INIT_SEGMENT_TYPE,BASE64:_externalsBase642['default'],ISOBoxer:_codemIsoboxer2['default']});}}function getDVRInfoMetric(){var metric=metricsModel.getReadOnlyMetricsFor(_constantsConstants2['default'].VIDEO) || metricsModel.getReadOnlyMetricsFor(_constantsConstants2['default'].AUDIO);return dashMetrics.getCurrentDVRInfo(metric);}function getAsUTC(valToConvert){var metric=getDVRInfoMetric();var availableFrom=undefined,utcValue=undefined;if(!metric){return 0;}availableFrom = metric.manifestInfo.availableFrom.getTime() / 1000;utcValue = valToConvert + (availableFrom + metric.range.start);return utcValue;}function initializePlayback(){if(!streamingInitialized && source){streamingInitialized = true;logger.info('Streaming Initialized');createPlaybackControllers();if(typeof source === 'string'){streamController.load(source);}else {streamController.loadWithManifest(source);}}if(!playbackInitialized && isReady()){playbackInitialized = true;logger.info('Playback Initialized');}}instance = {initialize:initialize,setConfig:setConfig,on:on,off:off,extend:extend,attachView:attachView,attachSource:attachSource,isReady:isReady,preload:preload,play:play,isPaused:isPaused,pause:pause,isSeeking:isSeeking,isDynamic:isDynamic,seek:seek,setPlaybackRate:setPlaybackRate,getPlaybackRate:getPlaybackRate,setMute:setMute,isMuted:isMuted,setVolume:setVolume,getVolume:getVolume,time:time,duration:duration,timeAsUTC:timeAsUTC,durationAsUTC:durationAsUTC,getActiveStream:getActiveStream,getDVRWindowSize:getDVRWindowSize,getDVRSeekOffset:getDVRSeekOffset,convertToTimeCode:convertToTimeCode,formatUTC:formatUTC,getVersion:getVersion,getDebug:getDebug,getBufferLength:getBufferLength,getTTMLRenderingDiv:getTTMLRenderingDiv,getVideoElement:getVideoElement,getSource:getSource,setLiveDelayFragmentCount:setLiveDelayFragmentCount,setLiveDelay:setLiveDelay,getLiveDelay:getLiveDelay,getCurrentLiveLatency:getCurrentLiveLatency,useSuggestedPresentationDelay:useSuggestedPresentationDelay,enableLastBitrateCaching:enableLastBitrateCaching,enableLastMediaSettingsCaching:enableLastMediaSettingsCaching,setMaxAllowedBitrateFor:setMaxAllowedBitrateFor,getMaxAllowedBitrateFor:getMaxAllowedBitrateFor,getTopBitrateInfoFor:getTopBitrateInfoFor,setMinAllowedBitrateFor:setMinAllowedBitrateFor,getMinAllowedBitrateFor:getMinAllowedBitrateFor,setMaxAllowedRepresentationRatioFor:setMaxAllowedRepresentationRatioFor,getMaxAllowedRepresentationRatioFor:getMaxAllowedRepresentationRatioFor,setAutoPlay:setAutoPlay,getAutoPlay:getAutoPlay,setScheduleWhilePaused:setScheduleWhilePaused,getScheduleWhilePaused:getScheduleWhilePaused,getDashMetrics:getDashMetrics,getMetricsFor:getMetricsFor,getQualityFor:getQualityFor,setQualityFor:setQualityFor,updatePortalSize:updatePortalSize,getLimitBitrateByPortal:getLimitBitrateByPortal,setLimitBitrateByPortal:setLimitBitrateByPortal,getUsePixelRatioInLimitBitrateByPortal:getUsePixelRatioInLimitBitrateByPortal,setUsePixelRatioInLimitBitrateByPortal:setUsePixelRatioInLimitBitrateByPortal,setTextDefaultLanguage:setTextDefaultLanguage,getTextDefaultLanguage:getTextDefaultLanguage,setTextDefaultEnabled:setTextDefaultEnabled,getTextDefaultEnabled:getTextDefaultEnabled,enableText:enableText,enableForcedTextStreaming:enableForcedTextStreaming,isTextEnabled:isTextEnabled,setTextTrack:setTextTrack,getBitrateInfoListFor:getBitrateInfoListFor,setInitialBitrateFor:setInitialBitrateFor,getInitialBitrateFor:getInitialBitrateFor,setInitialRepresentationRatioFor:setInitialRepresentationRatioFor,getInitialRepresentationRatioFor:getInitialRepresentationRatioFor,getStreamsFromManifest:getStreamsFromManifest,getTracksFor:getTracksFor,getTracksForTypeFromManifest:getTracksForTypeFromManifest,getCurrentTrackFor:getCurrentTrackFor,setInitialMediaSettingsFor:setInitialMediaSettingsFor,getInitialMediaSettingsFor:getInitialMediaSettingsFor,setCurrentTrack:setCurrentTrack,getTrackSwitchModeFor:getTrackSwitchModeFor,setTrackSwitchModeFor:setTrackSwitchModeFor,setSelectionModeForInitialTrack:setSelectionModeForInitialTrack,getSelectionModeForInitialTrack:getSelectionModeForInitialTrack,setFastSwitchEnabled:setFastSwitchEnabled,getFastSwitchEnabled:getFastSwitchEnabled,setMovingAverageMethod:setMovingAverageMethod,getMovingAverageMethod:getMovingAverageMethod,getAutoSwitchQualityFor:getAutoSwitchQualityFor,setAutoSwitchQualityFor:setAutoSwitchQualityFor,setABRStrategy:setABRStrategy,getABRStrategy:getABRStrategy,setStartLiveStreamOver:setStartLiveStreamOver,getStartLiveStreamOver:getStartLiveStreamOver,useDefaultABRRules:useDefaultABRRules,addABRCustomRule:addABRCustomRule,removeABRCustomRule:removeABRCustomRule,removeAllABRCustomRule:removeAllABRCustomRule,setBandwidthSafetyFactor:setBandwidthSafetyFactor,getBandwidthSafetyFactor:getBandwidthSafetyFactor,getAverageThroughput:getAverageThroughput,setAbandonLoadTimeout:setAbandonLoadTimeout,retrieveManifest:retrieveManifest,addUTCTimingSource:addUTCTimingSource,removeUTCTimingSource:removeUTCTimingSource,clearDefaultUTCTimingSources:clearDefaultUTCTimingSources,restoreDefaultUTCTimingSources:restoreDefaultUTCTimingSources,setBufferToKeep:setBufferToKeep,setBufferAheadToKeep:setBufferAheadToKeep,setBufferPruningInterval:setBufferPruningInterval,setStableBufferTime:setStableBufferTime,getStableBufferTime:getStableBufferTime,setBufferTimeAtTopQuality:setBufferTimeAtTopQuality,getBufferTimeAtTopQuality:getBufferTimeAtTopQuality,setBufferTimeAtTopQualityLongForm:setBufferTimeAtTopQualityLongForm,getBufferTimeAtTopQualityLongForm:getBufferTimeAtTopQualityLongForm,setFragmentLoaderRetryAttempts:setFragmentLoaderRetryAttempts,setFragmentLoaderRetryInterval:setFragmentLoaderRetryInterval,setManifestLoaderRetryAttempts:setManifestLoaderRetryAttempts,setManifestLoaderRetryInterval:setManifestLoaderRetryInterval,setXHRWithCredentialsForType:setXHRWithCredentialsForType,getXHRWithCredentialsForType:getXHRWithCredentialsForType,setJumpGaps:setJumpGaps,getJumpGaps:getJumpGaps,setSmallGapLimit:setSmallGapLimit,getSmallGapLimit:getSmallGapLimit,setLowLatencyEnabled:setLowLatencyEnabled,getLowLatencyEnabled:getLowLatencyEnabled,setCatchUpPlaybackRate:setCatchUpPlaybackRate,getCatchUpPlaybackRate:getCatchUpPlaybackRate,setLowLatencyMinDrift:setLowLatencyMinDrift,getLowLatencyMinDrift:getLowLatencyMinDrift,setLowLatencyMaxDriftBeforeSeeking:setLowLatencyMaxDriftBeforeSeeking,getLowLatencyMaxDriftBeforeSeeking:getLowLatencyMaxDriftBeforeSeeking,setManifestUpdateRetryInterval:setManifestUpdateRetryInterval,getManifestUpdateRetryInterval:getManifestUpdateRetryInterval,setLongFormContentDurationThreshold:setLongFormContentDurationThreshold,setSegmentOverlapToleranceTime:setSegmentOverlapToleranceTime,setCacheLoadThresholdForType:setCacheLoadThresholdForType,getProtectionController:getProtectionController,attachProtectionController:attachProtectionController,setProtectionData:setProtectionData,enableManifestDateHeaderTimeSource:enableManifestDateHeaderTimeSource,displayCaptionsOnTop:displayCaptionsOnTop,attachVideoContainer:attachVideoContainer,attachTTMLRenderingDiv:attachTTMLRenderingDiv,getCurrentTextTrackIndex:getCurrentTextTrackIndex,getUseDeadTimeLatencyForAbr:getUseDeadTimeLatencyForAbr,setUseDeadTimeLatencyForAbr:setUseDeadTimeLatencyForAbr,getThumbnail:getThumbnail,keepProtectionMediaKeys:keepProtectionMediaKeys,reset:reset};setup();return instance;}MediaPlayer.__dashjs_factory_name = 'MediaPlayer';var factory=_coreFactoryMaker2['default'].getClassFactory(MediaPlayer);factory.events = _MediaPlayerEvents2['default'];factory.errors = _coreErrorsErrors2['default'];_coreFactoryMaker2['default'].updateClassFactory(MediaPlayer.__dashjs_factory_name,factory);exports['default'] = factory;module.exports = exports['default'];
 //# sourceMappingURL=MediaPlayer.js.map

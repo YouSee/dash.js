@@ -27,11 +27,11 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function RNG(){ // check whether secure random numbers are available. if not, revert to
+ */function RNG(){// check whether secure random numbers are available. if not, revert to
 // using Math.random
-var crypto=window.crypto || window.msCrypto; // could just as easily use any other array type by changing line below
-var ArrayType=Uint32Array;var MAX_VALUE=Math.pow(2,ArrayType.BYTES_PER_ELEMENT * 8) - 1; // currently there is only one client for this code, and that only uses
+let crypto=window.crypto||window.msCrypto;// could just as easily use any other array type by changing line below
+let ArrayType=Uint32Array;let MAX_VALUE=Math.pow(2,ArrayType.BYTES_PER_ELEMENT*8)-1;// currently there is only one client for this code, and that only uses
 // a single random number per initialisation. may want to increase this
 // number if more consumers in the future
-var NUM_RANDOM_NUMBERS=10;var randomNumbers=undefined,index=undefined,instance=undefined;function initialise(){if(crypto){if(!randomNumbers){randomNumbers = new ArrayType(NUM_RANDOM_NUMBERS);}crypto.getRandomValues(randomNumbers);index = 0;}}function rand(min,max){var r=undefined;if(!min){min = 0;}if(!max){max = 1;}if(crypto){if(index === randomNumbers.length){initialise();}r = randomNumbers[index] / MAX_VALUE;index += 1;}else {r = Math.random();}return r * (max - min) + min;}instance = {random:rand};initialise();return instance;}RNG.__dashjs_factory_name = 'RNG';exports['default'] = dashjs.FactoryMaker.getSingletonFactory(RNG); /* jshint ignore:line */module.exports = exports['default'];
+let NUM_RANDOM_NUMBERS=10;let randomNumbers,index,instance;function initialise(){if(crypto){if(!randomNumbers){randomNumbers=new ArrayType(NUM_RANDOM_NUMBERS);}crypto.getRandomValues(randomNumbers);index=0;}}function rand(min,max){let r;if(!min){min=0;}if(!max){max=1;}if(crypto){if(index===randomNumbers.length){initialise();}r=randomNumbers[index]/MAX_VALUE;index+=1;}else{r=Math.random();}return r*(max-min)+min;}instance={random:rand};initialise();return instance;}RNG.__dashjs_factory_name='RNG';export default dashjs.FactoryMaker.getSingletonFactory(RNG);/* jshint ignore:line */
 //# sourceMappingURL=RNG.js.map

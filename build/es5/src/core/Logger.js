@@ -1,4 +1,4 @@
-"use strict"; /**
+/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,26 +27,26 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * The an end place to put fragments after they have been fetched.
  * @interface Logger
- */ /**
+ *//**
 * This method allows you to send fatal error messages (fatal errors implies playback interruption) to the browser's console.
 * @param {...*} arguments The message you want to debug. The Arguments object is supported for this method so you can send in comma separated logging items.
 * @function Logger#fatal
-*/ /**
+*//**
  * This method allows you to send error messages to the browser's console.
  * @param {...*} arguments The message you want to debug. The Arguments object is supported for this method so you can send in comma separated logging items.
  * @function Logger#error
- */ /**
+ *//**
  * This method allows you to send warning messages to the browser's console.
  * @param {...*} arguments The message you want to debug. The Arguments object is supported for this method so you can send in comma separated logging items.
  * @function Logger#warning
- */ /**
+ *//**
  * This method allows you to send info messages to the browser's console.
  * @param {...*} arguments The message you want to debug. The Arguments object is supported for this method so you can send in comma separated logging items.
  * @function Logger#info
- */ /**
+ *//**
  * This method allows you to send debug messages to the browser's console.
  * @param {...*} arguments The message you want to debug. The Arguments object is supported for this method so you can send in comma separated logging items.
  * @function Logger#debug

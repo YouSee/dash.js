@@ -27,24 +27,24 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var TCPConnection= /**
+ */class TCPConnection{/**
      * @description This Object holds reference to the current tcp connection
-     */function TCPConnection(){_classCallCheck(this,TCPConnection); /**
+     */constructor(){/**
          * Identifier of the TCP connection on which the HTTP request was sent.
          * @public
-         */this.tcpid = null; /**
+         */this.tcpid=null;/**
          * IP Address of the interface over which the client is receiving the TCP data.
          * @public
-         */this.dest = null; /**
+         */this.dest=null;/**
          * Real-Time | The time at which the connection was opened (sending time of the initial SYN or connect socket operation).
          * @public
-         */this.topen = null; /**
+         */this.topen=null;/**
          * Real-Time | The time at which the connection was closed (sending or reception time of FIN or RST or close socket operation).
          * @public
-         */this.tclose = null; /**
+         */this.tclose=null;/**
          * Connect time in ms (time from sending the initial SYN to receiving the ACK or completion of the connect socket operation).
          * @public
-         */this.tconnect = null;};exports["default"] = TCPConnection;module.exports = exports["default"];
+         */this.tconnect=null;}}export default TCPConnection;
 //# sourceMappingURL=TCPConnection.js.map

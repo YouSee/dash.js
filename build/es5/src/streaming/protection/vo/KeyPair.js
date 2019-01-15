@@ -27,13 +27,13 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc Represents a 128-bit keyID and 128-bit encryption key
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var KeyPair= /**
+ */class KeyPair{/**
      * @param {string} keyID 128-bit key ID, base64 encoded, with no padding
      * @param {string} key 128-bit encryption key, base64 encoded, with no padding
      * @class
      * @ignore
-     */function KeyPair(keyID,key){_classCallCheck(this,KeyPair);this.keyID = keyID;this.key = key;};exports["default"] = KeyPair;module.exports = exports["default"];
+     */constructor(keyID,key){this.keyID=keyID;this.key=key;}}export default KeyPair;
 //# sourceMappingURL=KeyPair.js.map

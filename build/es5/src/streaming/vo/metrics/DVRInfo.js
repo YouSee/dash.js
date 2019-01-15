@@ -27,19 +27,19 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var DVRInfo= /**
+ */class DVRInfo{/**
      * @description This Object holds reference to DVR availability window information.
-     */function DVRInfo(){_classCallCheck(this,DVRInfo); /**
+     */constructor(){/**
          * The current time of the video element when this was created.
          * @public
-         */this.time = null; /**
+         */this.time=null;/**
          * The current Segment Availability Range as an object with start and end properties.
          * It's delta defined by the timeShiftBufferDepth MPD attribute.
          * @public
-         */this.range = null; /**
+         */this.range=null;/**
          * Reference to the internal ManifestInfo.js VO.
          * @public
-         */this.manifestInfo = null;};exports["default"] = DVRInfo;module.exports = exports["default"];
+         */this.manifestInfo=null;}}export default DVRInfo;
 //# sourceMappingURL=DVRInfo.js.map

@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var ThumbnailTrackInfo=function ThumbnailTrackInfo(){_classCallCheck(this,ThumbnailTrackInfo);this.bitrate = 0;this.width = 0;this.height = 0;this.tilesHor = 0;this.tilesVert = 0;this.widthPerTile = 0;this.heightPerTile = 0;this.startNumber = 0;this.segmentDuration = 0;this.timescale = 0;this.templateUrl = '';this.id = '';};exports['default'] = ThumbnailTrackInfo;module.exports = exports['default'];
+ */class ThumbnailTrackInfo{constructor(){this.bitrate=0;this.width=0;this.height=0;this.tilesHor=0;this.tilesVert=0;this.widthPerTile=0;this.heightPerTile=0;this.startNumber=0;this.segmentDuration=0;this.timescale=0;this.templateUrl='';this.id='';}}export default ThumbnailTrackInfo;
 //# sourceMappingURL=ThumbnailTrackInfo.js.map

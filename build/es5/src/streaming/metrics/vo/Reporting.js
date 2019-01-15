@@ -27,9 +27,9 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var Reporting=function Reporting(){_classCallCheck(this,Reporting); // Reporting is a DescriptorType and doesn't have any additional fields
-this.schemeIdUri = '';this.value = '';};exports['default'] = Reporting;module.exports = exports['default'];
+ */class Reporting{constructor(){// Reporting is a DescriptorType and doesn't have any additional fields
+this.schemeIdUri='';this.value='';}}export default Reporting;
 //# sourceMappingURL=Reporting.js.map

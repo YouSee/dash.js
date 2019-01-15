@@ -27,27 +27,27 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var RepresentationSwitch= /**
+ */class RepresentationSwitch{/**
      * @description This Object holds reference to the info at quality switch between two representations.
-     */function RepresentationSwitch(){_classCallCheck(this,RepresentationSwitch); /**
+     */constructor(){/**
          * Time of the switch event.
          * @public
-         */this.t = null; /**
+         */this.t=null;/**
          * The media presentation time of the earliest access unit
          * (out of all media content components) played out from
          * the Representation.
          *
          * @public
-         */this.mt = null; /**
+         */this.mt=null;/**
          * Value of Representation@id identifying the switch-to Representation.
          * @public
-         */this.to = null; /**
+         */this.to=null;/**
          * If not present, this metrics concerns the Representation as a whole.
          * If present, lto indicates the value of SubRepresentation@level within
          * Representation identifying the switch-to level of the Representation.
          *
          * @public
-         */this.lto = null;};exports["default"] = RepresentationSwitch;module.exports = exports["default"];
+         */this.lto=null;}}export default RepresentationSwitch;
 //# sourceMappingURL=RepresentationSwitch.js.map

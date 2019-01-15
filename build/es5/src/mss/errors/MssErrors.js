@@ -27,12 +27,12 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});var _get=function get(_x,_x2,_x3){var _again=true;_function: while(_again) {var object=_x,property=_x2,receiver=_x3;_again = false;if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined;}else {_x = parent;_x2 = property;_x3 = receiver;_again = true;desc = parent = undefined;continue _function;}}else if('value' in desc){return desc.value;}else {var getter=desc.get;if(getter === undefined){return undefined;}return getter.call(receiver);}}};function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass;}var _coreErrorsErrorsBase=require('../../core/errors/ErrorsBase');var _coreErrorsErrorsBase2=_interopRequireDefault(_coreErrorsErrorsBase); /**
+ */import ErrorsBase from'../../core/errors/ErrorsBase';/**
  * @class
  *
- */var MssErrors=(function(_ErrorsBase){_inherits(MssErrors,_ErrorsBase);function MssErrors(){_classCallCheck(this,MssErrors);_get(Object.getPrototypeOf(MssErrors.prototype),'constructor',this).call(this); /**
+ */class MssErrors extends ErrorsBase{constructor(){super();/**
          * Error code returned when no tfrf box is detected in MSS live stream
-         */this.MSS_NO_TFRF_CODE = 200;this.MSS_UNSUPPORTED_CODEC_CODE = 201; /**
+         */this.MSS_NO_TFRF_CODE=200;this.MSS_UNSUPPORTED_CODEC_CODE=201;/**
          * Error message returned when no tfrf box is detected in MSS live stream
-         */this.MSS_NO_TFRF_MESSAGE = 'Missing tfrf in live media segment';this.MSS_UNSUPPORTED_CODEC_MESSAGE = 'Unsupported codec';}return MssErrors;})(_coreErrorsErrorsBase2['default']);var mssErrors=new MssErrors();exports['default'] = mssErrors;module.exports = exports['default'];
+         */this.MSS_NO_TFRF_MESSAGE='Missing tfrf in live media segment';this.MSS_UNSUPPORTED_CODEC_MESSAGE='Unsupported codec';}}let mssErrors=new MssErrors();export default mssErrors;
 //# sourceMappingURL=MssErrors.js.map

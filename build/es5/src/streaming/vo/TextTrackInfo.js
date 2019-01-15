@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var TextTrackInfo=function TextTrackInfo(){_classCallCheck(this,TextTrackInfo);this.captionData = null;this.label = null;this.lang = null;this.defaultTrack = false;this.kind = null;this.isFragmented = false;this.isEmbedded = false;};exports["default"] = TextTrackInfo;module.exports = exports["default"];
+ */class TextTrackInfo{constructor(){this.captionData=null;this.label=null;this.lang=null;this.defaultTrack=false;this.kind=null;this.isFragmented=false;this.isEmbedded=false;}}export default TextTrackInfo;
 //# sourceMappingURL=TextTrackInfo.js.map

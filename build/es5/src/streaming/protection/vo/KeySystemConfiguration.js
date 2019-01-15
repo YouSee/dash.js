@@ -27,11 +27,11 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc Represents a set of configurations that describe the capabilities desired for
  *  support by a given CDM
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var KeySystemConfiguration= /**
+ */class KeySystemConfiguration{/**
      * @param {Array.<MediaCapability>} audioCapabilities array of
      * desired audio capabilities.  Higher preference capabilities should be placed earlier
      * in the array.
@@ -45,5 +45,5 @@
      * @param {Array.<string>} sessionTypes List of session types that must
      * be supported by the key system
      * @class
-     */function KeySystemConfiguration(audioCapabilities,videoCapabilities,distinctiveIdentifier,persistentState,sessionTypes){_classCallCheck(this,KeySystemConfiguration);this.initDataTypes = ['cenc'];if(audioCapabilities && audioCapabilities.length){this.audioCapabilities = audioCapabilities;}if(videoCapabilities && videoCapabilities.length){this.videoCapabilities = videoCapabilities;}this.distinctiveIdentifier = distinctiveIdentifier;this.persistentState = persistentState;this.sessionTypes = sessionTypes;};exports['default'] = KeySystemConfiguration;module.exports = exports['default'];
+     */constructor(audioCapabilities,videoCapabilities,distinctiveIdentifier,persistentState,sessionTypes){this.initDataTypes=['cenc'];if(audioCapabilities&&audioCapabilities.length){this.audioCapabilities=audioCapabilities;}if(videoCapabilities&&videoCapabilities.length){this.videoCapabilities=videoCapabilities;}this.distinctiveIdentifier=distinctiveIdentifier;this.persistentState=persistentState;this.sessionTypes=sessionTypes;}}export default KeySystemConfiguration;
 //# sourceMappingURL=KeySystemConfiguration.js.map

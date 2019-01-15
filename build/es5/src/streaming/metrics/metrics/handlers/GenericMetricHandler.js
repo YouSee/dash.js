@@ -27,6 +27,6 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function GenericMetricHandler(){var instance=undefined,metricName=undefined,reportingController=undefined;function initialize(name,rc){metricName = name;reportingController = rc;}function reset(){reportingController = null;metricName = undefined;}function handleNewMetric(metric,vo){ // simply pass metric straight through
-if(metric === metricName){if(reportingController){reportingController.report(metricName,vo);}}}instance = {initialize:initialize,reset:reset,handleNewMetric:handleNewMetric};return instance;}GenericMetricHandler.__dashjs_factory_name = 'GenericMetricHandler';exports['default'] = dashjs.FactoryMaker.getClassFactory(GenericMetricHandler); /* jshint ignore:line */module.exports = exports['default'];
+ */function GenericMetricHandler(){let instance,metricName,reportingController;function initialize(name,rc){metricName=name;reportingController=rc;}function reset(){reportingController=null;metricName=undefined;}function handleNewMetric(metric,vo){// simply pass metric straight through
+if(metric===metricName){if(reportingController){reportingController.report(metricName,vo);}}}instance={initialize:initialize,reset:reset,handleNewMetric:handleNewMetric};return instance;}GenericMetricHandler.__dashjs_factory_name='GenericMetricHandler';export default dashjs.FactoryMaker.getClassFactory(GenericMetricHandler);/* jshint ignore:line */
 //# sourceMappingURL=GenericMetricHandler.js.map

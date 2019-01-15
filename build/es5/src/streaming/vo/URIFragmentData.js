@@ -27,10 +27,10 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var URIFragmentData=function URIFragmentData(){_classCallCheck(this,URIFragmentData);this.t = null;this.xywh = null;this.track = null;this.id = null;this.s = null;this.r = null;};exports["default"] = URIFragmentData; /*
+ */class URIFragmentData{constructor(){this.t=null;this.xywh=null;this.track=null;this.id=null;this.s=null;this.r=null;}}export default URIFragmentData;/*
     From Spec http://www.w3.org/TR/media-frags/
 
     temporal (t)     - This dimension denotes a specific time range in the original media, such as "starting at second 10, continuing until second 20";
@@ -44,5 +44,5 @@
     Akamai is purposing to add #s=X to the ISO standard.
         - (X) Value would be a start time to seek to at startup instead of starting at 0 or live edge
         - Allows for seeking back before the start time unlike a temporal clipping.
-*/module.exports = exports["default"];
+*/
 //# sourceMappingURL=URIFragmentData.js.map

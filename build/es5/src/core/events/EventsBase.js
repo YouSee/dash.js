@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var EventsBase=(function(){function EventsBase(){_classCallCheck(this,EventsBase);}_createClass(EventsBase,[{key:'extend',value:function extend(events,config){if(!events)return;var override=config?config.override:false;var publicOnly=config?config.publicOnly:false;for(var evt in events) {if(!events.hasOwnProperty(evt) || this[evt] && !override)continue;if(publicOnly && events[evt].indexOf('public_') === -1)continue;this[evt] = events[evt];}}}]);return EventsBase;})();exports['default'] = EventsBase;module.exports = exports['default'];
+ */class EventsBase{extend(events,config){if(!events)return;let override=config?config.override:false;let publicOnly=config?config.publicOnly:false;for(const evt in events){if(!events.hasOwnProperty(evt)||this[evt]&&!override)continue;if(publicOnly&&events[evt].indexOf('public_')===-1)continue;this[evt]=events[evt];}}}export default EventsBase;
 //# sourceMappingURL=EventsBase.js.map

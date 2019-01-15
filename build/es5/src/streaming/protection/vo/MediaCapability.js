@@ -27,13 +27,13 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc A media capability
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var MediaCapability= /**
+ */class MediaCapability{/**
      * @param {string} contentType MIME type and codecs (RFC6386)
      * @param {string} robustness
      * @class
      * @ignore
-     */function MediaCapability(contentType,robustness){_classCallCheck(this,MediaCapability);this.contentType = contentType;this.robustness = robustness;};exports["default"] = MediaCapability;module.exports = exports["default"];
+     */constructor(contentType,robustness){this.contentType=contentType;this.robustness=robustness;}}export default MediaCapability;
 //# sourceMappingURL=MediaCapability.js.map

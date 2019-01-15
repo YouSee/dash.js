@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var Thumbnail=function Thumbnail(){_classCallCheck(this,Thumbnail);this.url = null;this.width = null;this.height = null;this.x = null;this.y = null;};exports["default"] = Thumbnail;module.exports = exports["default"];
+ */class Thumbnail{constructor(){this.url=null;this.width=null;this.height=null;this.x=null;this.y=null;}}export default Thumbnail;
 //# sourceMappingURL=Thumbnail.js.map

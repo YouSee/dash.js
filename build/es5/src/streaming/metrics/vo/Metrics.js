@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var Metrics=function Metrics(){_classCallCheck(this,Metrics);this.metrics = '';this.Range = [];this.Reporting = [];};exports['default'] = Metrics;module.exports = exports['default'];
+ */class Metrics{constructor(){this.metrics='';this.Range=[];this.Reporting=[];}}export default Metrics;
 //# sourceMappingURL=Metrics.js.map

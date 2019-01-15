@@ -27,9 +27,9 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * Protection Constants declaration
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var ProtectionConstants=(function(){_createClass(ProtectionConstants,[{key:'init',value:function init(){this.CLEARKEY_KEYSTEM_STRING = 'org.w3.clearkey';this.WIDEVINE_KEYSTEM_STRING = 'com.widevine.alpha';this.PLAYREADY_KEYSTEM_STRING = 'com.microsoft.playready';}}]);function ProtectionConstants(){_classCallCheck(this,ProtectionConstants);this.init();}return ProtectionConstants;})();var constants=new ProtectionConstants();exports['default'] = constants;module.exports = exports['default'];
+ */class ProtectionConstants{init(){this.CLEARKEY_KEYSTEM_STRING='org.w3.clearkey';this.WIDEVINE_KEYSTEM_STRING='com.widevine.alpha';this.PLAYREADY_KEYSTEM_STRING='com.microsoft.playready';}constructor(){this.init();}}let constants=new ProtectionConstants();export default constants;
 //# sourceMappingURL=ProtectionConstants.js.map

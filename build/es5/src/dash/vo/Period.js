@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var Period=function Period(){_classCallCheck(this,Period);this.id = null;this.index = -1;this.duration = NaN;this.start = NaN;this.mpd = null;};Period.DEFAULT_ID = 'defaultId';exports['default'] = Period;module.exports = exports['default'];
+ */class Period{constructor(){this.id=null;this.index=-1;this.duration=NaN;this.start=NaN;this.mpd=null;}}Period.DEFAULT_ID='defaultId';export default Period;
 //# sourceMappingURL=Period.js.map

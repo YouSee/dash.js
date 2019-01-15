@@ -27,16 +27,16 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc This Object holds reference to the HTTPRequest for manifest, fragment and xlink loading.
  * Members which are not defined in ISO23009-1 Annex D should be prefixed by a _ so that they are ignored
  * by Metrics Reporting code.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var HTTPRequest= /**
+ */class HTTPRequest{/**
      * @class
-     */function HTTPRequest(){_classCallCheck(this,HTTPRequest); /**
+     */constructor(){/**
          * Identifier of the TCP connection on which the HTTP request was sent.
          * @public
-         */this.tcpid = null; /**
+         */this.tcpid=null;/**
          * This is an optional parameter and should not be included in HTTP request/response transactions for progressive download.
          * The type of the request:
          * - MPD
@@ -47,57 +47,57 @@
          * - Bitstream Switching Fragment
          * - other
          * @public
-         */this.type = null; /**
+         */this.type=null;/**
          * The original URL (before any redirects or failures)
          * @public
-         */this.url = null; /**
+         */this.url=null;/**
          * The actual URL requested, if different from above
          * @public
-         */this.actualurl = null; /**
+         */this.actualurl=null;/**
          * The contents of the byte-range-spec part of the HTTP Range header.
          * @public
-         */this.range = null; /**
+         */this.range=null;/**
          * Real-Time | The real time at which the request was sent.
          * @public
-         */this.trequest = null; /**
+         */this.trequest=null;/**
          * Real-Time | The real time at which the first byte of the response was received.
          * @public
-         */this.tresponse = null; /**
+         */this.tresponse=null;/**
          * The HTTP response code.
          * @public
-         */this.responsecode = null; /**
+         */this.responsecode=null;/**
          * The duration of the throughput trace intervals (ms), for successful requests only.
          * @public
-         */this.interval = null; /**
+         */this.interval=null;/**
          * Throughput traces, for successful requests only.
          * @public
-         */this.trace = []; /**
+         */this.trace=[];/**
          * Type of stream ("audio" | "video" etc..)
          * @public
-         */this._stream = null; /**
+         */this._stream=null;/**
          * Real-Time | The real time at which the request finished.
          * @public
-         */this._tfinish = null; /**
+         */this._tfinish=null;/**
          * The duration of the media requests, if available, in milliseconds.
          * @public
-         */this._mediaduration = null; /**
+         */this._mediaduration=null;/**
          * all the response headers from request.
          * @public
-         */this._responseHeaders = null; /**
+         */this._responseHeaders=null;/**
          * The selected service location for the request. string.
          * @public
-         */this._serviceLocation = null;} /**
+         */this._serviceLocation=null;}}/**
  * @classdesc This Object holds reference to the progress of the HTTPRequest.
- */;var HTTPRequestTrace= /**
+ */class HTTPRequestTrace{/**
     * @class
-    */function HTTPRequestTrace(){_classCallCheck(this,HTTPRequestTrace); /**
+    */constructor(){/**
          * Real-Time | Measurement stream start.
          * @public
-         */this.s = null; /**
+         */this.s=null;/**
          * Measurement stream duration (ms).
          * @public
-         */this.d = null; /**
+         */this.d=null;/**
          * List of integers counting the bytes received in each trace interval within the measurement stream.
          * @public
-         */this.b = [];};HTTPRequest.GET = 'GET';HTTPRequest.HEAD = 'HEAD';HTTPRequest.MPD_TYPE = 'MPD';HTTPRequest.XLINK_EXPANSION_TYPE = 'XLinkExpansion';HTTPRequest.INIT_SEGMENT_TYPE = 'InitializationSegment';HTTPRequest.INDEX_SEGMENT_TYPE = 'IndexSegment';HTTPRequest.MEDIA_SEGMENT_TYPE = 'MediaSegment';HTTPRequest.BITSTREAM_SWITCHING_SEGMENT_TYPE = 'BitstreamSwitchingSegment';HTTPRequest.OTHER_TYPE = 'other';exports.HTTPRequest = HTTPRequest;exports.HTTPRequestTrace = HTTPRequestTrace;
+         */this.b=[];}}HTTPRequest.GET='GET';HTTPRequest.HEAD='HEAD';HTTPRequest.MPD_TYPE='MPD';HTTPRequest.XLINK_EXPANSION_TYPE='XLinkExpansion';HTTPRequest.INIT_SEGMENT_TYPE='InitializationSegment';HTTPRequest.INDEX_SEGMENT_TYPE='IndexSegment';HTTPRequest.MEDIA_SEGMENT_TYPE='MediaSegment';HTTPRequest.BITSTREAM_SWITCHING_SEGMENT_TYPE='BitstreamSwitchingSegment';HTTPRequest.OTHER_TYPE='other';export{HTTPRequest,HTTPRequestTrace};
 //# sourceMappingURL=HTTPRequest.js.map

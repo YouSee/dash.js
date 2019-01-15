@@ -27,15 +27,15 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var _controllersBufferController=require('../../controllers/BufferController');var _controllersBufferController2=_interopRequireDefault(_controllersBufferController); /**
+ */import BufferController from'../../controllers/BufferController';/**
  * @class
- */var BufferState= /**
+ */class BufferState{/**
      * @description This Object holds reference to the current buffer state of the video element.
-     */function BufferState(){_classCallCheck(this,BufferState); /**
+     */constructor(){/**
          * The Buffer Level Target determined by the BufferLevelRule.
          * @public
-         */this.target = null; /**
+         */this.target=null;/**
          * Current buffer state. Will be BufferController.BUFFER_EMPTY or BufferController.BUFFER_LOADED.
          * @public
-         */this.state = _controllersBufferController2['default'].BUFFER_EMPTY;};exports['default'] = BufferState;module.exports = exports['default'];
+         */this.state=BufferController.BUFFER_EMPTY;}}export default BufferState;
 //# sourceMappingURL=BufferState.js.map

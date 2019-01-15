@@ -27,10 +27,10 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var Range=function Range(){_classCallCheck(this,Range); // as defined in ISO23009-1
-this.starttime = 0;this.duration = Infinity; // for internal use
-this._useWallClockTime = false;};exports["default"] = Range;module.exports = exports["default"];
+ */class Range{constructor(){// as defined in ISO23009-1
+this.starttime=0;this.duration=Infinity;// for internal use
+this._useWallClockTime=false;}}export default Range;
 //# sourceMappingURL=Range.js.map

@@ -27,12 +27,12 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc NeedKey
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var NeedKey= /**
+ */class NeedKey{/**
      * @param {ArrayBuffer} initData the initialization data
      * @param {string} initDataType initialization data type
      * @class
-     */function NeedKey(initData,initDataType){_classCallCheck(this,NeedKey);this.initData = initData;this.initDataType = initDataType;};exports["default"] = NeedKey;module.exports = exports["default"];
+     */constructor(initData,initDataType){this.initData=initData;this.initDataType=initDataType;}}export default NeedKey;
 //# sourceMappingURL=NeedKey.js.map

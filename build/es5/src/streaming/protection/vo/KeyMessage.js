@@ -27,10 +27,10 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc EME-independent KeyMessage
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var KeyMessage= /**
+ */class KeyMessage{/**
      * @param {SessionToken} sessionToken the session
      * to which the key message is associated
      * @param {ArrayBuffer} message the key message
@@ -38,5 +38,5 @@
      * @param {string} messageType Supported message types can be found
      * {@link https://w3c.github.io/encrypted-media/#idl-def-MediaKeyMessageType|here}.
      * @class
-     */function KeyMessage(sessionToken,message,defaultURL,messageType){_classCallCheck(this,KeyMessage);this.sessionToken = sessionToken;this.message = message;this.defaultURL = defaultURL;this.messageType = messageType?messageType:'license-request';};exports['default'] = KeyMessage;module.exports = exports['default'];
+     */constructor(sessionToken,message,defaultURL,messageType){this.sessionToken=sessionToken;this.message=message;this.defaultURL=defaultURL;this.messageType=messageType?messageType:'license-request';}}export default KeyMessage;
 //# sourceMappingURL=KeyMessage.js.map

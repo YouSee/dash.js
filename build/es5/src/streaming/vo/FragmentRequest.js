@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var FragmentRequest=function FragmentRequest(){_classCallCheck(this,FragmentRequest);this.action = FragmentRequest.ACTION_DOWNLOAD;this.startTime = NaN;this.mediaType = null;this.mediaInfo = null;this.type = null;this.duration = NaN;this.timescale = NaN;this.range = null;this.url = null;this.serviceLocation = null;this.requestStartDate = null;this.firstByteDate = null;this.requestEndDate = null;this.quality = NaN;this.index = NaN;this.availabilityStartTime = null;this.availabilityEndTime = null;this.wallStartTime = null;this.bytesLoaded = NaN;this.bytesTotal = NaN;this.delayLoadingTime = NaN;this.responseType = 'arraybuffer';this.representationId = null;};FragmentRequest.ACTION_DOWNLOAD = 'download';FragmentRequest.ACTION_COMPLETE = 'complete';exports['default'] = FragmentRequest;module.exports = exports['default'];
+ */class FragmentRequest{constructor(){this.action=FragmentRequest.ACTION_DOWNLOAD;this.startTime=NaN;this.mediaType=null;this.mediaInfo=null;this.type=null;this.duration=NaN;this.timescale=NaN;this.range=null;this.url=null;this.serviceLocation=null;this.requestStartDate=null;this.firstByteDate=null;this.requestEndDate=null;this.quality=NaN;this.index=NaN;this.availabilityStartTime=null;this.availabilityEndTime=null;this.wallStartTime=null;this.bytesLoaded=NaN;this.bytesTotal=NaN;this.delayLoadingTime=NaN;this.responseType='arraybuffer';this.representationId=null;}}FragmentRequest.ACTION_DOWNLOAD='download';FragmentRequest.ACTION_COMPLETE='complete';export default FragmentRequest;
 //# sourceMappingURL=FragmentRequest.js.map

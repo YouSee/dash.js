@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var EventStream=function EventStream(){_classCallCheck(this,EventStream);this.adaptionSet = null;this.representation = null;this.period = null;this.timescale = 1;this.value = '';this.schemeIdUri = '';};exports['default'] = EventStream;module.exports = exports['default'];
+ */class EventStream{constructor(){this.adaptionSet=null;this.representation=null;this.period=null;this.timescale=1;this.value='';this.schemeIdUri='';}}export default EventStream;
 //# sourceMappingURL=EventStream.js.map

@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var IsoBoxSearchInfo=function IsoBoxSearchInfo(lastCompletedOffset,found,size){_classCallCheck(this,IsoBoxSearchInfo);this.lastCompletedOffset = lastCompletedOffset;this.found = found;this.size = size;};exports["default"] = IsoBoxSearchInfo;module.exports = exports["default"];
+ */class IsoBoxSearchInfo{constructor(lastCompletedOffset,found,size){this.lastCompletedOffset=lastCompletedOffset;this.found=found;this.size=size;}}export default IsoBoxSearchInfo;
 //# sourceMappingURL=IsoBoxSearchInfo.js.map

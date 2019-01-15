@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var RepresentationInfo=function RepresentationInfo(){_classCallCheck(this,RepresentationInfo);this.id = null;this.quality = null;this.DVRWindow = null;this.fragmentDuration = null;this.mediaInfo = null;this.MSETimeOffset = null;};exports["default"] = RepresentationInfo;module.exports = exports["default"];
+ */class RepresentationInfo{constructor(){this.id=null;this.quality=null;this.DVRWindow=null;this.fragmentDuration=null;this.mediaInfo=null;this.MSETimeOffset=null;}}export default RepresentationInfo;
 //# sourceMappingURL=RepresentationInfo.js.map

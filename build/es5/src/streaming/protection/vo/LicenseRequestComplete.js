@@ -27,10 +27,10 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc Event indicating the receipt of a response from a license server
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var LicenseRequestComplete= /**
+ */class LicenseRequestComplete{/**
      * Event indicating the receipt of a response from a license server
      *
      * @param {Uint8Array} message license response message
@@ -40,5 +40,5 @@
      * {@link https://w3c.github.io/encrypted-media/#idl-def-MediaKeyMessageType|here}.
      * @class
      * @ignore
-     */function LicenseRequestComplete(message,sessionToken,messageType){_classCallCheck(this,LicenseRequestComplete);this.message = message;this.sessionToken = sessionToken;this.messageType = messageType?messageType:'license-request';};exports['default'] = LicenseRequestComplete;module.exports = exports['default'];
+     */constructor(message,sessionToken,messageType){this.message=message;this.sessionToken=sessionToken;this.messageType=messageType?messageType:'license-request';}}export default LicenseRequestComplete;
 //# sourceMappingURL=LicenseRequestComplete.js.map

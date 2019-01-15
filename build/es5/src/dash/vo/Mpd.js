@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var Mpd=function Mpd(){_classCallCheck(this,Mpd);this.manifest = null;this.suggestedPresentationDelay = 0;this.availabilityStartTime = null;this.availabilityEndTime = Number.POSITIVE_INFINITY;this.timeShiftBufferDepth = Number.POSITIVE_INFINITY;this.maxSegmentDuration = Number.POSITIVE_INFINITY;this.minimumUpdatePeriod = NaN;this.mediaPresentationDuration = NaN;};exports["default"] = Mpd;module.exports = exports["default"];
+ */class Mpd{constructor(){this.manifest=null;this.suggestedPresentationDelay=0;this.availabilityStartTime=null;this.availabilityEndTime=Number.POSITIVE_INFINITY;this.timeShiftBufferDepth=Number.POSITIVE_INFINITY;this.maxSegmentDuration=Number.POSITIVE_INFINITY;this.minimumUpdatePeriod=NaN;this.mediaPresentationDuration=NaN;}}export default Mpd;
 //# sourceMappingURL=Mpd.js.map

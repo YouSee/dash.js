@@ -27,18 +27,18 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var Segment=function Segment(){_classCallCheck(this,Segment);this.indexRange = null;this.index = null;this.mediaRange = null;this.media = null;this.duration = NaN; // this is the time that should be inserted into the media url
-this.replacementTime = null; // this is the number that should be inserted into the media url
-this.replacementNumber = NaN; // This is supposed to match the time encoded in the media Segment
-this.mediaStartTime = NaN; // When the source buffer timeOffset is set to MSETimeOffset this is the
+ */class Segment{constructor(){this.indexRange=null;this.index=null;this.mediaRange=null;this.media=null;this.duration=NaN;// this is the time that should be inserted into the media url
+this.replacementTime=null;// this is the number that should be inserted into the media url
+this.replacementNumber=NaN;// This is supposed to match the time encoded in the media Segment
+this.mediaStartTime=NaN;// When the source buffer timeOffset is set to MSETimeOffset this is the
 // time that will match the seekTarget and video.currentTime
-this.presentationStartTime = NaN; // Do not schedule this segment until
-this.availabilityStartTime = NaN; // Ignore and  discard this segment after
-this.availabilityEndTime = NaN; // The index of the segment inside the availability window
-this.availabilityIdx = NaN; // For dynamic mpd's, this is the wall clock time that the video
+this.presentationStartTime=NaN;// Do not schedule this segment until
+this.availabilityStartTime=NaN;// Ignore and  discard this segment after
+this.availabilityEndTime=NaN;// The index of the segment inside the availability window
+this.availabilityIdx=NaN;// For dynamic mpd's, this is the wall clock time that the video
 // element currentTime should be presentationStartTime
-this.wallStartTime = NaN;this.representation = null;};exports["default"] = Segment;module.exports = exports["default"];
+this.wallStartTime=NaN;this.representation=null;}}export default Segment;
 //# sourceMappingURL=Segment.js.map

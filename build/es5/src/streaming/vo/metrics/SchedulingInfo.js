@@ -27,36 +27,36 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var SchedulingInfo= /**
+ */class SchedulingInfo{/**
      * @description This Object holds reference to the index handling of the current fragment being loaded or executed.
-     */function SchedulingInfo(){_classCallCheck(this,SchedulingInfo); /**
+     */constructor(){/**
          * Type of stream Audio | Video | FragmentedText
          * @public
-         */this.mediaType = null; /**
+         */this.mediaType=null;/**
          * Time of the scheduling event.
          * @public
-         */this.t = null; /**
+         */this.t=null;/**
          * Type of fragment (initialization | media)
          * @public
-         */this.type = null; /**
+         */this.type=null;/**
          * Presentation start time of fragment
          * @public
-         */this.startTime = null; /**
+         */this.startTime=null;/**
          * Availability start time of fragment
          * @public
-         */this.availabilityStartTime = null; /**
+         */this.availabilityStartTime=null;/**
          * Duration of fragment
          * @public
-         */this.duration = null; /**
+         */this.duration=null;/**
          * Bit Rate Quality of fragment
          * @public
-         */this.quality = null; /**
+         */this.quality=null;/**
          * Range of fragment
          * @public
-         */this.range = null; /**
+         */this.range=null;/**
          * Current state of fragment
          * @public
-         */this.state = null;};exports["default"] = SchedulingInfo;module.exports = exports["default"];
+         */this.state=null;}}export default SchedulingInfo;
 //# sourceMappingURL=SchedulingInfo.js.map

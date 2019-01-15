@@ -27,15 +27,15 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _streamingVoMetricsHTTPRequest=require('../streaming/vo/metrics/HTTPRequest');var _coreFactoryMaker=require('../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker);var _streamingConstantsMetricsConstants=require('../streaming/constants/MetricsConstants');var _streamingConstantsMetricsConstants2=_interopRequireDefault(_streamingConstantsMetricsConstants);var _utilsRound10=require('./utils/Round10');var _utilsRound102=_interopRequireDefault(_utilsRound10); /**
+ */import{HTTPRequest}from'../streaming/vo/metrics/HTTPRequest';import FactoryMaker from'../core/FactoryMaker';import MetricsConstants from'../streaming/constants/MetricsConstants';import Round10 from'./utils/Round10';/**
  * @module DashMetrics
  * @param {object} config configuration passed to DashMetrics
- */function DashMetrics(config){config = config || {};var instance=undefined;var dashManifestModel=config.dashManifestModel;var manifestModel=config.manifestModel;function getPeriod(periodId){var manifest=manifestModel.getValue();if(!manifest){return -1;}return manifest.Period_asArray[periodId];}function getBandwidthForRepresentation(representationId,periodId){var representation=undefined;var period=getPeriod(periodId);representation = findRepresentation(period,representationId);if(representation === null){return null;}return representation.bandwidth;} /**
+ */function DashMetrics(config){config=config||{};let instance;let dashManifestModel=config.dashManifestModel;let manifestModel=config.manifestModel;function getPeriod(periodId){const manifest=manifestModel.getValue();if(!manifest){return-1;}return manifest.Period_asArray[periodId];}function getBandwidthForRepresentation(representationId,periodId){let representation;let period=getPeriod(periodId);representation=findRepresentation(period,representationId);if(representation===null){return null;}return representation.bandwidth;}/**
      *
      * @param {string} representationId
      * @param {number} periodIdx
      * @returns {*}
-     */function getIndexForRepresentation(representationId,periodIdx){var period=getPeriod(periodIdx);return findRepresentationIndex(period,representationId);} /**
+     */function getIndexForRepresentation(representationId,periodIdx){let period=getPeriod(periodIdx);return findRepresentationIndex(period,representationId);}/**
      * This method returns the current max index based on what is defined in the MPD.
      *
      * @param {string} bufferType - String 'audio' or 'video',
@@ -43,75 +43,75 @@
      * @return {number}
      * @memberof module:DashMetrics
      * @instance
-     */function getMaxIndexForBufferType(bufferType,periodIdx){var period=getPeriod(periodIdx);return findMaxBufferIndex(period,bufferType);} /**
+     */function getMaxIndexForBufferType(bufferType,periodIdx){let period=getPeriod(periodIdx);return findMaxBufferIndex(period,bufferType);}/**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getCurrentRepresentationSwitch(metrics){return getCurrent(metrics,_streamingConstantsMetricsConstants2['default'].TRACK_SWITCH);} /**
+     */function getCurrentRepresentationSwitch(metrics){return getCurrent(metrics,MetricsConstants.TRACK_SWITCH);}/**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getLatestBufferLevelVO(metrics){return getCurrent(metrics,_streamingConstantsMetricsConstants2['default'].BUFFER_LEVEL);} /**
+     */function getLatestBufferLevelVO(metrics){return getCurrent(metrics,MetricsConstants.BUFFER_LEVEL);}/**
      * @param {MetricsList} metrics
      * @returns {number}
      * @memberof module:DashMetrics
      * @instance
-     */function getCurrentBufferLevel(metrics){var vo=getLatestBufferLevelVO(metrics);if(vo){return _utilsRound102['default'].round10(vo.level / 1000,-3);}return 0;} /**
+     */function getCurrentBufferLevel(metrics){const vo=getLatestBufferLevelVO(metrics);if(vo){return Round10.round10(vo.level/1000,-3);}return 0;}/**
      * @param {MetricsList} metrics
      * @returns {null|*|vo}
      * @memberof module:DashMetrics
      * @instance
-     */function getRequestsQueue(metrics){return metrics?metrics.RequestsQueue:null;} /**
+     */function getRequestsQueue(metrics){return metrics?metrics.RequestsQueue:null;}/**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getCurrentHttpRequest(metrics){if(!metrics){return null;}var httpList=metrics.HttpList;var currentHttpList=null;var httpListLength=undefined,httpListLastIndex=undefined;if(!httpList || httpList.length <= 0){return null;}httpListLength = httpList.length;httpListLastIndex = httpListLength - 1;while(httpListLastIndex >= 0) {if(httpList[httpListLastIndex].responsecode){currentHttpList = httpList[httpListLastIndex];break;}httpListLastIndex--;}return currentHttpList;} /**
+     */function getCurrentHttpRequest(metrics){if(!metrics){return null;}const httpList=metrics.HttpList;let currentHttpList=null;let httpListLength,httpListLastIndex;if(!httpList||httpList.length<=0){return null;}httpListLength=httpList.length;httpListLastIndex=httpListLength-1;while(httpListLastIndex>=0){if(httpList[httpListLastIndex].responsecode){currentHttpList=httpList[httpListLastIndex];break;}httpListLastIndex--;}return currentHttpList;}/**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getHttpRequests(metrics){if(!metrics){return [];}return !!metrics.HttpList?metrics.HttpList:[];} /**
+     */function getHttpRequests(metrics){if(!metrics){return[];}return!!metrics.HttpList?metrics.HttpList:[];}/**
      * @param {MetricsList} metrics
      * @param {string} metricName
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getCurrent(metrics,metricName){if(!metrics){return null;}var list=metrics[metricName];if(!list || list.length <= 0){return null;}return list[list.length - 1];} /**
+     */function getCurrent(metrics,metricName){if(!metrics){return null;}const list=metrics[metricName];if(!list||list.length<=0){return null;}return list[list.length-1];}/**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getCurrentDroppedFrames(metrics){return getCurrent(metrics,_streamingConstantsMetricsConstants2['default'].DROPPED_FRAMES);} /**
+     */function getCurrentDroppedFrames(metrics){return getCurrent(metrics,MetricsConstants.DROPPED_FRAMES);}/**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getCurrentSchedulingInfo(metrics){return getCurrent(metrics,_streamingConstantsMetricsConstants2['default'].SCHEDULING_INFO);} /**
+     */function getCurrentSchedulingInfo(metrics){return getCurrent(metrics,MetricsConstants.SCHEDULING_INFO);}/**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getCurrentManifestUpdate(metrics){return getCurrent(metrics,_streamingConstantsMetricsConstants2['default'].MANIFEST_UPDATE);} /**
+     */function getCurrentManifestUpdate(metrics){return getCurrent(metrics,MetricsConstants.MANIFEST_UPDATE);}/**
      * @param {MetricsList} metrics
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getCurrentDVRInfo(metrics){return getCurrent(metrics,_streamingConstantsMetricsConstants2['default'].DVR_INFO);} /**
-     * @param {MetricsList} metrics
-     * @param {string} id
-     * @returns {*}
-     * @memberof module:DashMetrics
-     * @instance
-     */function getLatestMPDRequestHeaderValueByID(metrics,id){var headers={};var httpRequestList=undefined,httpRequest=undefined,i=undefined;httpRequestList = getHttpRequests(metrics);for(i = httpRequestList.length - 1;i >= 0;i--) {httpRequest = httpRequestList[i];if(httpRequest.type === _streamingVoMetricsHTTPRequest.HTTPRequest.MPD_TYPE){headers = parseResponseHeaders(httpRequest._responseHeaders);break;}}return headers[id] === undefined?null:headers[id];} /**
+     */function getCurrentDVRInfo(metrics){return getCurrent(metrics,MetricsConstants.DVR_INFO);}/**
      * @param {MetricsList} metrics
      * @param {string} id
      * @returns {*}
      * @memberof module:DashMetrics
      * @instance
-     */function getLatestFragmentRequestHeaderValueByID(metrics,id){var headers={};var httpRequest=getCurrentHttpRequest(metrics);if(httpRequest){headers = parseResponseHeaders(httpRequest._responseHeaders);}return headers[id] === undefined?null:headers[id];}function parseResponseHeaders(headerStr){var headers={};if(!headerStr){return headers;} // Trim headerStr to fix a MS Edge bug with xhr.getAllResponseHeaders method
+     */function getLatestMPDRequestHeaderValueByID(metrics,id){let headers={};let httpRequestList,httpRequest,i;httpRequestList=getHttpRequests(metrics);for(i=httpRequestList.length-1;i>=0;i--){httpRequest=httpRequestList[i];if(httpRequest.type===HTTPRequest.MPD_TYPE){headers=parseResponseHeaders(httpRequest._responseHeaders);break;}}return headers[id]===undefined?null:headers[id];}/**
+     * @param {MetricsList} metrics
+     * @param {string} id
+     * @returns {*}
+     * @memberof module:DashMetrics
+     * @instance
+     */function getLatestFragmentRequestHeaderValueByID(metrics,id){let headers={};let httpRequest=getCurrentHttpRequest(metrics);if(httpRequest){headers=parseResponseHeaders(httpRequest._responseHeaders);}return headers[id]===undefined?null:headers[id];}function parseResponseHeaders(headerStr){let headers={};if(!headerStr){return headers;}// Trim headerStr to fix a MS Edge bug with xhr.getAllResponseHeaders method
 // which send a string starting with a "\n" character
-var headerPairs=headerStr.trim().split('\r\n');for(var i=0,ilen=headerPairs.length;i < ilen;i++) {var headerPair=headerPairs[i];var index=headerPair.indexOf(': ');if(index > 0){headers[headerPair.substring(0,index)] = headerPair.substring(index + 2);}}return headers;}function findRepresentationIndex(period,representationId){var index=findRepresentation(period,representationId,true);if(index !== null){return index;}return -1;}function findRepresentation(period,representationId,returnIndex){var adaptationSet=undefined,adaptationSetArray=undefined,representation=undefined,representationArray=undefined,adaptationSetArrayIndex=undefined,representationArrayIndex=undefined;if(period){adaptationSetArray = period.AdaptationSet_asArray;for(adaptationSetArrayIndex = 0;adaptationSetArrayIndex < adaptationSetArray.length;adaptationSetArrayIndex = adaptationSetArrayIndex + 1) {adaptationSet = adaptationSetArray[adaptationSetArrayIndex];representationArray = adaptationSet.Representation_asArray;for(representationArrayIndex = 0;representationArrayIndex < representationArray.length;representationArrayIndex = representationArrayIndex + 1) {representation = representationArray[representationArrayIndex];if(representationId === representation.id){if(returnIndex){return representationArrayIndex;}else {return representation;}}}}}return null;}function adaptationIsType(adaptation,bufferType){return dashManifestModel.getIsTypeOf(adaptation,bufferType);}function findMaxBufferIndex(period,bufferType){var adaptationSet=undefined,adaptationSetArray=undefined,representationArray=undefined,adaptationSetArrayIndex=undefined;if(!period || !bufferType)return -1;adaptationSetArray = period.AdaptationSet_asArray;for(adaptationSetArrayIndex = 0;adaptationSetArrayIndex < adaptationSetArray.length;adaptationSetArrayIndex = adaptationSetArrayIndex + 1) {adaptationSet = adaptationSetArray[adaptationSetArrayIndex];representationArray = adaptationSet.Representation_asArray;if(adaptationIsType(adaptationSet,bufferType)){return representationArray.length;}}return -1;}instance = {getBandwidthForRepresentation:getBandwidthForRepresentation,getIndexForRepresentation:getIndexForRepresentation,getMaxIndexForBufferType:getMaxIndexForBufferType,getCurrentRepresentationSwitch:getCurrentRepresentationSwitch,getLatestBufferLevelVO:getLatestBufferLevelVO,getCurrentBufferLevel:getCurrentBufferLevel,getCurrentHttpRequest:getCurrentHttpRequest,getHttpRequests:getHttpRequests,getCurrentDroppedFrames:getCurrentDroppedFrames,getCurrentSchedulingInfo:getCurrentSchedulingInfo,getCurrentDVRInfo:getCurrentDVRInfo,getCurrentManifestUpdate:getCurrentManifestUpdate,getLatestFragmentRequestHeaderValueByID:getLatestFragmentRequestHeaderValueByID,getLatestMPDRequestHeaderValueByID:getLatestMPDRequestHeaderValueByID,getRequestsQueue:getRequestsQueue};return instance;}DashMetrics.__dashjs_factory_name = 'DashMetrics';exports['default'] = _coreFactoryMaker2['default'].getSingletonFactory(DashMetrics);module.exports = exports['default'];
+let headerPairs=headerStr.trim().split('\u000d\u000a');for(let i=0,ilen=headerPairs.length;i<ilen;i++){let headerPair=headerPairs[i];let index=headerPair.indexOf('\u003a\u0020');if(index>0){headers[headerPair.substring(0,index)]=headerPair.substring(index+2);}}return headers;}function findRepresentationIndex(period,representationId){const index=findRepresentation(period,representationId,true);if(index!==null){return index;}return-1;}function findRepresentation(period,representationId,returnIndex){let adaptationSet,adaptationSetArray,representation,representationArray,adaptationSetArrayIndex,representationArrayIndex;if(period){adaptationSetArray=period.AdaptationSet_asArray;for(adaptationSetArrayIndex=0;adaptationSetArrayIndex<adaptationSetArray.length;adaptationSetArrayIndex=adaptationSetArrayIndex+1){adaptationSet=adaptationSetArray[adaptationSetArrayIndex];representationArray=adaptationSet.Representation_asArray;for(representationArrayIndex=0;representationArrayIndex<representationArray.length;representationArrayIndex=representationArrayIndex+1){representation=representationArray[representationArrayIndex];if(representationId===representation.id){if(returnIndex){return representationArrayIndex;}else{return representation;}}}}}return null;}function adaptationIsType(adaptation,bufferType){return dashManifestModel.getIsTypeOf(adaptation,bufferType);}function findMaxBufferIndex(period,bufferType){let adaptationSet,adaptationSetArray,representationArray,adaptationSetArrayIndex;if(!period||!bufferType)return-1;adaptationSetArray=period.AdaptationSet_asArray;for(adaptationSetArrayIndex=0;adaptationSetArrayIndex<adaptationSetArray.length;adaptationSetArrayIndex=adaptationSetArrayIndex+1){adaptationSet=adaptationSetArray[adaptationSetArrayIndex];representationArray=adaptationSet.Representation_asArray;if(adaptationIsType(adaptationSet,bufferType)){return representationArray.length;}}return-1;}instance={getBandwidthForRepresentation:getBandwidthForRepresentation,getIndexForRepresentation:getIndexForRepresentation,getMaxIndexForBufferType:getMaxIndexForBufferType,getCurrentRepresentationSwitch:getCurrentRepresentationSwitch,getLatestBufferLevelVO:getLatestBufferLevelVO,getCurrentBufferLevel:getCurrentBufferLevel,getCurrentHttpRequest:getCurrentHttpRequest,getHttpRequests:getHttpRequests,getCurrentDroppedFrames:getCurrentDroppedFrames,getCurrentSchedulingInfo:getCurrentSchedulingInfo,getCurrentDVRInfo:getCurrentDVRInfo,getCurrentManifestUpdate:getCurrentManifestUpdate,getLatestFragmentRequestHeaderValueByID:getLatestFragmentRequestHeaderValueByID,getLatestMPDRequestHeaderValueByID:getLatestMPDRequestHeaderValueByID,getRequestsQueue:getRequestsQueue};return instance;}DashMetrics.__dashjs_factory_name='DashMetrics';export default FactoryMaker.getSingletonFactory(DashMetrics);
 //# sourceMappingURL=DashMetrics.js.map

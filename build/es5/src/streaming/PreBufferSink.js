@@ -27,18 +27,18 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _coreDebug=require('../core/Debug');var _coreDebug2=_interopRequireDefault(_coreDebug);var _coreFactoryMaker=require('../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker); /**
+ */import Debug from'../core/Debug';import FactoryMaker from'../core/FactoryMaker';/**
  * This is a sink that is used to temporarily hold onto media chunks before a video element is added.
  * The discharge() function is used to get the chunks out of the PreBuffer for adding to a real SourceBuffer.
  *
  * @class PreBufferSink
  * @implements FragmentSink
- */function PreBufferSink(onAppendedCallback){var context=this.context;var instance=undefined,logger=undefined,outstandingInit=undefined;var chunks=[];var onAppended=onAppendedCallback;function setup(){logger = (0,_coreDebug2['default'])(context).getInstance().getLogger(instance);}function reset(){chunks = [];outstandingInit = null;onAppended = null;}function append(chunk){if(chunk.segmentType !== 'InitializationSegment'){ //Init segments are stored in the initCache.
-chunks.push(chunk);chunks.sort(function(a,b){return a.start - b.start;});outstandingInit = null;}else { //We need to hold an init chunk for when a corresponding media segment is being downloaded when the discharge happens.
-outstandingInit = chunk;}logger.debug('PreBufferSink appended chunk s: ' + chunk.start + '; e: ' + chunk.end);if(onAppended){onAppended({chunk:chunk});}}function remove(start,end){chunks = chunks.filter(function(a){return !((isNaN(end) || a.start < end) && (isNaN(start) || a.end > start));}); //The opposite of the getChunks predicate.
-} //Nothing async, nothing to abort.
-function abort(){}function getAllBufferRanges(){var ranges=[];for(var i=0;i < chunks.length;i++) {var chunk=chunks[i];if(ranges.length === 0 || chunk.start > ranges[ranges.length - 1].end){ranges.push({start:chunk.start,end:chunk.end});}else {ranges[ranges.length - 1].end = chunk.end;}} //Implements TimeRanges interface. So acts just like sourceBuffer.buffered.
-var timeranges={start:function start(n){return ranges[n].start;},end:function end(n){return ranges[n].end;}};Object.defineProperty(timeranges,'length',{get:function get(){return ranges.length;}});return timeranges;}function hasDiscontinuitiesAfter(){return false;}function updateTimestampOffset(){} // Nothing to do
+ */function PreBufferSink(onAppendedCallback){const context=this.context;let instance,logger,outstandingInit;let chunks=[];let onAppended=onAppendedCallback;function setup(){logger=Debug(context).getInstance().getLogger(instance);}function reset(){chunks=[];outstandingInit=null;onAppended=null;}function append(chunk){if(chunk.segmentType!=='InitializationSegment'){//Init segments are stored in the initCache.
+chunks.push(chunk);chunks.sort(function(a,b){return a.start-b.start;});outstandingInit=null;}else{//We need to hold an init chunk for when a corresponding media segment is being downloaded when the discharge happens.
+outstandingInit=chunk;}logger.debug('PreBufferSink appended chunk s: '+chunk.start+'; e: '+chunk.end);if(onAppended){onAppended({chunk:chunk});}}function remove(start,end){chunks=chunks.filter(a=>!((isNaN(end)||a.start<end)&&(isNaN(start)||a.end>start)));//The opposite of the getChunks predicate.
+}//Nothing async, nothing to abort.
+function abort(){}function getAllBufferRanges(){let ranges=[];for(let i=0;i<chunks.length;i++){let chunk=chunks[i];if(ranges.length===0||chunk.start>ranges[ranges.length-1].end){ranges.push({start:chunk.start,end:chunk.end});}else{ranges[ranges.length-1].end=chunk.end;}}//Implements TimeRanges interface. So acts just like sourceBuffer.buffered.
+const timeranges={start:function(n){return ranges[n].start;},end:function(n){return ranges[n].end;}};Object.defineProperty(timeranges,'length',{get:function(){return ranges.length;}});return timeranges;}function hasDiscontinuitiesAfter(){return false;}function updateTimestampOffset(){}// Nothing to do
 /**
      * Return the all chunks in the buffer the lie between times start and end.
      * Because a chunk cannot be split, this returns the full chunk if any part of its time lies in the requested range.
@@ -47,5 +47,5 @@ var timeranges={start:function start(n){return ranges[n].start;},end:function en
      * @param {?Number} start The start time from which to discharge from the buffer. If NaN, it is regarded as unbounded.
      * @param {?Number} end The end time from which to discharge from the buffer. If NaN, it is regarded as unbounded.
      * @returns {Array} The set of chunks from the buffer within the time ranges.
-     */function discharge(start,end){var result=getChunksAt(start,end);if(outstandingInit){result.push(outstandingInit);outstandingInit = null;}remove(start,end);return result;}function getChunksAt(start,end){return chunks.filter(function(a){return (isNaN(end) || a.start < end) && (isNaN(start) || a.end > start);});}instance = {getAllBufferRanges:getAllBufferRanges,append:append,remove:remove,abort:abort,discharge:discharge,reset:reset,updateTimestampOffset:updateTimestampOffset,hasDiscontinuitiesAfter:hasDiscontinuitiesAfter};setup();return instance;}PreBufferSink.__dashjs_factory_name = 'PreBufferSink';var factory=_coreFactoryMaker2['default'].getClassFactory(PreBufferSink);exports['default'] = factory;module.exports = exports['default'];
+     */function discharge(start,end){const result=getChunksAt(start,end);if(outstandingInit){result.push(outstandingInit);outstandingInit=null;}remove(start,end);return result;}function getChunksAt(start,end){return chunks.filter(a=>(isNaN(end)||a.start<end)&&(isNaN(start)||a.end>start));}instance={getAllBufferRanges:getAllBufferRanges,append:append,remove:remove,abort:abort,discharge:discharge,reset:reset,updateTimestampOffset:updateTimestampOffset,hasDiscontinuitiesAfter:hasDiscontinuitiesAfter};setup();return instance;}PreBufferSink.__dashjs_factory_name='PreBufferSink';const factory=FactoryMaker.getClassFactory(PreBufferSink);export default factory;
 //# sourceMappingURL=PreBufferSink.js.map

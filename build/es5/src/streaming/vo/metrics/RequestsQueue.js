@@ -27,16 +27,16 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var RequestsQueue= /**
+ */class RequestsQueue{/**
      * @description This Object holds reference to Fragment Model's request queues
-     */function RequestsQueue(){_classCallCheck(this,RequestsQueue); /**
+     */constructor(){/**
          * Array of all of the requests that have begun to load
          * This request may not make it into the executed queue if it is abandon due to ABR rules for example.
          * @public
-         */this.loadingRequests = []; /**
+         */this.loadingRequests=[];/**
          * Array of the The requests that have completed
          * @public
-         */this.executedRequests = [];};exports["default"] = RequestsQueue;module.exports = exports["default"];
+         */this.executedRequests=[];}}export default RequestsQueue;
 //# sourceMappingURL=RequestsQueue.js.map

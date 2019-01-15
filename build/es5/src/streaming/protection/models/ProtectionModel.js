@@ -27,7 +27,7 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * Defines the public interface for all ProtectionModel implementations.
  *
  * ProtectionModel implementations provide access to particular versions
@@ -41,7 +41,7 @@
  * {@link module:ProtectionController}
  *
  * @interface ProtectionModel
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});var ProtectionModel=function ProtectionModel(){}; /**
+ */let ProtectionModel=function(){};/**
  * Returns an array of all initialization data currently used by
  * active sessions.
  * @function
@@ -49,7 +49,7 @@
  * @name getAllInitData
  * @memberof ProtectionModel
  * @returns {Array.<ArrayBuffer>} an array of initialization data buffers
- */ /**
+ *//**
  * Determine if the user-agent supports one of the given key systems and
  * content type configurations. Sends ENAME_KEY_SYSTEM_ACCESS_COMPLETE event
  * with a KeySystemAccess object as event data
@@ -66,7 +66,7 @@
  * @param {MediaPlayer.vo.protection.KeySystemConfiguration[]} ksConfigurations.configs
  * array of acceptable key system configurations
  * for this key system in priority order (highest priority first)
- */ /**
+ *//**
  * Selects the key system to use for all future operations on this
  * ProtectionModel.  Sends ENAME_KEY_SYSTEM_SELECTED with no data
  *
@@ -76,7 +76,7 @@
  * @memberof ProtectionModel
  * @param keySystemAccess {MediaPlayer.vo.protection.KeySystemAccess} the key
  * system access token representing a supported key system
- */ /**
+ *//**
  * Associate this protection model with a HTMLMediaElement
  *
  * @function
@@ -86,7 +86,7 @@
  * @param mediaElement {HTMLMediaElement} the media element to
  * which we should associate this protection model and all current
  * key sessions
- */ /**
+ *//**
  * Creates a new key session using the given initData and type. Sends
  * KEY_SESSION_CREATED event with MediaPlayer.vo.protection.SessionToken
  * as data.
@@ -102,7 +102,7 @@
  * @param {string} sessionType the desired session type.  One of "temporary",
  * "persistent-license", "persistent-release-message".  CDM implementations
  * are not required to support anything except "temporary"
- */ /**
+ *//**
  * Update the given key session with a key (or any other message
  * intended for the CDM)
  *
@@ -114,7 +114,7 @@
  * token
  * @param {ArrayBuffer} message the message that should be delivered to the CDM
  * for this session
- */ /**
+ *//**
  * Loads the persisted key session data associated with the given sessionID
  * into a new session.  Sends KEY_SESSION_CREATED event with
  * {@MediaPlayer.vo.protection.SessionToken} as data.
@@ -127,7 +127,7 @@
  * session data to be loaded
  * @param {ArrayBuffer} the corresponding initData PSSH box for the currently
  * selected key system.
- */ /**
+ *//**
  * Removes any persisted key session data associated with the given session.
  * Also closes the session.  Sends KEY_SESSION_REMOVED and
  * ENAME_KEY_SESSION_CLOSED with sessionID as data
@@ -138,7 +138,7 @@
  * @memberof ProtectionModel
  * @param {SessionToken} sessionToken the session
  * token
- */ /**
+ *//**
  * Close the given session and release all associated keys.  Following
  * this call, the sessionToken becomes invalid.  Sends KEY_SESSION_CLOSED
  * with sessionID as data
@@ -148,7 +148,7 @@
  * @name closeKeySession
  * @memberof ProtectionModel
  * @param sessionToken the session token
- */ /**
+ *//**
  * Sets the certificate to be used by the CDM for encrypting messages
  *
  * @function
@@ -156,7 +156,7 @@
  * @name setServerCertificate
  * @memberof ProtectionModel
  * @param {ArrayBuffer} serverCertificate
- */ /**
+ *//**
  * Currently selected key system.  Will be null or undefined if no key
  * system has yet been selected
  *
@@ -165,5 +165,5 @@
  * @memberof ProtectionModel
  * @readonly
  * @type MediaPlayer.dependencies.protection.KeySystem
- */exports["default"] = ProtectionModel;module.exports = exports["default"];
+ */export default ProtectionModel;
 //# sourceMappingURL=ProtectionModel.js.map

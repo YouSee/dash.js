@@ -27,5 +27,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _coreFactoryMaker=require('../../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker);function RequestModifier(){var instance=undefined;function modifyRequestURL(url){return url;}function modifyRequestHeader(request){return request;}instance = {modifyRequestURL:modifyRequestURL,modifyRequestHeader:modifyRequestHeader};return instance;}RequestModifier.__dashjs_factory_name = 'RequestModifier';exports['default'] = _coreFactoryMaker2['default'].getSingletonFactory(RequestModifier);module.exports = exports['default'];
+ */import FactoryMaker from'../../core/FactoryMaker';function RequestModifier(){let instance;function modifyRequestURL(url){return url;}function modifyRequestHeader(request){return request;}instance={modifyRequestURL:modifyRequestURL,modifyRequestHeader:modifyRequestHeader};return instance;}RequestModifier.__dashjs_factory_name='RequestModifier';export default FactoryMaker.getSingletonFactory(RequestModifier);
 //# sourceMappingURL=RequestModifier.js.map

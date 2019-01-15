@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var BitrateInfo=function BitrateInfo(){_classCallCheck(this,BitrateInfo);this.mediaType = null;this.bitrate = null;this.width = null;this.height = null;this.scanType = null;this.qualityIndex = NaN;};exports["default"] = BitrateInfo;module.exports = exports["default"];
+ */class BitrateInfo{constructor(){this.mediaType=null;this.bitrate=null;this.width=null;this.height=null;this.scanType=null;this.qualityIndex=NaN;}}export default BitrateInfo;
 //# sourceMappingURL=BitrateInfo.js.map

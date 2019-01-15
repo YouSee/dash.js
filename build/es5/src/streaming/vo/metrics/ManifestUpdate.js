@@ -27,86 +27,86 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc This Object holds reference to the manifest update information.
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var ManifestUpdate= /**
+ */class ManifestUpdate{/**
      * @class
-     */function ManifestUpdate(){_classCallCheck(this,ManifestUpdate); /**
+     */constructor(){/**
          * Media Type Video | Audio | FragmentedText
          * @public
-         */this.mediaType = null; /**
+         */this.mediaType=null;/**
          * MPD Type static | dynamic
          * @public
-         */this.type = null; /**
+         */this.type=null;/**
          * When this manifest update was requested
          * @public
-         */this.requestTime = null; /**
+         */this.requestTime=null;/**
          * When this manifest update was received
          * @public
-         */this.fetchTime = null; /**
+         */this.fetchTime=null;/**
          * Calculated Availability Start time of the stream.
          * @public
-         */this.availabilityStartTime = null; /**
+         */this.availabilityStartTime=null;/**
          * the seek point (liveEdge for dynamic, Stream[0].startTime for static)
          * @public
-         */this.presentationStartTime = 0; /**
+         */this.presentationStartTime=0;/**
          * The calculated difference between the server and client wall clock time
          * @public
-         */this.clientTimeOffset = 0; /**
+         */this.clientTimeOffset=0;/**
          * Actual element.currentTime
          * @public
-         */this.currentTime = null; /**
+         */this.currentTime=null;/**
          * Actual element.ranges
          * @public
-         */this.buffered = null; /**
+         */this.buffered=null;/**
          * Static is fixed value of zero. dynamic should be ((Now-@availabilityStartTime) - elementCurrentTime)
          * @public
-         */this.latency = 0; /**
+         */this.latency=0;/**
          * Array holding list of StreamInfo VO Objects
          * @public
-         */this.streamInfo = []; /**
+         */this.streamInfo=[];/**
          * Array holding list of RepresentationInfo VO Objects
          * @public
-         */this.representationInfo = [];} /**
+         */this.representationInfo=[];}}/**
  * @classdesc This Object holds reference to the current period's stream information when the manifest was updated.
- */;var ManifestUpdateStreamInfo= /**
+ */class ManifestUpdateStreamInfo{/**
      * @class
-     */function ManifestUpdateStreamInfo(){_classCallCheck(this,ManifestUpdateStreamInfo); /**
+     */constructor(){/**
          * Stream@id
          * @public
-         */this.id = null; /**
+         */this.id=null;/**
          * Period Index
          * @public
-         */this.index = null; /**
+         */this.index=null;/**
          * Stream@start
          * @public
-         */this.start = null; /**
+         */this.start=null;/**
          * Stream@duration
          * @public
-         */this.duration = null;} /**
+         */this.duration=null;}}/**
  * @classdesc This Object holds reference to the current representation's info when the manifest was updated.
- */;var ManifestUpdateRepresentationInfo= /**
+ */class ManifestUpdateRepresentationInfo{/**
      * @class
-     */function ManifestUpdateRepresentationInfo(){_classCallCheck(this,ManifestUpdateRepresentationInfo); /**
+     */constructor(){/**
          * Track@id
          * @public
-         */this.id = null; /**
+         */this.id=null;/**
          * Representation Index
          * @public
-         */this.index = null; /**
+         */this.index=null;/**
          * Media Type Video | Audio | FragmentedText
          * @public
-         */this.mediaType = null; /**
+         */this.mediaType=null;/**
          * Which representation
          * @public
-         */this.streamIndex = null; /**
+         */this.streamIndex=null;/**
          * Holds reference to @presentationTimeOffset
          * @public
-         */this.presentationTimeOffset = null; /**
+         */this.presentationTimeOffset=null;/**
          * Holds reference to @startNumber
          * @public
-         */this.startNumber = null; /**
+         */this.startNumber=null;/**
          * list|template|timeline
          * @public
-         */this.fragmentInfoType = null;};exports.ManifestUpdate = ManifestUpdate;exports.ManifestUpdateStreamInfo = ManifestUpdateStreamInfo;exports.ManifestUpdateRepresentationInfo = ManifestUpdateRepresentationInfo;
+         */this.fragmentInfoType=null;}}export{ManifestUpdate,ManifestUpdateStreamInfo,ManifestUpdateRepresentationInfo};
 //# sourceMappingURL=ManifestUpdate.js.map

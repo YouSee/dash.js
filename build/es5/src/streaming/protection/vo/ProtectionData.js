@@ -27,11 +27,11 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc Data provided for a particular piece of content to customize license server URLs,
  *  license server HTTP request headers, clearkeys, or other content-specific data
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var ProtectionData= /**
+ */class ProtectionData{/**
      * @param {string|Object} serverURL a license server URL to use with this key system.
      * When specified as a string, a single URL will be used regardless of message type.
      * When specified as an object, the object will have property names for each message
@@ -43,7 +43,7 @@
      * the key system.  Object properties are base64-encoded keyIDs (with no padding).
      * Corresponding property values are keys, base64-encoded (no padding).
      * @class
-     */function ProtectionData(serverURL,httpRequestHeaders,clearkeys){_classCallCheck(this,ProtectionData);this.serverURL = serverURL;this.httpRequestHeaders = httpRequestHeaders;this.clearkeys = clearkeys;} /**
+     */constructor(serverURL,httpRequestHeaders,clearkeys){this.serverURL=serverURL;this.httpRequestHeaders=httpRequestHeaders;this.clearkeys=clearkeys;}}/**
  * License server URL
  *
  * @instance
@@ -51,7 +51,7 @@
  * @name ProtectionData.serverURL
  * @readonly
  * @memberof ProtectionData
- */ /**
+ *//**
  * HTTP Request Headers for use in license requests.  Each property name
  * in the object is a header name with its corresponding header value being
  * the property value
@@ -61,7 +61,7 @@
  * @name ProtectionData.httpRequestsHeaders
  * @readonly
  * @memberof ProtectionData
- */ /**
+ *//**
  * ClearKey key-pairs that can be used to decrypt the content
  *
  * @instance
@@ -69,5 +69,5 @@
  * @name ProtectionData.clearkeys
  * @readonly
  * @memberof ProtectionData
- */;exports["default"] = ProtectionData;module.exports = exports["default"];
+ */export default ProtectionData;
 //# sourceMappingURL=ProtectionData.js.map

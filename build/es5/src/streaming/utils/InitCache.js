@@ -27,7 +27,7 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * Represents data structure to keep and drive {DataChunk}
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _coreFactoryMaker=require('../../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker);function InitCache(){var data={};function save(chunk){var id=chunk.streamId;var representationId=chunk.representationId;data[id] = data[id] || {};data[id][representationId] = chunk;}function extract(streamId,representationId){if(data && data[streamId] && data[streamId][representationId]){return data[streamId][representationId];}else {return null;}}function reset(){data = {};}var instance={save:save,extract:extract,reset:reset};return instance;}InitCache.__dashjs_factory_name = 'InitCache';exports['default'] = _coreFactoryMaker2['default'].getSingletonFactory(InitCache);module.exports = exports['default'];
+ */import FactoryMaker from'../../core/FactoryMaker';function InitCache(){let data={};function save(chunk){const id=chunk.streamId;const representationId=chunk.representationId;data[id]=data[id]||{};data[id][representationId]=chunk;}function extract(streamId,representationId){if(data&&data[streamId]&&data[streamId][representationId]){return data[streamId][representationId];}else{return null;}}function reset(){data={};}const instance={save:save,extract:extract,reset:reset};return instance;}InitCache.__dashjs_factory_name='InitCache';export default FactoryMaker.getSingletonFactory(InitCache);
 //# sourceMappingURL=InitCache.js.map

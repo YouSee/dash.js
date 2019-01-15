@@ -27,7 +27,7 @@
 *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 *  POSSIBILITY OF SUCH DAMAGE.
-*/'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _coreFactoryMaker=require('../../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker);var _utilsSupervisorTools=require('../utils/SupervisorTools');function CustomTimeRanges() /*config*/{var customTimeRangeArray=[];var length=0;function add(start,end){var i=0;for(i = 0;i < this.customTimeRangeArray.length && start > this.customTimeRangeArray[i].start;i++);this.customTimeRangeArray.splice(i,0,{start:start,end:end});for(i = 0;i < this.customTimeRangeArray.length - 1;i++) {if(this.mergeRanges(i,i + 1)){i--;}}this.length = this.customTimeRangeArray.length;}function clear(){this.customTimeRangeArray = [];this.length = 0;}function remove(start,end){for(var i=0;i < this.customTimeRangeArray.length;i++) {if(start <= this.customTimeRangeArray[i].start && end >= this.customTimeRangeArray[i].end){ //      |--------------Range i-------|
+*/import FactoryMaker from'../../core/FactoryMaker';import{checkInteger}from'../utils/SupervisorTools';function CustomTimeRanges()/*config*/{let customTimeRangeArray=[];let length=0;function add(start,end){let i=0;for(i=0;i<this.customTimeRangeArray.length&&start>this.customTimeRangeArray[i].start;i++);this.customTimeRangeArray.splice(i,0,{start:start,end:end});for(i=0;i<this.customTimeRangeArray.length-1;i++){if(this.mergeRanges(i,i+1)){i--;}}this.length=this.customTimeRangeArray.length;}function clear(){this.customTimeRangeArray=[];this.length=0;}function remove(start,end){for(let i=0;i<this.customTimeRangeArray.length;i++){if(start<=this.customTimeRangeArray[i].start&&end>=this.customTimeRangeArray[i].end){//      |--------------Range i-------|
 //|---------------Range to remove ---------------|
 //    or
 //|--------------Range i-------|
@@ -35,25 +35,25 @@
 //    or
 //                 |--------------Range i-------|
 //|--------------Range to remove ---------------|
-this.customTimeRangeArray.splice(i,1);i--;}else if(start > this.customTimeRangeArray[i].start && end < this.customTimeRangeArray[i].end){ //|-----------------Range i----------------|
+this.customTimeRangeArray.splice(i,1);i--;}else if(start>this.customTimeRangeArray[i].start&&end<this.customTimeRangeArray[i].end){//|-----------------Range i----------------|
 //        |-------Range to remove -----|
-this.customTimeRangeArray.splice(i + 1,0,{start:end,end:this.customTimeRangeArray[i].end});this.customTimeRangeArray[i].end = start;break;}else if(start > this.customTimeRangeArray[i].start && start < this.customTimeRangeArray[i].end){ //|-----------Range i----------|
+this.customTimeRangeArray.splice(i+1,0,{start:end,end:this.customTimeRangeArray[i].end});this.customTimeRangeArray[i].end=start;break;}else if(start>this.customTimeRangeArray[i].start&&start<this.customTimeRangeArray[i].end){//|-----------Range i----------|
 //                    |---------Range to remove --------|
 //    or
 //|-----------------Range i----------------|
 //            |-------Range to remove -----|
-this.customTimeRangeArray[i].end = start;}else if(end > this.customTimeRangeArray[i].start && end < this.customTimeRangeArray[i].end){ //                     |-----------Range i----------|
+this.customTimeRangeArray[i].end=start;}else if(end>this.customTimeRangeArray[i].start&&end<this.customTimeRangeArray[i].end){//                     |-----------Range i----------|
 //|---------Range to remove --------|
 //            or
 //|-----------------Range i----------------|
 //|-------Range to remove -----|
-this.customTimeRangeArray[i].start = end;}}this.length = this.customTimeRangeArray.length;}function mergeRanges(rangeIndex1,rangeIndex2){var range1=this.customTimeRangeArray[rangeIndex1];var range2=this.customTimeRangeArray[rangeIndex2];if(range1.start <= range2.start && range2.start <= range1.end && range1.end <= range2.end){ //|-----------Range1----------|
+this.customTimeRangeArray[i].start=end;}}this.length=this.customTimeRangeArray.length;}function mergeRanges(rangeIndex1,rangeIndex2){let range1=this.customTimeRangeArray[rangeIndex1];let range2=this.customTimeRangeArray[rangeIndex2];if(range1.start<=range2.start&&range2.start<=range1.end&&range1.end<=range2.end){//|-----------Range1----------|
 //                    |-----------Range2----------|
-range1.end = range2.end;this.customTimeRangeArray.splice(rangeIndex2,1);return true;}else if(range2.start <= range1.start && range1.start <= range2.end && range2.end <= range1.end){ //                |-----------Range1----------|
+range1.end=range2.end;this.customTimeRangeArray.splice(rangeIndex2,1);return true;}else if(range2.start<=range1.start&&range1.start<=range2.end&&range2.end<=range1.end){//                |-----------Range1----------|
 //|-----------Range2----------|
-range1.start = range2.start;this.customTimeRangeArray.splice(rangeIndex2,1);return true;}else if(range2.start <= range1.start && range1.start <= range2.end && range1.end <= range2.end){ //      |--------Range1-------|
+range1.start=range2.start;this.customTimeRangeArray.splice(rangeIndex2,1);return true;}else if(range2.start<=range1.start&&range1.start<=range2.end&&range1.end<=range2.end){//      |--------Range1-------|
 //|---------------Range2--------------|
-this.customTimeRangeArray.splice(rangeIndex1,1);return true;}else if(range1.start <= range2.start && range2.start <= range1.end && range2.end <= range1.end){ //|-----------------Range1--------------|
+this.customTimeRangeArray.splice(rangeIndex1,1);return true;}else if(range1.start<=range2.start&&range2.start<=range1.end&&range2.end<=range1.end){//|-----------------Range1--------------|
 //        |-----------Range2----------|
-this.customTimeRangeArray.splice(rangeIndex2,1);return true;}return false;}function start(index){(0,_utilsSupervisorTools.checkInteger)(index);if(index >= this.customTimeRangeArray.length || index < 0){return NaN;}return this.customTimeRangeArray[index].start;}function end(index){(0,_utilsSupervisorTools.checkInteger)(index);if(index >= this.customTimeRangeArray.length || index < 0){return NaN;}return this.customTimeRangeArray[index].end;}return {customTimeRangeArray:customTimeRangeArray,length:length,add:add,clear:clear,remove:remove,mergeRanges:mergeRanges,start:start,end:end};}CustomTimeRanges.__dashjs_factory_name = 'CustomTimeRanges';exports['default'] = _coreFactoryMaker2['default'].getClassFactory(CustomTimeRanges);module.exports = exports['default'];
+this.customTimeRangeArray.splice(rangeIndex2,1);return true;}return false;}function start(index){checkInteger(index);if(index>=this.customTimeRangeArray.length||index<0){return NaN;}return this.customTimeRangeArray[index].start;}function end(index){checkInteger(index);if(index>=this.customTimeRangeArray.length||index<0){return NaN;}return this.customTimeRangeArray[index].end;}return{customTimeRangeArray:customTimeRangeArray,length:length,add:add,clear:clear,remove:remove,mergeRanges:mergeRanges,start:start,end:end};}CustomTimeRanges.__dashjs_factory_name='CustomTimeRanges';export default FactoryMaker.getClassFactory(CustomTimeRanges);
 //# sourceMappingURL=CustomTimeRanges.js.map

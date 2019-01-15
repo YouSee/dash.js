@@ -27,57 +27,57 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc a PlayList from ISO23009-1 Annex D, this Object holds reference to the playback session information
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var PlayList= /**
+ */class PlayList{/**
      * @class
-     */function PlayList(){_classCallCheck(this,PlayList); /**
+     */constructor(){/**
          * Timestamp of the user action that starts the playback stream...
          * @public
-         */this.start = null; /**
+         */this.start=null;/**
          * Presentation time at which playout was requested by the user...
          * @public
-         */this.mstart = null; /**
+         */this.mstart=null;/**
          * Type of user action which triggered playout
          * - New playout request (e.g. initial playout or seeking)
          * - Resume from pause
          * - Other user request (e.g. user-requested quality change)
          * - Start of a metrics collection stream (hence earlier entries in the play list not collected)
          * @public
-         */this.starttype = null; /**
+         */this.starttype=null;/**
          * List of streams of continuous rendering of decoded samples.
          * @public
-         */this.trace = [];} /* Public Static Constants */;PlayList.INITIAL_PLAYOUT_START_REASON = 'initial_playout';PlayList.SEEK_START_REASON = 'seek';PlayList.RESUME_FROM_PAUSE_START_REASON = 'resume';PlayList.METRICS_COLLECTION_START_REASON = 'metrics_collection_start'; /**
+         */this.trace=[];}}/* Public Static Constants */PlayList.INITIAL_PLAYOUT_START_REASON='initial_playout';PlayList.SEEK_START_REASON='seek';PlayList.RESUME_FROM_PAUSE_START_REASON='resume';PlayList.METRICS_COLLECTION_START_REASON='metrics_collection_start';/**
  * @classdesc a PlayList.Trace from ISO23009-1 Annex D
- */var PlayListTrace= /**
+ */class PlayListTrace{/**
      * @class
-     */function PlayListTrace(){_classCallCheck(this,PlayListTrace); /**
+     */constructor(){/**
          * The value of the Representation@id of the Representation from which the samples were taken.
          * @type {string}
          * @public
-         */this.representationid = null; /**
+         */this.representationid=null;/**
          * If not present, this metrics concerns the Representation as a whole.
          * If present, subreplevel indicates the greatest value of any
          * Subrepresentation@level being rendered.
          * @type {number}
          * @public
-         */this.subreplevel = null; /**
+         */this.subreplevel=null;/**
          * The time at which the first sample was rendered
          * @type {number}
          * @public
-         */this.start = null; /**
+         */this.start=null;/**
          * The presentation time of the first sample rendered.
          * @type {number}
          * @public
-         */this.mstart = null; /**
+         */this.mstart=null;/**
          * The duration of the continuously presented samples (which is the same in real time and media time). "Continuously presented" means that the media clock continued to advance at the playout speed throughout the interval. NOTE: the spec does not call out the units, but all other durations etc are in ms, and we use ms too.
          * @type {number}
          * @public
-         */this.duration = null; /**
+         */this.duration=null;/**
          * The playback speed relative to normal playback speed (i.e.normal forward playback speed is 1.0).
          * @type {number}
          * @public
-         */this.playbackspeed = null; /**
+         */this.playbackspeed=null;/**
          * The reason why continuous presentation of this Representation was stopped.
          * representation switch
          * rebuffering
@@ -89,5 +89,5 @@
          *
          * @type {string}
          * @public
-         */this.stopreason = null;};PlayListTrace.REPRESENTATION_SWITCH_STOP_REASON = 'representation_switch';PlayListTrace.REBUFFERING_REASON = 'rebuffering';PlayListTrace.USER_REQUEST_STOP_REASON = 'user_request';PlayListTrace.END_OF_PERIOD_STOP_REASON = 'end_of_period';PlayListTrace.END_OF_CONTENT_STOP_REASON = 'end_of_content';PlayListTrace.METRICS_COLLECTION_STOP_REASON = 'metrics_collection_end';PlayListTrace.FAILURE_STOP_REASON = 'failure';exports.PlayList = PlayList;exports.PlayListTrace = PlayListTrace;
+         */this.stopreason=null;}}PlayListTrace.REPRESENTATION_SWITCH_STOP_REASON='representation_switch';PlayListTrace.REBUFFERING_REASON='rebuffering';PlayListTrace.USER_REQUEST_STOP_REASON='user_request';PlayListTrace.END_OF_PERIOD_STOP_REASON='end_of_period';PlayListTrace.END_OF_CONTENT_STOP_REASON='end_of_content';PlayListTrace.METRICS_COLLECTION_STOP_REASON='metrics_collection_end';PlayListTrace.FAILURE_STOP_REASON='failure';export{PlayList,PlayListTrace};
 //# sourceMappingURL=PlayList.js.map

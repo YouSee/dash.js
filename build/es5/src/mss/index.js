@@ -27,6 +27,6 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _MssHandler=require('./MssHandler');var _MssHandler2=_interopRequireDefault(_MssHandler); // Shove both of these into the global scope
-var context=typeof window !== 'undefined' && window || global;var dashjs=context.dashjs;if(!dashjs){dashjs = context.dashjs = {};}dashjs.MssHandler = _MssHandler2['default'];exports['default'] = dashjs;exports.MssHandler = _MssHandler2['default'];
+ */import MssHandler from'./MssHandler';// Shove both of these into the global scope
+var context=typeof window!=='undefined'&&window||global;var dashjs=context.dashjs;if(!dashjs){dashjs=context.dashjs={};}dashjs.MssHandler=MssHandler;export default dashjs;export{MssHandler};
 //# sourceMappingURL=index.js.map

@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @classdesc a base type for matching and converting types in manifest to
  * something more useful
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if("value" in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var BaseMatcher=(function(){function BaseMatcher(test,converter){_classCallCheck(this,BaseMatcher);this._test = test;this._converter = converter;}_createClass(BaseMatcher,[{key:"test",get:function get(){return this._test;}},{key:"converter",get:function get(){return this._converter;}}]);return BaseMatcher;})();exports["default"] = BaseMatcher;module.exports = exports["default"];
+ */class BaseMatcher{constructor(test,converter){this._test=test;this._converter=converter;}get test(){return this._test;}get converter(){return this._converter;}}export default BaseMatcher;
 //# sourceMappingURL=BaseMatcher.js.map

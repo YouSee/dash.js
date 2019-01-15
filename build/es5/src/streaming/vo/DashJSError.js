@@ -27,8 +27,8 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var DashJSError=function DashJSError(code,message,data){_classCallCheck(this,DashJSError);this.code = code || null;this.message = message || null;this.data = data || null;};exports["default"] = DashJSError;module.exports = exports["default"];
+ */class DashJSError{constructor(code,message,data){this.code=code||null;this.message=message||null;this.data=data||null;}}export default DashJSError;
 //# sourceMappingURL=DashJSError.js.map

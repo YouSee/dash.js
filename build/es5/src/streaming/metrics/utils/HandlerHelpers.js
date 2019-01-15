@@ -27,7 +27,7 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function HandlerHelpers(){return {reconstructFullMetricName:function reconstructFullMetricName(key,n,type){var mn=key;if(n){mn += '(' + n;if(type && type.length){mn += ',' + type;}mn += ')';}return mn;},validateN:function validateN(n_ms){if(!n_ms){throw new Error('missing n');}if(isNaN(n_ms)){throw new Error('n is NaN');} // n is a positive integer is defined to refer to the metric
+ */function HandlerHelpers(){return{reconstructFullMetricName:function(key,n,type){let mn=key;if(n){mn+='('+n;if(type&&type.length){mn+=','+type;}mn+=')';}return mn;},validateN:function(n_ms){if(!n_ms){throw new Error('missing n');}if(isNaN(n_ms)){throw new Error('n is NaN');}// n is a positive integer is defined to refer to the metric
 // in which the buffer level is recorded every n ms.
-if(n_ms < 0){throw new Error('n must be positive');}return n_ms;}};}HandlerHelpers.__dashjs_factory_name = 'HandlerHelpers';exports['default'] = dashjs.FactoryMaker.getSingletonFactory(HandlerHelpers); /* jshint ignore:line */module.exports = exports['default'];
+if(n_ms<0){throw new Error('n must be positive');}return n_ms;}};}HandlerHelpers.__dashjs_factory_name='HandlerHelpers';export default dashjs.FactoryMaker.getSingletonFactory(HandlerHelpers);/* jshint ignore:line */
 //# sourceMappingURL=HandlerHelpers.js.map

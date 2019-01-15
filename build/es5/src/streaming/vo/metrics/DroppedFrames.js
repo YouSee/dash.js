@@ -27,15 +27,15 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
- */"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var DroppedFrames= /**
+ */class DroppedFrames{/**
      * @description This Object holds reference to DroppedFrames count and the time it was recorded.
-     */function DroppedFrames(){_classCallCheck(this,DroppedFrames); /**
+     */constructor(){/**
          * Real-Time | Time of the measurement of the dropped frames.
          * @public
-         */this.time = null; /**
+         */this.time=null;/**
          * Number of dropped frames
          * @public
-         */this.droppedFrames = null;};exports["default"] = DroppedFrames;module.exports = exports["default"];
+         */this.droppedFrames=null;}}export default DroppedFrames;
 //# sourceMappingURL=DroppedFrames.js.map

@@ -27,9 +27,9 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var UTCTiming=function UTCTiming(){_classCallCheck(this,UTCTiming); // UTCTiming is a DescriptorType and doesn't have any additional fields
-this.schemeIdUri = '';this.value = '';};exports['default'] = UTCTiming;module.exports = exports['default'];
+ */class UTCTiming{constructor(){// UTCTiming is a DescriptorType and doesn't have any additional fields
+this.schemeIdUri='';this.value='';}}export default UTCTiming;
 //# sourceMappingURL=UTCTiming.js.map

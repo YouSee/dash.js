@@ -27,19 +27,19 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function MetricSerialiser(){ // For each entry in the top level list within the metric (in the case
+ */function MetricSerialiser(){// For each entry in the top level list within the metric (in the case
 // of the DVBErrors metric each entry corresponds to an "error event"
 // described in clause 10.8.4) the Player shall:
-function serialise(metric){var pairs=[];var obj=[];var key=undefined,value=undefined; // Take each (key, value) pair from the metric entry and create a
+function serialise(metric){let pairs=[];let obj=[];let key,value;// Take each (key, value) pair from the metric entry and create a
 // string consisting of the name of the key, followed by an equals
 // ('=') character, followed by the string representation of the
 // value. The string representation of the value is created based
 // on the type of the value following the instructions in Table 22.
-for(key in metric) {if(metric.hasOwnProperty(key) && key.indexOf('_') !== 0){value = metric[key]; // we want to ensure that keys still end up in the report
+for(key in metric){if(metric.hasOwnProperty(key)&&key.indexOf('_')!==0){value=metric[key];// we want to ensure that keys still end up in the report
 // even if there is no value
-if(value === undefined || value === null){value = '';} // DVB A168 10.12.4 Table 22
-if(Array.isArray(value)){ // if trace or similar is null, do not include in output
-if(!value.length){continue;}obj = [];value.forEach(function(v){var isBuiltIn=Object.prototype.toString.call(v).slice(8,-1) !== 'Object';obj.push(isBuiltIn?v:serialise(v));});value = obj.map(encodeURIComponent).join(',');}else if(typeof value === 'string'){value = encodeURIComponent(value);}else if(value instanceof Date){value = value.toISOString();}else if(typeof value === 'number'){value = Math.round(value);}pairs.push(key + '=' + value);}} // Concatenate the strings created in the previous step with an
+if(value===undefined||value===null){value='';}// DVB A168 10.12.4 Table 22
+if(Array.isArray(value)){// if trace or similar is null, do not include in output
+if(!value.length){continue;}obj=[];value.forEach(function(v){let isBuiltIn=Object.prototype.toString.call(v).slice(8,-1)!=='Object';obj.push(isBuiltIn?v:serialise(v));});value=obj.map(encodeURIComponent).join(',');}else if(typeof value==='string'){value=encodeURIComponent(value);}else if(value instanceof Date){value=value.toISOString();}else if(typeof value==='number'){value=Math.round(value);}pairs.push(key+'='+value);}}// Concatenate the strings created in the previous step with an
 // ampersand ('&') character between each one.
-return pairs.join('&');}return {serialise:serialise};}MetricSerialiser.__dashjs_factory_name = 'MetricSerialiser';exports['default'] = dashjs.FactoryMaker.getSingletonFactory(MetricSerialiser); /* jshint ignore:line */module.exports = exports['default'];
+return pairs.join('&');}return{serialise:serialise};}MetricSerialiser.__dashjs_factory_name='MetricSerialiser';export default dashjs.FactoryMaker.getSingletonFactory(MetricSerialiser);/* jshint ignore:line */
 //# sourceMappingURL=MetricSerialiser.js.map

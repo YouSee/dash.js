@@ -1,4 +1,4 @@
-"use strict"; /**
+/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,12 +27,12 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * Defines the public interface for all Key Systems (DRMs) supported
  * by the player.
  *
  * @interface KeySystem
- */ /**
+ *//**
  * Key system name string (e.g. 'org.w3.clearkey')
  *
  * @instance
@@ -40,7 +40,7 @@
  * @memberof KeySystem
  * @readonly
  * @type String
- */ /**
+ *//**
  * Key system UUID in the form '01234567-89ab-cdef-0123-456789abcdef'
  *
  * @instance
@@ -48,7 +48,7 @@
  * @memberof KeySystem
  * @readonly
  * @type String
- */ /**
+ *//**
  * The scheme ID URI for this key system in the form
  * 'urn:uuid:01234567-89ab-cdef-0123-456789abcdef' as used
  * in DASH ContentProtection elements
@@ -58,7 +58,7 @@
  * @memberof KeySystem
  * @readonly
  * @type String
- */ /**
+ *//**
  * Parse DRM-specific init data from the ContentProtection
  * element.
  *
@@ -68,7 +68,7 @@
  * object representing the ContentProtection element parsed from the
  * MPD XML document.
  * @returns {ArrayBuffer} EME initialization data
- */ /**
+ *//**
  * For some key systems, the CDM message contains HTTP headers that
  * can be parsed by the application and attached to the license request.
  * Returns a header object with key/value pairs as object properties/values
@@ -80,7 +80,7 @@
  * names and header values as the corresponding object property values.  Return
  * null if no such headers were found or if the mechanism is not supported by
  * this key system
- */ /**
+ *//**
  * For some key systems, the CDM message contains more than just the
  * license request data.  This method will pull the license request from
  * the CDM message, if necessary.
@@ -90,7 +90,7 @@
  * @param message {ArrayBuffer} the CDM message
  * @returns {Uint8Array} the license request message as will be passed to
  * XMLHttpRequest.send()
- */ /**
+ *//**
  * Returns a license server URL as parsed from key system initialization data (PSSH).
  *
  * @function
@@ -98,13 +98,13 @@
  * @param initData {ArrayBuffer} the initialization data.  This is just the "Data" field
  * from the PSSH box definition
  * @returns {?string} The license server URL or null if URL is not available in initData
- */ /**
+ *//**
  * Returns specific CDM (custom) data.
  *
  * @function
  * @name MediaPlayer.dependencies.protection.KeySystem#getCDMData
  * @returns {ArrayBuffer} the CDM (custom) data
- */ /**
+ *//**
  * Returns MediaKeySession session ID.
  *
  * @function

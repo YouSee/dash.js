@@ -27,11 +27,11 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * @class
  * @ignore
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}var DEFAULT_DVB_PRIORITY=1;var DEFAULT_DVB_WEIGHT=1;var BaseURL=function BaseURL(url,serviceLocation,priority,weight){_classCallCheck(this,BaseURL);this.url = url || '';this.serviceLocation = serviceLocation || url || ''; // DVB extensions
-this.dvb_priority = priority || DEFAULT_DVB_PRIORITY;this.dvb_weight = weight || DEFAULT_DVB_WEIGHT;this.availabilityTimeOffset = 0;this.availabilityTimeComplete = true; /* currently unused:
+ */const DEFAULT_DVB_PRIORITY=1;const DEFAULT_DVB_WEIGHT=1;class BaseURL{constructor(url,serviceLocation,priority,weight){this.url=url||'';this.serviceLocation=serviceLocation||url||'';// DVB extensions
+this.dvb_priority=priority||DEFAULT_DVB_PRIORITY;this.dvb_weight=weight||DEFAULT_DVB_WEIGHT;this.availabilityTimeOffset=0;this.availabilityTimeComplete=true;/* currently unused:
          * byteRange,
-         */};BaseURL.DEFAULT_DVB_PRIORITY = DEFAULT_DVB_PRIORITY;BaseURL.DEFAULT_DVB_WEIGHT = DEFAULT_DVB_WEIGHT;exports['default'] = BaseURL;module.exports = exports['default'];
+         */}}BaseURL.DEFAULT_DVB_PRIORITY=DEFAULT_DVB_PRIORITY;BaseURL.DEFAULT_DVB_WEIGHT=DEFAULT_DVB_WEIGHT;export default BaseURL;
 //# sourceMappingURL=BaseURL.js.map

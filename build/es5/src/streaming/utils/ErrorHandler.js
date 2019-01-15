@@ -27,45 +27,45 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _coreEventBus=require('../../core/EventBus');var _coreEventBus2=_interopRequireDefault(_coreEventBus);var _coreEventsEvents=require('../../core/events/Events');var _coreEventsEvents2=_interopRequireDefault(_coreEventsEvents);var _coreFactoryMaker=require('../../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker); /**
+ */import EventBus from'../../core/EventBus';import Events from'../../core/events/Events';import FactoryMaker from'../../core/FactoryMaker';/**
  * @module ErrorHandler
- */function ErrorHandler(){var instance=undefined;var context=this.context;var eventBus=(0,_coreEventBus2['default'])(context).getInstance(); /**
+ */function ErrorHandler(){let instance;let context=this.context;let eventBus=EventBus(context).getInstance();/**
      * @param {number} err  "mediasource"|"mediakeys"
      * @memberof module:ErrorHandler
      * @deprecated
-     */function capabilityError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'capability',event:err});} /**
+     */function capabilityError(err){eventBus.trigger(Events.ERROR,{error:'capability',event:err});}/**
      * @param {string} id "manifest"|"SIDX"|"content"|"initialization"|"xlink"
      * @param {string} url ""
      * @param {object} request {XMLHttpRequest instance}
      * @memberof module:ErrorHandler
      * @deprecated
-     */function downloadError(id,url,request){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'download',event:{id:id,url:url,request:request}});} /**
+     */function downloadError(id,url,request){eventBus.trigger(Events.ERROR,{error:'download',event:{id:id,url:url,request:request}});}/**
      * @param {string} message ""
      * @param {string} id "parse"|"nostreams"
      * @param {obj} manifest {parsed manifest}
      * @param {obj} err
      * @memberof module:ErrorHandler
      * @deprecated
-     */function manifestError(message,id,manifest,err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'manifestError',event:{message:message,id:id,manifest:manifest,event:err}});} /**
+     */function manifestError(message,id,manifest,err){eventBus.trigger(Events.ERROR,{error:'manifestError',event:{message:message,id:id,manifest:manifest,event:err}});}/**
      * @param {string} message ''
      * @param {string} id 'parse'
      * @param {string} ccContent ''
      * @memberof module:ErrorHandler
      * @deprecated
-     */function timedTextError(message,id,ccContent){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'cc',event:{message:message,id:id,cc:ccContent}});} /**
+     */function timedTextError(message,id,ccContent){eventBus.trigger(Events.ERROR,{error:'cc',event:{message:message,id:id,cc:ccContent}});}/**
      * @param {string} err
      * @memberof module:ErrorHandler
      * @deprecated
-     */function mediaSourceError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'mediasource',event:err});} /**
+     */function mediaSourceError(err){eventBus.trigger(Events.ERROR,{error:'mediasource',event:err});}/**
      * @param {string} err
      * @memberof module:ErrorHandler
      * @deprecated
-     */function mediaKeySessionError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'key_session',event:err});} /**
+     */function mediaKeySessionError(err){eventBus.trigger(Events.ERROR,{error:'key_session',event:err});}/**
      * @param {string} err
      * @memberof module:ErrorHandler
      * @deprecated
-     */function mediaKeyMessageError(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:'key_message',event:err});} /**
+     */function mediaKeyMessageError(err){eventBus.trigger(Events.ERROR,{error:'key_message',event:err});}/**
      * @param {object} err DashJSError with code, message and data attributes
      * @memberof module:ErrorHandler
-     */function error(err){eventBus.trigger(_coreEventsEvents2['default'].ERROR,{error:err});}instance = {capabilityError:capabilityError,downloadError:downloadError,manifestError:manifestError,timedTextError:timedTextError,mediaSourceError:mediaSourceError,mediaKeySessionError:mediaKeySessionError,mediaKeyMessageError:mediaKeyMessageError,error:error};return instance;}ErrorHandler.__dashjs_factory_name = 'ErrorHandler';exports['default'] = _coreFactoryMaker2['default'].getSingletonFactory(ErrorHandler);module.exports = exports['default'];
+     */function error(err){eventBus.trigger(Events.ERROR,{error:err});}instance={capabilityError:capabilityError,downloadError:downloadError,manifestError:manifestError,timedTextError:timedTextError,mediaSourceError:mediaSourceError,mediaKeySessionError:mediaKeySessionError,mediaKeyMessageError:mediaKeyMessageError,error:error};return instance;}ErrorHandler.__dashjs_factory_name='ErrorHandler';export default FactoryMaker.getSingletonFactory(ErrorHandler);
 //# sourceMappingURL=ErrorHandler.js.map

@@ -27,15 +27,15 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */'use strict';Object.defineProperty(exports,'__esModule',{value:true});function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _coreFactoryMaker=require('../../core/FactoryMaker');var _coreFactoryMaker2=_interopRequireDefault(_coreFactoryMaker);var _fastDeepEqual=require('fast-deep-equal');var _fastDeepEqual2=_interopRequireDefault(_fastDeepEqual); /**
+ */import FactoryMaker from'../../core/FactoryMaker';import deepEqual from'fast-deep-equal';/**
  * @module ObjectUtils
  * @description Provides utility functions for objects
- */function ObjectUtils(){var instance=undefined; /**
+ */function ObjectUtils(){let instance;/**
      * Returns true if objects are equal
      * @return {boolean}
      * @param {object} obj1
      * @param {object} obj2
      * @memberof module:ObjectUtils
      * @instance
-     */function areEqual(obj1,obj2){return (0,_fastDeepEqual2['default'])(obj1,obj2);}instance = {areEqual:areEqual};return instance;}ObjectUtils.__dashjs_factory_name = 'ObjectUtils';exports['default'] = _coreFactoryMaker2['default'].getSingletonFactory(ObjectUtils);module.exports = exports['default'];
+     */function areEqual(obj1,obj2){return deepEqual(obj1,obj2);}instance={areEqual:areEqual};return instance;}ObjectUtils.__dashjs_factory_name='ObjectUtils';export default FactoryMaker.getSingletonFactory(ObjectUtils);
 //# sourceMappingURL=ObjectUtils.js.map

@@ -1,4 +1,4 @@
-"use strict"; /**
+/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,7 +27,7 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */ /**
+ *//**
  * Defines the public interface for license server implementations supported
  * by the player.
  *
@@ -41,7 +41,7 @@
  * the Encrypted Media Extensions.
  *
  * @interface
- */ /**
+ *//**
  * Returns a new or updated license server URL based on the requirements of the
  * license server and possibly from information passed in the CDM license message
  *
@@ -53,7 +53,7 @@
  * @param {string} messageType the message type associated with this request.  Supported
  * message types can be found {@link https://w3c.github.io/encrypted-media/#idl-def-MediaKeyMessageType|here}.
  * @returns {string} the URL to use in license requests
- */ /**
+ *//**
  * Returns the HTTP method to be used (i.e. "GET", "POST", etc.) in
  * XMLHttpRequest.open().
  *
@@ -62,7 +62,7 @@
  * @param {string} messageType the message type associated with this request.  Supported
  * message types can be found {@link https://w3c.github.io/encrypted-media/#idl-def-MediaKeyMessageType|here}.
  * @returns {string} the HTTP method
- */ /**
+ *//**
  * Returns the response type to set for XMLHttpRequest.responseType
  *
  * @function
@@ -73,7 +73,7 @@
  * @param {string} messageType the message type associated with this request.  Supported
  * message types can be found {@link https://w3c.github.io/encrypted-media/#idl-def-MediaKeyMessageType|here}.
  * @returns {string} the response type
- */ /**
+ *//**
  * Parses the license server response for any message intended for
  * the CDM.
  *
@@ -86,7 +86,7 @@
  * message types can be found {@link https://w3c.github.io/encrypted-media/#idl-def-MediaKeyMessageType|here}.
  * @returns {ArrayBuffer} message that will be sent to the CDM or null if no CDM message
  * was present in the response.
- */ /**
+ *//**
  * Parses the license server response during error conditions and returns a
  * string to display for debugging purposes
  *

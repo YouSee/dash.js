@@ -1,4 +1,9 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _FactoryMaker=require('../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function Capabilities(){var instance=void 0,encryptedMediaSupported=void 0;function setup(){encryptedMediaSupported=false;}function supportsMediaSource(){var hasWebKit='WebKitMediaSource'in window;var hasMediaSource='MediaSource'in window;return hasWebKit||hasMediaSource;}/**
+     * Returns whether Encrypted Media Extensions are supported on this
+     * user agent
+     *
+     * @return {boolean} true if EME is supported, false otherwise
+     */function supportsEncryptedMedia(){return encryptedMediaSupported;}function setEncryptedMediaSupported(value){encryptedMediaSupported=value;}function supportsCodec(codec){if('MediaSource'in window&&MediaSource.isTypeSupported(codec)){return true;}if('WebKitMediaSource'in window&&WebKitMediaSource.isTypeSupported(codec)){return true;}return false;}instance={supportsMediaSource:supportsMediaSource,supportsEncryptedMedia:supportsEncryptedMedia,supportsCodec:supportsCodec,setEncryptedMediaSupported:setEncryptedMediaSupported};setup();return instance;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,10 +32,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import FactoryMaker from'../../core/FactoryMaker';function Capabilities(){let instance,encryptedMediaSupported;function setup(){encryptedMediaSupported=false;}function supportsMediaSource(){let hasWebKit='WebKitMediaSource'in window;let hasMediaSource='MediaSource'in window;return hasWebKit||hasMediaSource;}/**
-     * Returns whether Encrypted Media Extensions are supported on this
-     * user agent
-     *
-     * @return {boolean} true if EME is supported, false otherwise
-     */function supportsEncryptedMedia(){return encryptedMediaSupported;}function setEncryptedMediaSupported(value){encryptedMediaSupported=value;}function supportsCodec(codec){if('MediaSource'in window&&MediaSource.isTypeSupported(codec)){return true;}if('WebKitMediaSource'in window&&WebKitMediaSource.isTypeSupported(codec)){return true;}return false;}instance={supportsMediaSource:supportsMediaSource,supportsEncryptedMedia:supportsEncryptedMedia,supportsCodec:supportsCodec,setEncryptedMediaSupported:setEncryptedMediaSupported};setup();return instance;}Capabilities.__dashjs_factory_name='Capabilities';export default FactoryMaker.getSingletonFactory(Capabilities);
+ */Capabilities.__dashjs_factory_name='Capabilities';exports.default=_FactoryMaker2.default.getSingletonFactory(Capabilities);
 //# sourceMappingURL=Capabilities.js.map

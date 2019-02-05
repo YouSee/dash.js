@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,8 +30,8 @@
  *//**
  * @class
  * @ignore
- */const DEFAULT_DVB_PRIORITY=1;const DEFAULT_DVB_WEIGHT=1;class BaseURL{constructor(url,serviceLocation,priority,weight){this.url=url||'';this.serviceLocation=serviceLocation||url||'';// DVB extensions
+ */var DEFAULT_DVB_PRIORITY=1;var DEFAULT_DVB_WEIGHT=1;var BaseURL=function BaseURL(url,serviceLocation,priority,weight){_classCallCheck(this,BaseURL);this.url=url||'';this.serviceLocation=serviceLocation||url||'';// DVB extensions
 this.dvb_priority=priority||DEFAULT_DVB_PRIORITY;this.dvb_weight=weight||DEFAULT_DVB_WEIGHT;this.availabilityTimeOffset=0;this.availabilityTimeComplete=true;/* currently unused:
          * byteRange,
-         */}}BaseURL.DEFAULT_DVB_PRIORITY=DEFAULT_DVB_PRIORITY;BaseURL.DEFAULT_DVB_WEIGHT=DEFAULT_DVB_WEIGHT;export default BaseURL;
+         */};BaseURL.DEFAULT_DVB_PRIORITY=DEFAULT_DVB_PRIORITY;BaseURL.DEFAULT_DVB_WEIGHT=DEFAULT_DVB_WEIGHT;exports.default=BaseURL;
 //# sourceMappingURL=BaseURL.js.map

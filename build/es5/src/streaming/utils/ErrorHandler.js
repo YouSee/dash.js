@@ -1,4 +1,44 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _EventBus=require('../../core/EventBus');var _EventBus2=_interopRequireDefault(_EventBus);var _Events=require('../../core/events/Events');var _Events2=_interopRequireDefault(_Events);var _FactoryMaker=require('../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}/**
+ * @module ErrorHandler
+ */function ErrorHandler(){var instance=void 0;var context=this.context;var eventBus=(0,_EventBus2.default)(context).getInstance();/**
+     * @param {number} err  "mediasource"|"mediakeys"
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function capabilityError(err){eventBus.trigger(_Events2.default.ERROR,{error:'capability',event:err});}/**
+     * @param {string} id "manifest"|"SIDX"|"content"|"initialization"|"xlink"
+     * @param {string} url ""
+     * @param {object} request {XMLHttpRequest instance}
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function downloadError(id,url,request){eventBus.trigger(_Events2.default.ERROR,{error:'download',event:{id:id,url:url,request:request}});}/**
+     * @param {string} message ""
+     * @param {string} id "parse"|"nostreams"
+     * @param {obj} manifest {parsed manifest}
+     * @param {obj} err
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function manifestError(message,id,manifest,err){eventBus.trigger(_Events2.default.ERROR,{error:'manifestError',event:{message:message,id:id,manifest:manifest,event:err}});}/**
+     * @param {string} message ''
+     * @param {string} id 'parse'
+     * @param {string} ccContent ''
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function timedTextError(message,id,ccContent){eventBus.trigger(_Events2.default.ERROR,{error:'cc',event:{message:message,id:id,cc:ccContent}});}/**
+     * @param {string} err
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function mediaSourceError(err){eventBus.trigger(_Events2.default.ERROR,{error:'mediasource',event:err});}/**
+     * @param {string} err
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function mediaKeySessionError(err){eventBus.trigger(_Events2.default.ERROR,{error:'key_session',event:err});}/**
+     * @param {string} err
+     * @memberof module:ErrorHandler
+     * @deprecated
+     */function mediaKeyMessageError(err){eventBus.trigger(_Events2.default.ERROR,{error:'key_message',event:err});}/**
+     * @param {object} err DashJSError with code, message and data attributes
+     * @memberof module:ErrorHandler
+     */function error(err){eventBus.trigger(_Events2.default.ERROR,{error:err});}instance={capabilityError:capabilityError,downloadError:downloadError,manifestError:manifestError,timedTextError:timedTextError,mediaSourceError:mediaSourceError,mediaKeySessionError:mediaKeySessionError,mediaKeyMessageError:mediaKeyMessageError,error:error};return instance;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,45 +67,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import EventBus from'../../core/EventBus';import Events from'../../core/events/Events';import FactoryMaker from'../../core/FactoryMaker';/**
- * @module ErrorHandler
- */function ErrorHandler(){let instance;let context=this.context;let eventBus=EventBus(context).getInstance();/**
-     * @param {number} err  "mediasource"|"mediakeys"
-     * @memberof module:ErrorHandler
-     * @deprecated
-     */function capabilityError(err){eventBus.trigger(Events.ERROR,{error:'capability',event:err});}/**
-     * @param {string} id "manifest"|"SIDX"|"content"|"initialization"|"xlink"
-     * @param {string} url ""
-     * @param {object} request {XMLHttpRequest instance}
-     * @memberof module:ErrorHandler
-     * @deprecated
-     */function downloadError(id,url,request){eventBus.trigger(Events.ERROR,{error:'download',event:{id:id,url:url,request:request}});}/**
-     * @param {string} message ""
-     * @param {string} id "parse"|"nostreams"
-     * @param {obj} manifest {parsed manifest}
-     * @param {obj} err
-     * @memberof module:ErrorHandler
-     * @deprecated
-     */function manifestError(message,id,manifest,err){eventBus.trigger(Events.ERROR,{error:'manifestError',event:{message:message,id:id,manifest:manifest,event:err}});}/**
-     * @param {string} message ''
-     * @param {string} id 'parse'
-     * @param {string} ccContent ''
-     * @memberof module:ErrorHandler
-     * @deprecated
-     */function timedTextError(message,id,ccContent){eventBus.trigger(Events.ERROR,{error:'cc',event:{message:message,id:id,cc:ccContent}});}/**
-     * @param {string} err
-     * @memberof module:ErrorHandler
-     * @deprecated
-     */function mediaSourceError(err){eventBus.trigger(Events.ERROR,{error:'mediasource',event:err});}/**
-     * @param {string} err
-     * @memberof module:ErrorHandler
-     * @deprecated
-     */function mediaKeySessionError(err){eventBus.trigger(Events.ERROR,{error:'key_session',event:err});}/**
-     * @param {string} err
-     * @memberof module:ErrorHandler
-     * @deprecated
-     */function mediaKeyMessageError(err){eventBus.trigger(Events.ERROR,{error:'key_message',event:err});}/**
-     * @param {object} err DashJSError with code, message and data attributes
-     * @memberof module:ErrorHandler
-     */function error(err){eventBus.trigger(Events.ERROR,{error:err});}instance={capabilityError:capabilityError,downloadError:downloadError,manifestError:manifestError,timedTextError:timedTextError,mediaSourceError:mediaSourceError,mediaKeySessionError:mediaKeySessionError,mediaKeyMessageError:mediaKeyMessageError,error:error};return instance;}ErrorHandler.__dashjs_factory_name='ErrorHandler';export default FactoryMaker.getSingletonFactory(ErrorHandler);
+ */ErrorHandler.__dashjs_factory_name='ErrorHandler';exports.default=_FactoryMaker2.default.getSingletonFactory(ErrorHandler);
 //# sourceMappingURL=ErrorHandler.js.map

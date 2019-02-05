@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _FactoryMaker=require('../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function InitCache(){var data={};function save(chunk){var id=chunk.streamId;var representationId=chunk.representationId;data[id]=data[id]||{};data[id][representationId]=chunk;}function extract(streamId,representationId){if(data&&data[streamId]&&data[streamId][representationId]){return data[streamId][representationId];}else{return null;}}function reset(){data={};}var instance={save:save,extract:extract,reset:reset};return instance;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -29,5 +29,5 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  *//**
  * Represents data structure to keep and drive {DataChunk}
- */import FactoryMaker from'../../core/FactoryMaker';function InitCache(){let data={};function save(chunk){const id=chunk.streamId;const representationId=chunk.representationId;data[id]=data[id]||{};data[id][representationId]=chunk;}function extract(streamId,representationId){if(data&&data[streamId]&&data[streamId][representationId]){return data[streamId][representationId];}else{return null;}}function reset(){data={};}const instance={save:save,extract:extract,reset:reset};return instance;}InitCache.__dashjs_factory_name='InitCache';export default FactoryMaker.getSingletonFactory(InitCache);
+ */InitCache.__dashjs_factory_name='InitCache';exports.default=_FactoryMaker2.default.getSingletonFactory(InitCache);
 //# sourceMappingURL=InitCache.js.map

@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,7 +30,7 @@
  *//**
  * @class
  * @ignore
- */class Segment{constructor(){this.indexRange=null;this.index=null;this.mediaRange=null;this.media=null;this.duration=NaN;// this is the time that should be inserted into the media url
+ */var Segment=function Segment(){_classCallCheck(this,Segment);this.indexRange=null;this.index=null;this.mediaRange=null;this.media=null;this.duration=NaN;// this is the time that should be inserted into the media url
 this.replacementTime=null;// this is the number that should be inserted into the media url
 this.replacementNumber=NaN;// This is supposed to match the time encoded in the media Segment
 this.mediaStartTime=NaN;// When the source buffer timeOffset is set to MSETimeOffset this is the
@@ -40,5 +40,5 @@ this.availabilityStartTime=NaN;// Ignore and  discard this segment after
 this.availabilityEndTime=NaN;// The index of the segment inside the availability window
 this.availabilityIdx=NaN;// For dynamic mpd's, this is the wall clock time that the video
 // element currentTime should be presentationStartTime
-this.wallStartTime=NaN;this.representation=null;}}export default Segment;
+this.wallStartTime=NaN;this.representation=null;};exports.default=Segment;
 //# sourceMappingURL=Segment.js.map

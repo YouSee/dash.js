@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,5 +27,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import Constants from'../constants/Constants';export function checkParameterType(parameter,type){if(typeof parameter!==type){throw Constants.BAD_ARGUMENT_ERROR;}}export function checkInteger(parameter){const isInt=parameter!==null&&!isNaN(parameter)&&parameter%1===0;if(!isInt){throw Constants.BAD_ARGUMENT_ERROR+' : argument is not an integer';}}export function checkRange(parameter,min,max){if(parameter<min||parameter>max){throw Constants.BAD_ARGUMENT_ERROR+' : argument out of range';}}export function checkIsVideoOrAudioType(type){if(typeof type!=='string'||type!==Constants.AUDIO&&type!==Constants.VIDEO){throw Constants.BAD_ARGUMENT_ERROR;}}
+ */exports.checkParameterType=checkParameterType;exports.checkInteger=checkInteger;exports.checkRange=checkRange;exports.checkIsVideoOrAudioType=checkIsVideoOrAudioType;var _Constants=require('../constants/Constants');var _Constants2=_interopRequireDefault(_Constants);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function checkParameterType(parameter,type){if((typeof parameter==='undefined'?'undefined':_typeof(parameter))!==type){throw _Constants2.default.BAD_ARGUMENT_ERROR;}}function checkInteger(parameter){var isInt=parameter!==null&&!isNaN(parameter)&&parameter%1===0;if(!isInt){throw _Constants2.default.BAD_ARGUMENT_ERROR+' : argument is not an integer';}}function checkRange(parameter,min,max){if(parameter<min||parameter>max){throw _Constants2.default.BAD_ARGUMENT_ERROR+' : argument out of range';}}function checkIsVideoOrAudioType(type){if(typeof type!=='string'||type!==_Constants2.default.AUDIO&&type!==_Constants2.default.VIDEO){throw _Constants2.default.BAD_ARGUMENT_ERROR;}}
 //# sourceMappingURL=SupervisorTools.js.map

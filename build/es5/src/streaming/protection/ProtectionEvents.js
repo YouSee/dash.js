@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _EventsBase2=require('../../core/events/EventsBase');var _EventsBase3=_interopRequireDefault(_EventsBase2);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,26 +27,26 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import EventsBase from'../../core/events/EventsBase';/**
+ *//**
  * @class
  *
- */class ProtectionEvents extends EventsBase{/**
+ */var ProtectionEvents=function(_EventsBase){_inherits(ProtectionEvents,_EventsBase);/**
      * @description Public facing external events to be used when including protection package.
      * All public events will be aggregated into the MediaPlayerEvents Class and can be accessed
      * via MediaPlayer.events.  public_ is the prefix that we use to move event names to MediaPlayerEvents.
-     */constructor(){super();/**
+     */function ProtectionEvents(){_classCallCheck(this,ProtectionEvents);/**
          * Event ID for events delivered when the protection set receives
          * a key message from the CDM
          *
          * @ignore
-         */this.INTERNAL_KEY_MESSAGE='internalKeyMessage';/**
+         */var _this=_possibleConstructorReturn(this,(ProtectionEvents.__proto__||Object.getPrototypeOf(ProtectionEvents)).call(this));_this.INTERNAL_KEY_MESSAGE='internalKeyMessage';/**
          * Event ID for events delivered when a key system selection procedure
          * completes
          * @ignore
-         */this.INTERNAL_KEY_SYSTEM_SELECTED='internalKeySystemSelected';/**
+         */_this.INTERNAL_KEY_SYSTEM_SELECTED='internalKeySystemSelected';/**
          * Event ID for events delivered when the status of one decryption keys has changed
          * @ignore
-         */this.INTERNAL_KEY_STATUS_CHANGED='internalkeyStatusChanged';/**
+         */_this.INTERNAL_KEY_STATUS_CHANGED='internalkeyStatusChanged';/**
          * Event ID for events delivered when a new key has been added
          *
          * @constant
@@ -54,62 +54,62 @@
          * use this event.  {@MediaPlayer.models.protectionModel.eventList.KEY_STATUSES_CHANGED}
          * is preferred.
          * @event ProtectionEvents#KEY_ADDED
-         */this.KEY_ADDED='public_keyAdded';/**
+         */_this.KEY_ADDED='public_keyAdded';/**
          * Event ID for events delivered when an error is encountered by the CDM
          * while processing a license server response message
          * @event ProtectionEvents#KEY_ERROR
-         */this.KEY_ERROR='public_keyError';/**
+         */_this.KEY_ERROR='public_keyError';/**
          * Event ID for events delivered when the protection set receives
          * a key message from the CDM
          * @event ProtectionEvents#KEY_MESSAGE
-         */this.KEY_MESSAGE='public_keyMessage';/**
+         */_this.KEY_MESSAGE='public_keyMessage';/**
          * Event ID for events delivered when a key session close
          * process has completed
          * @event ProtectionEvents#KEY_SESSION_CLOSED
-         */this.KEY_SESSION_CLOSED='public_keySessionClosed';/**
+         */_this.KEY_SESSION_CLOSED='public_keySessionClosed';/**
          * Event ID for events delivered when a new key sessions creation
          * process has completed
          * @event ProtectionEvents#KEY_SESSION_CREATED
-         */this.KEY_SESSION_CREATED='public_keySessionCreated';/**
+         */_this.KEY_SESSION_CREATED='public_keySessionCreated';/**
          * Event ID for events delivered when a key session removal
          * process has completed
          * @event ProtectionEvents#KEY_SESSION_REMOVED
-         */this.KEY_SESSION_REMOVED='public_keySessionRemoved';/**
+         */_this.KEY_SESSION_REMOVED='public_keySessionRemoved';/**
          * Event ID for events delivered when the status of one or more
          * decryption keys has changed
          * @event ProtectionEvents#KEY_STATUSES_CHANGED
-         */this.KEY_STATUSES_CHANGED='public_keyStatusesChanged';/**
+         */_this.KEY_STATUSES_CHANGED='public_keyStatusesChanged';/**
          * Event ID for events delivered when a key system access procedure
          * has completed
          * @ignore
-         */this.KEY_SYSTEM_ACCESS_COMPLETE='public_keySystemAccessComplete';/**
+         */_this.KEY_SYSTEM_ACCESS_COMPLETE='public_keySystemAccessComplete';/**
          * Event ID for events delivered when a key system selection procedure
          * completes
          * @event ProtectionEvents#KEY_SYSTEM_SELECTED
-         */this.KEY_SYSTEM_SELECTED='public_keySystemSelected';/**
+         */_this.KEY_SYSTEM_SELECTED='public_keySystemSelected';/**
          * Event ID for events delivered when a license request procedure
          * has completed
          * @event ProtectionEvents#LICENSE_REQUEST_COMPLETE
-         */this.LICENSE_REQUEST_COMPLETE='public_licenseRequestComplete';/**
+         */_this.LICENSE_REQUEST_COMPLETE='public_licenseRequestComplete';/**
          * Event ID for needkey/encrypted events
          * @ignore
-         */this.NEED_KEY='needkey';/**
+         */_this.NEED_KEY='needkey';/**
          * Event ID for events delivered when the Protection system is detected and created.
          * @event ProtectionEvents#PROTECTION_CREATED
-         */this.PROTECTION_CREATED='public_protectioncreated';/**
+         */_this.PROTECTION_CREATED='public_protectioncreated';/**
          * Event ID for events delivered when the Protection system is destroyed.
          * @event ProtectionEvents#PROTECTION_DESTROYED
-         */this.PROTECTION_DESTROYED='public_protectiondestroyed';/**
+         */_this.PROTECTION_DESTROYED='public_protectiondestroyed';/**
          * Event ID for events delivered when a new server certificate has
          * been delivered to the CDM
          * @ignore
-         */this.SERVER_CERTIFICATE_UPDATED='serverCertificateUpdated';/**
+         */_this.SERVER_CERTIFICATE_UPDATED='serverCertificateUpdated';/**
          * Event ID for events delivered when the process of shutting down
          * a protection set has completed
          * @ignore
-         */this.TEARDOWN_COMPLETE='protectionTeardownComplete';/**
+         */_this.TEARDOWN_COMPLETE='protectionTeardownComplete';/**
          * Event ID for events delivered when a HTMLMediaElement has been
          * associated with the protection set
          * @ignore
-         */this.VIDEO_ELEMENT_SELECTED='videoElementSelected';}}let protectionEvents=new ProtectionEvents();export default protectionEvents;
+         */_this.VIDEO_ELEMENT_SELECTED='videoElementSelected';return _this;}return ProtectionEvents;}(_EventsBase3.default);var protectionEvents=new ProtectionEvents();exports.default=protectionEvents;
 //# sourceMappingURL=ProtectionEvents.js.map

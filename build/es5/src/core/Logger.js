@@ -50,5 +50,5 @@
  * This method allows you to send debug messages to the browser's console.
  * @param {...*} arguments The message you want to debug. The Arguments object is supported for this method so you can send in comma separated logging items.
  * @function Logger#debug
- */
+ */"use strict";
 //# sourceMappingURL=Logger.js.map

@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _EventsBase2=require('../core/events/EventsBase');var _EventsBase3=_interopRequireDefault(_EventsBase2);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,5 +27,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import EventsBase from'../core/events/EventsBase';class MssEvents extends EventsBase{constructor(){super();this.FRAGMENT_INFO_LOADING_COMPLETED='fragmentInfoLoadingCompleted';}}let mssEvents=new MssEvents();export default mssEvents;
+ */var MssEvents=function(_EventsBase){_inherits(MssEvents,_EventsBase);function MssEvents(){_classCallCheck(this,MssEvents);var _this=_possibleConstructorReturn(this,(MssEvents.__proto__||Object.getPrototypeOf(MssEvents)).call(this));_this.FRAGMENT_INFO_LOADING_COMPLETED='fragmentInfoLoadingCompleted';return _this;}return MssEvents;}(_EventsBase3.default);var mssEvents=new MssEvents();exports.default=mssEvents;
 //# sourceMappingURL=MssEvents.js.map

@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,5 +30,5 @@
  *//**
  * @class
  * @ignore
- */class StreamInfo{constructor(){this.id=null;this.index=null;this.start=NaN;this.duration=NaN;this.manifestInfo=null;this.isLast=true;}}export default StreamInfo;
+ */var StreamInfo=function StreamInfo(){_classCallCheck(this,StreamInfo);this.id=null;this.index=null;this.start=NaN;this.duration=NaN;this.manifestInfo=null;this.isLast=true;};exports.default=StreamInfo;
 //# sourceMappingURL=StreamInfo.js.map

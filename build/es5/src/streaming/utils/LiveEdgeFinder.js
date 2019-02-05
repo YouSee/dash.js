@@ -1,4 +1,8 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _FactoryMaker=require('../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);var _Constants=require('../constants/Constants');var _Constants2=_interopRequireDefault(_Constants);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}/**
+ * @param {Object} config
+ * @returns {{initialize: initialize, getLiveEdge: getLiveEdge, reset: reset}|*}
+ * @constructor
+ *//**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,9 +31,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import FactoryMaker from'../../core/FactoryMaker';import Constants from'../constants/Constants';/**
- * @param {Object} config
- * @returns {{initialize: initialize, getLiveEdge: getLiveEdge, reset: reset}|*}
- * @constructor
- */function LiveEdgeFinder(config){config=config||{};let instance;let timelineConverter=config.timelineConverter;let streamProcessor=config.streamProcessor;function checkConfig(){if(!timelineConverter||!timelineConverter.hasOwnProperty('getExpectedLiveEdge')||!streamProcessor||!streamProcessor.hasOwnProperty('getRepresentationInfo')){throw new Error(Constants.MISSING_CONFIG_ERROR);}}function getLiveEdge(){checkConfig();const representationInfo=streamProcessor.getRepresentationInfo();let liveEdge=representationInfo.DVRWindow.end;if(representationInfo.useCalculatedLiveEdgeTime){liveEdge=timelineConverter.getExpectedLiveEdge();timelineConverter.setClientTimeOffset(liveEdge-representationInfo.DVRWindow.end);}return liveEdge;}function reset(){timelineConverter=null;streamProcessor=null;}instance={getLiveEdge:getLiveEdge,reset:reset};return instance;}LiveEdgeFinder.__dashjs_factory_name='LiveEdgeFinder';export default FactoryMaker.getClassFactory(LiveEdgeFinder);
+ */function LiveEdgeFinder(config){config=config||{};var instance=void 0;var timelineConverter=config.timelineConverter;var streamProcessor=config.streamProcessor;function checkConfig(){if(!timelineConverter||!timelineConverter.hasOwnProperty('getExpectedLiveEdge')||!streamProcessor||!streamProcessor.hasOwnProperty('getRepresentationInfo')){throw new Error(_Constants2.default.MISSING_CONFIG_ERROR);}}function getLiveEdge(){checkConfig();var representationInfo=streamProcessor.getRepresentationInfo();var liveEdge=representationInfo.DVRWindow.end;if(representationInfo.useCalculatedLiveEdgeTime){liveEdge=timelineConverter.getExpectedLiveEdge();timelineConverter.setClientTimeOffset(liveEdge-representationInfo.DVRWindow.end);}return liveEdge;}function reset(){timelineConverter=null;streamProcessor=null;}instance={getLiveEdge:getLiveEdge,reset:reset};return instance;}LiveEdgeFinder.__dashjs_factory_name='LiveEdgeFinder';exports.default=_FactoryMaker2.default.getClassFactory(LiveEdgeFinder);
 //# sourceMappingURL=LiveEdgeFinder.js.map

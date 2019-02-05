@@ -110,5 +110,5 @@
  * @function
  * @name MediaPlayer.dependencies.protection.KeySystem#getSessionId
  * @returns {String} the MediaKeySession session ID
- */
+ */"use strict";
 //# sourceMappingURL=KeySystem.js.map

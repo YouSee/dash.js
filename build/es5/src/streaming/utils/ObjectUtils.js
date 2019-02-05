@@ -1,4 +1,7 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _FactoryMaker=require('../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);var _fastDeepEqual=require('fast-deep-equal');var _fastDeepEqual2=_interopRequireDefault(_fastDeepEqual);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}/**
+ * @module ObjectUtils
+ * @description Provides utility functions for objects
+ *//**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,15 +30,12 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import FactoryMaker from'../../core/FactoryMaker';import deepEqual from'fast-deep-equal';/**
- * @module ObjectUtils
- * @description Provides utility functions for objects
- */function ObjectUtils(){let instance;/**
+ */function ObjectUtils(){var instance=void 0;/**
      * Returns true if objects are equal
      * @return {boolean}
      * @param {object} obj1
      * @param {object} obj2
      * @memberof module:ObjectUtils
      * @instance
-     */function areEqual(obj1,obj2){return deepEqual(obj1,obj2);}instance={areEqual:areEqual};return instance;}ObjectUtils.__dashjs_factory_name='ObjectUtils';export default FactoryMaker.getSingletonFactory(ObjectUtils);
+     */function areEqual(obj1,obj2){return(0,_fastDeepEqual2.default)(obj1,obj2);}instance={areEqual:areEqual};return instance;}ObjectUtils.__dashjs_factory_name='ObjectUtils';exports.default=_FactoryMaker2.default.getSingletonFactory(ObjectUtils);
 //# sourceMappingURL=ObjectUtils.js.map

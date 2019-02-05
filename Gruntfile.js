@@ -191,7 +191,8 @@ module.exports = function (grunt) {
         babel: {
             options: {
                 sourceMap: true,
-                compact: true
+                compact: true,
+                presets: ['babel-preset-es2015']
             },
             es5: {
                 files: [{

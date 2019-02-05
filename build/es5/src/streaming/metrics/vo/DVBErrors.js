@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,7 +30,7 @@
  *//**
  * @class
  * @ignore
- */class DVBErrors{constructor(){this.mpdurl=null;// String - Absolute URL from which the MPD was originally
+ */var DVBErrors=function DVBErrors(){_classCallCheck(this,DVBErrors);this.mpdurl=null;// String - Absolute URL from which the MPD was originally
 // retrieved (MPD updates will not change this value).
 this.errorcode=null;// String - The value of errorcode depends upon the type
 // of error being reported. For an error listed in the
@@ -66,5 +66,5 @@ this.servicelocation=null;// String - The value of the serviceLocation field in 
 // BaseURL being used. In the event of this report indicating
 // a change of BaseURL this is the value from the BaseURL
 // being moved from.
-}}DVBErrors.SSL_CONNECTION_FAILED_PREFIX='SSL';DVBErrors.DNS_RESOLUTION_FAILED='C00';DVBErrors.HOST_UNREACHABLE='C01';DVBErrors.CONNECTION_REFUSED='C02';DVBErrors.CONNECTION_ERROR='C03';DVBErrors.CORRUPT_MEDIA_ISOBMFF='M00';DVBErrors.CORRUPT_MEDIA_OTHER='M01';DVBErrors.BASE_URL_CHANGED='F00';DVBErrors.BECAME_REPORTER='S00';export default DVBErrors;
+};DVBErrors.SSL_CONNECTION_FAILED_PREFIX='SSL';DVBErrors.DNS_RESOLUTION_FAILED='C00';DVBErrors.HOST_UNREACHABLE='C01';DVBErrors.CONNECTION_REFUSED='C02';DVBErrors.CONNECTION_ERROR='C03';DVBErrors.CORRUPT_MEDIA_ISOBMFF='M00';DVBErrors.CORRUPT_MEDIA_OTHER='M01';DVBErrors.BASE_URL_CHANGED='F00';DVBErrors.BECAME_REPORTER='S00';exports.default=DVBErrors;
 //# sourceMappingURL=DVBErrors.js.map

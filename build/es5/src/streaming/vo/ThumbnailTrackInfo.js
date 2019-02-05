@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,5 +30,5 @@
  *//**
  * @class
  * @ignore
- */class ThumbnailTrackInfo{constructor(){this.bitrate=0;this.width=0;this.height=0;this.tilesHor=0;this.tilesVert=0;this.widthPerTile=0;this.heightPerTile=0;this.startNumber=0;this.segmentDuration=0;this.timescale=0;this.templateUrl='';this.id='';}}export default ThumbnailTrackInfo;
+ */var ThumbnailTrackInfo=function ThumbnailTrackInfo(){_classCallCheck(this,ThumbnailTrackInfo);this.bitrate=0;this.width=0;this.height=0;this.tilesHor=0;this.tilesVert=0;this.widthPerTile=0;this.heightPerTile=0;this.startNumber=0;this.segmentDuration=0;this.timescale=0;this.templateUrl='';this.id='';};exports.default=ThumbnailTrackInfo;
 //# sourceMappingURL=ThumbnailTrackInfo.js.map

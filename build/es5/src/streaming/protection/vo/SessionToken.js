@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -35,7 +35,7 @@
  * applications to access.
  *
  * @interface SessionToken
- */class SessionToken{}/**
+ */var SessionToken=function SessionToken(){_classCallCheck(this,SessionToken);};/**
  * The initialization data used to create this session
  *
  * @instance
@@ -74,5 +74,5 @@
  * @function
  * @name SessionToken#getSessionType
  * @returns {string} The session type
- */export default SessionToken;
+ */exports.default=SessionToken;
 //# sourceMappingURL=SessionToken.js.map

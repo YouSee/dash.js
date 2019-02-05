@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -29,9 +29,9 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  *//**
  * @classdesc a PlayList from ISO23009-1 Annex D, this Object holds reference to the playback session information
- */class PlayList{/**
+ */var PlayList=/**
      * @class
-     */constructor(){/**
+     */function PlayList(){_classCallCheck(this,PlayList);/**
          * Timestamp of the user action that starts the playback stream...
          * @public
          */this.start=null;/**
@@ -47,11 +47,11 @@
          */this.starttype=null;/**
          * List of streams of continuous rendering of decoded samples.
          * @public
-         */this.trace=[];}}/* Public Static Constants */PlayList.INITIAL_PLAYOUT_START_REASON='initial_playout';PlayList.SEEK_START_REASON='seek';PlayList.RESUME_FROM_PAUSE_START_REASON='resume';PlayList.METRICS_COLLECTION_START_REASON='metrics_collection_start';/**
+         */this.trace=[];};/* Public Static Constants */PlayList.INITIAL_PLAYOUT_START_REASON='initial_playout';PlayList.SEEK_START_REASON='seek';PlayList.RESUME_FROM_PAUSE_START_REASON='resume';PlayList.METRICS_COLLECTION_START_REASON='metrics_collection_start';/**
  * @classdesc a PlayList.Trace from ISO23009-1 Annex D
- */class PlayListTrace{/**
+ */var PlayListTrace=/**
      * @class
-     */constructor(){/**
+     */function PlayListTrace(){_classCallCheck(this,PlayListTrace);/**
          * The value of the Representation@id of the Representation from which the samples were taken.
          * @type {string}
          * @public
@@ -89,5 +89,5 @@
          *
          * @type {string}
          * @public
-         */this.stopreason=null;}}PlayListTrace.REPRESENTATION_SWITCH_STOP_REASON='representation_switch';PlayListTrace.REBUFFERING_REASON='rebuffering';PlayListTrace.USER_REQUEST_STOP_REASON='user_request';PlayListTrace.END_OF_PERIOD_STOP_REASON='end_of_period';PlayListTrace.END_OF_CONTENT_STOP_REASON='end_of_content';PlayListTrace.METRICS_COLLECTION_STOP_REASON='metrics_collection_end';PlayListTrace.FAILURE_STOP_REASON='failure';export{PlayList,PlayListTrace};
+         */this.stopreason=null;};PlayListTrace.REPRESENTATION_SWITCH_STOP_REASON='representation_switch';PlayListTrace.REBUFFERING_REASON='rebuffering';PlayListTrace.USER_REQUEST_STOP_REASON='user_request';PlayListTrace.END_OF_PERIOD_STOP_REASON='end_of_period';PlayListTrace.END_OF_CONTENT_STOP_REASON='end_of_content';PlayListTrace.METRICS_COLLECTION_STOP_REASON='metrics_collection_end';PlayListTrace.FAILURE_STOP_REASON='failure';exports.PlayList=PlayList;exports.PlayListTrace=PlayListTrace;
 //# sourceMappingURL=PlayList.js.map

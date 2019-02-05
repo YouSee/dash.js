@@ -1,4 +1,5 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});exports.MssHandler=undefined;var _MssHandler=require('./MssHandler');var _MssHandler2=_interopRequireDefault(_MssHandler);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}// Shove both of these into the global scope
+var context=typeof window!=='undefined'&&window||global;/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,6 +28,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import MssHandler from'./MssHandler';// Shove both of these into the global scope
-var context=typeof window!=='undefined'&&window||global;var dashjs=context.dashjs;if(!dashjs){dashjs=context.dashjs={};}dashjs.MssHandler=MssHandler;export default dashjs;export{MssHandler};
+ */var dashjs=context.dashjs;if(!dashjs){dashjs=context.dashjs={};}dashjs.MssHandler=_MssHandler2.default;exports.default=dashjs;exports.MssHandler=_MssHandler2.default;
 //# sourceMappingURL=index.js.map

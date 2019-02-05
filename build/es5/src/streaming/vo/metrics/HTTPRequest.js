@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -31,9 +31,9 @@
  * @classdesc This Object holds reference to the HTTPRequest for manifest, fragment and xlink loading.
  * Members which are not defined in ISO23009-1 Annex D should be prefixed by a _ so that they are ignored
  * by Metrics Reporting code.
- */class HTTPRequest{/**
+ */var HTTPRequest=/**
      * @class
-     */constructor(){/**
+     */function HTTPRequest(){_classCallCheck(this,HTTPRequest);/**
          * Identifier of the TCP connection on which the HTTP request was sent.
          * @public
          */this.tcpid=null;/**
@@ -86,11 +86,11 @@
          */this._responseHeaders=null;/**
          * The selected service location for the request. string.
          * @public
-         */this._serviceLocation=null;}}/**
+         */this._serviceLocation=null;};/**
  * @classdesc This Object holds reference to the progress of the HTTPRequest.
- */class HTTPRequestTrace{/**
+ */var HTTPRequestTrace=/**
     * @class
-    */constructor(){/**
+    */function HTTPRequestTrace(){_classCallCheck(this,HTTPRequestTrace);/**
          * Real-Time | Measurement stream start.
          * @public
          */this.s=null;/**
@@ -99,5 +99,5 @@
          */this.d=null;/**
          * List of integers counting the bytes received in each trace interval within the measurement stream.
          * @public
-         */this.b=[];}}HTTPRequest.GET='GET';HTTPRequest.HEAD='HEAD';HTTPRequest.MPD_TYPE='MPD';HTTPRequest.XLINK_EXPANSION_TYPE='XLinkExpansion';HTTPRequest.INIT_SEGMENT_TYPE='InitializationSegment';HTTPRequest.INDEX_SEGMENT_TYPE='IndexSegment';HTTPRequest.MEDIA_SEGMENT_TYPE='MediaSegment';HTTPRequest.BITSTREAM_SWITCHING_SEGMENT_TYPE='BitstreamSwitchingSegment';HTTPRequest.OTHER_TYPE='other';export{HTTPRequest,HTTPRequestTrace};
+         */this.b=[];};HTTPRequest.GET='GET';HTTPRequest.HEAD='HEAD';HTTPRequest.MPD_TYPE='MPD';HTTPRequest.XLINK_EXPANSION_TYPE='XLinkExpansion';HTTPRequest.INIT_SEGMENT_TYPE='InitializationSegment';HTTPRequest.INDEX_SEGMENT_TYPE='IndexSegment';HTTPRequest.MEDIA_SEGMENT_TYPE='MediaSegment';HTTPRequest.BITSTREAM_SWITCHING_SEGMENT_TYPE='BitstreamSwitchingSegment';HTTPRequest.OTHER_TYPE='other';exports.HTTPRequest=HTTPRequest;exports.HTTPRequestTrace=HTTPRequestTrace;
 //# sourceMappingURL=HTTPRequest.js.map

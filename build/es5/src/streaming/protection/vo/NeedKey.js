@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,9 +30,9 @@
  *//**
  * @classdesc NeedKey
  * @ignore
- */class NeedKey{/**
+ */var NeedKey=/**
      * @param {ArrayBuffer} initData the initialization data
      * @param {string} initDataType initialization data type
      * @class
-     */constructor(initData,initDataType){this.initData=initData;this.initDataType=initDataType;}}export default NeedKey;
+     */function NeedKey(initData,initDataType){_classCallCheck(this,NeedKey);this.initData=initData;this.initDataType=initDataType;};exports.default=NeedKey;
 //# sourceMappingURL=NeedKey.js.map

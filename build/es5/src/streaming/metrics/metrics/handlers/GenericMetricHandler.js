@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,6 +27,6 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */function GenericMetricHandler(){let instance,metricName,reportingController;function initialize(name,rc){metricName=name;reportingController=rc;}function reset(){reportingController=null;metricName=undefined;}function handleNewMetric(metric,vo){// simply pass metric straight through
-if(metric===metricName){if(reportingController){reportingController.report(metricName,vo);}}}instance={initialize:initialize,reset:reset,handleNewMetric:handleNewMetric};return instance;}GenericMetricHandler.__dashjs_factory_name='GenericMetricHandler';export default dashjs.FactoryMaker.getClassFactory(GenericMetricHandler);/* jshint ignore:line */
+ */function GenericMetricHandler(){var instance=void 0,metricName=void 0,reportingController=void 0;function initialize(name,rc){metricName=name;reportingController=rc;}function reset(){reportingController=null;metricName=undefined;}function handleNewMetric(metric,vo){// simply pass metric straight through
+if(metric===metricName){if(reportingController){reportingController.report(metricName,vo);}}}instance={initialize:initialize,reset:reset,handleNewMetric:handleNewMetric};return instance;}GenericMetricHandler.__dashjs_factory_name='GenericMetricHandler';exports.default=dashjs.FactoryMaker.getClassFactory(GenericMetricHandler);/* jshint ignore:line */
 //# sourceMappingURL=GenericMetricHandler.js.map

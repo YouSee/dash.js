@@ -96,5 +96,5 @@
  * @param {string} messageType the message type associated with this request.  Supported
  * message types can be found {@link https://w3c.github.io/encrypted-media/#idl-def-MediaKeyMessageType|here}.
  * @returns {string} an error message that indicates the reason for the failure
- */
+ */"use strict";
 //# sourceMappingURL=LicenseServer.js.map

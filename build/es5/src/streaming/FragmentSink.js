@@ -48,5 +48,5 @@
  *//**
  * Remove all the data in the sink's internal buffer.
  * @function FragmentSink#reset
- */
+ */"use strict";
 //# sourceMappingURL=FragmentSink.js.map

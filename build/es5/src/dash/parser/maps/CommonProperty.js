@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -29,5 +29,5 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  *//**
  * @classdesc a property belonging to a MapNode
- */class CommonProperty{constructor(name){const getDefaultMergeForName=n=>n&&n.length&&n.charAt(0)===n.charAt(0).toUpperCase();this._name=name;this._merge=getDefaultMergeForName(name);}get name(){return this._name;}get merge(){return this._merge;}}export default CommonProperty;
+ */var CommonProperty=function(){function CommonProperty(name){_classCallCheck(this,CommonProperty);var getDefaultMergeForName=function getDefaultMergeForName(n){return n&&n.length&&n.charAt(0)===n.charAt(0).toUpperCase();};this._name=name;this._merge=getDefaultMergeForName(name);}_createClass(CommonProperty,[{key:"name",get:function get(){return this._name;}},{key:"merge",get:function get(){return this._merge;}}]);return CommonProperty;}();exports.default=CommonProperty;
 //# sourceMappingURL=CommonProperty.js.map

@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,6 +30,6 @@
  *//**
  * @class
  * @ignore
- */class DataChunk{//Represents a data structure that keep all the necessary info about a single init/media segment
-constructor(){this.streamId=null;this.mediaInfo=null;this.segmentType=null;this.quality=NaN;this.index=NaN;this.bytes=null;this.start=NaN;this.end=NaN;this.duration=NaN;this.representationId=null;this.endFragment=null;}}export default DataChunk;
+ */var DataChunk=//Represents a data structure that keep all the necessary info about a single init/media segment
+function DataChunk(){_classCallCheck(this,DataChunk);this.streamId=null;this.mediaInfo=null;this.segmentType=null;this.quality=NaN;this.index=NaN;this.bytes=null;this.start=NaN;this.end=NaN;this.duration=NaN;this.representationId=null;this.endFragment=null;};exports.default=DataChunk;
 //# sourceMappingURL=DataChunk.js.map

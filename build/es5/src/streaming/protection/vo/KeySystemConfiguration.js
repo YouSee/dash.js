@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -31,7 +31,7 @@
  * @classdesc Represents a set of configurations that describe the capabilities desired for
  *  support by a given CDM
  * @ignore
- */class KeySystemConfiguration{/**
+ */var KeySystemConfiguration=/**
      * @param {Array.<MediaCapability>} audioCapabilities array of
      * desired audio capabilities.  Higher preference capabilities should be placed earlier
      * in the array.
@@ -45,5 +45,5 @@
      * @param {Array.<string>} sessionTypes List of session types that must
      * be supported by the key system
      * @class
-     */constructor(audioCapabilities,videoCapabilities,distinctiveIdentifier,persistentState,sessionTypes){this.initDataTypes=['cenc'];if(audioCapabilities&&audioCapabilities.length){this.audioCapabilities=audioCapabilities;}if(videoCapabilities&&videoCapabilities.length){this.videoCapabilities=videoCapabilities;}this.distinctiveIdentifier=distinctiveIdentifier;this.persistentState=persistentState;this.sessionTypes=sessionTypes;}}export default KeySystemConfiguration;
+     */function KeySystemConfiguration(audioCapabilities,videoCapabilities,distinctiveIdentifier,persistentState,sessionTypes){_classCallCheck(this,KeySystemConfiguration);this.initDataTypes=['cenc'];if(audioCapabilities&&audioCapabilities.length){this.audioCapabilities=audioCapabilities;}if(videoCapabilities&&videoCapabilities.length){this.videoCapabilities=videoCapabilities;}this.distinctiveIdentifier=distinctiveIdentifier;this.persistentState=persistentState;this.sessionTypes=sessionTypes;};exports.default=KeySystemConfiguration;
 //# sourceMappingURL=KeySystemConfiguration.js.map

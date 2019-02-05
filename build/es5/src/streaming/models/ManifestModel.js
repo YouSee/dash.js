@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _EventBus=require('../../core/EventBus');var _EventBus2=_interopRequireDefault(_EventBus);var _Events=require('../../core/events/Events');var _Events2=_interopRequireDefault(_Events);var _FactoryMaker=require('../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function ManifestModel(){var context=this.context;var eventBus=(0,_EventBus2.default)(context).getInstance();var instance=void 0,manifest=void 0;function getValue(){return manifest;}function setValue(value){manifest=value;if(value){eventBus.trigger(_Events2.default.MANIFEST_LOADED,{data:value});}}instance={getValue:getValue,setValue:setValue};return instance;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,5 +27,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import EventBus from'../../core/EventBus';import Events from'../../core/events/Events';import FactoryMaker from'../../core/FactoryMaker';function ManifestModel(){let context=this.context;let eventBus=EventBus(context).getInstance();let instance,manifest;function getValue(){return manifest;}function setValue(value){manifest=value;if(value){eventBus.trigger(Events.MANIFEST_LOADED,{data:value});}}instance={getValue:getValue,setValue:setValue};return instance;}ManifestModel.__dashjs_factory_name='ManifestModel';export default FactoryMaker.getSingletonFactory(ManifestModel);
+ */ManifestModel.__dashjs_factory_name='ManifestModel';exports.default=_FactoryMaker2.default.getSingletonFactory(ManifestModel);
 //# sourceMappingURL=ManifestModel.js.map

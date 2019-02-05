@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -31,7 +31,7 @@
  * @classdesc Data provided for a particular piece of content to customize license server URLs,
  *  license server HTTP request headers, clearkeys, or other content-specific data
  * @ignore
- */class ProtectionData{/**
+ */var ProtectionData=/**
      * @param {string|Object} serverURL a license server URL to use with this key system.
      * When specified as a string, a single URL will be used regardless of message type.
      * When specified as an object, the object will have property names for each message
@@ -43,7 +43,7 @@
      * the key system.  Object properties are base64-encoded keyIDs (with no padding).
      * Corresponding property values are keys, base64-encoded (no padding).
      * @class
-     */constructor(serverURL,httpRequestHeaders,clearkeys){this.serverURL=serverURL;this.httpRequestHeaders=httpRequestHeaders;this.clearkeys=clearkeys;}}/**
+     */function ProtectionData(serverURL,httpRequestHeaders,clearkeys){_classCallCheck(this,ProtectionData);this.serverURL=serverURL;this.httpRequestHeaders=httpRequestHeaders;this.clearkeys=clearkeys;};/**
  * License server URL
  *
  * @instance
@@ -69,5 +69,5 @@
  * @name ProtectionData.clearkeys
  * @readonly
  * @memberof ProtectionData
- */export default ProtectionData;
+ */exports.default=ProtectionData;
 //# sourceMappingURL=ProtectionData.js.map

@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -29,5 +29,5 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  *//**
  * @classdesc a node at some level in a ValueMap
- */import CommonProperty from'./CommonProperty';class MapNode{constructor(name,properties,children){this._name=name||'';this._properties=[];this._children=children||[];if(Array.isArray(properties)){properties.forEach(p=>{this._properties.push(new CommonProperty(p));});}}get name(){return this._name;}get children(){return this._children;}get properties(){return this._properties;}}export default MapNode;
+ */var _CommonProperty=require('./CommonProperty');var _CommonProperty2=_interopRequireDefault(_CommonProperty);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}var MapNode=function(){function MapNode(name,properties,children){var _this=this;_classCallCheck(this,MapNode);this._name=name||'';this._properties=[];this._children=children||[];if(Array.isArray(properties)){properties.forEach(function(p){_this._properties.push(new _CommonProperty2.default(p));});}}_createClass(MapNode,[{key:'name',get:function get(){return this._name;}},{key:'children',get:function get(){return this._children;}},{key:'properties',get:function get(){return this._properties;}}]);return MapNode;}();exports.default=MapNode;
 //# sourceMappingURL=MapNode.js.map

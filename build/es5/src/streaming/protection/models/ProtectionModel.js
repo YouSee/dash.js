@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -41,7 +41,7 @@
  * {@link module:ProtectionController}
  *
  * @interface ProtectionModel
- */let ProtectionModel=function(){};/**
+ */var ProtectionModel=function ProtectionModel(){};/**
  * Returns an array of all initialization data currently used by
  * active sessions.
  * @function
@@ -165,5 +165,5 @@
  * @memberof ProtectionModel
  * @readonly
  * @type MediaPlayer.dependencies.protection.KeySystem
- */export default ProtectionModel;
+ */exports.default=ProtectionModel;
 //# sourceMappingURL=ProtectionModel.js.map

@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -29,9 +29,9 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  *//**
  * @class
- */class SchedulingInfo{/**
+ */var SchedulingInfo=/**
      * @description This Object holds reference to the index handling of the current fragment being loaded or executed.
-     */constructor(){/**
+     */function SchedulingInfo(){_classCallCheck(this,SchedulingInfo);/**
          * Type of stream Audio | Video | FragmentedText
          * @public
          */this.mediaType=null;/**
@@ -58,5 +58,5 @@
          */this.range=null;/**
          * Current state of fragment
          * @public
-         */this.state=null;}}export default SchedulingInfo;
+         */this.state=null;};exports.default=SchedulingInfo;
 //# sourceMappingURL=SchedulingInfo.js.map

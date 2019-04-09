@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,6 +30,6 @@
  *//**
  * @class
  * @ignore
- */class Event{constructor(){this.duration=NaN;this.presentationTime=NaN;this.id=NaN;this.messageData='';this.eventStream=null;this.presentationTimeDelta=NaN;// Specific EMSG Box parameter
-}}export default Event;
+ */var Event=function Event(){_classCallCheck(this,Event);this.duration=NaN;this.presentationTime=NaN;this.id=NaN;this.messageData='';this.eventStream=null;this.presentationTimeDelta=NaN;// Specific EMSG Box parameter
+};exports.default=Event;
 //# sourceMappingURL=Event.js.map

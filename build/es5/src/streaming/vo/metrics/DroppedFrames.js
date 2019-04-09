@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -29,13 +29,13 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  *//**
  * @class
- */class DroppedFrames{/**
+ */var DroppedFrames=/**
      * @description This Object holds reference to DroppedFrames count and the time it was recorded.
-     */constructor(){/**
+     */function DroppedFrames(){_classCallCheck(this,DroppedFrames);/**
          * Real-Time | Time of the measurement of the dropped frames.
          * @public
          */this.time=null;/**
          * Number of dropped frames
          * @public
-         */this.droppedFrames=null;}}export default DroppedFrames;
+         */this.droppedFrames=null;};exports.default=DroppedFrames;
 //# sourceMappingURL=DroppedFrames.js.map

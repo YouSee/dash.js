@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _FactoryMaker=require('../../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function BasicSelector(config){config=config||{};var instance=void 0;var blacklistController=config.blacklistController;function select(baseUrls){var index=0;var selectedBaseUrl=void 0;if(baseUrls&&baseUrls.some(function(baseUrl,idx){index=idx;return!blacklistController.contains(baseUrl.serviceLocation);})){selectedBaseUrl=baseUrls[index];}return selectedBaseUrl;}instance={select:select};return instance;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,5 +27,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import FactoryMaker from'../../../core/FactoryMaker';function BasicSelector(config){config=config||{};let instance;const blacklistController=config.blacklistController;function select(baseUrls){let index=0;let selectedBaseUrl;if(baseUrls&&baseUrls.some((baseUrl,idx)=>{index=idx;return!blacklistController.contains(baseUrl.serviceLocation);})){selectedBaseUrl=baseUrls[index];}return selectedBaseUrl;}instance={select:select};return instance;}BasicSelector.__dashjs_factory_name='BasicSelector';export default FactoryMaker.getClassFactory(BasicSelector);
+ */BasicSelector.__dashjs_factory_name='BasicSelector';exports.default=_FactoryMaker2.default.getClassFactory(BasicSelector);
 //# sourceMappingURL=BasicSelector.js.map

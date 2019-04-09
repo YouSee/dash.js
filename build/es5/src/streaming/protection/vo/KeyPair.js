@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,10 +30,10 @@
  *//**
  * @classdesc Represents a 128-bit keyID and 128-bit encryption key
  * @ignore
- */class KeyPair{/**
+ */var KeyPair=/**
      * @param {string} keyID 128-bit key ID, base64 encoded, with no padding
      * @param {string} key 128-bit encryption key, base64 encoded, with no padding
      * @class
      * @ignore
-     */constructor(keyID,key){this.keyID=keyID;this.key=key;}}export default KeyPair;
+     */function KeyPair(keyID,key){_classCallCheck(this,KeyPair);this.keyID=keyID;this.key=key;};exports.default=KeyPair;
 //# sourceMappingURL=KeyPair.js.map

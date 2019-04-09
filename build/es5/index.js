@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});exports.Debug=exports.MediaPlayerFactory=exports.MetricsReporting=exports.Protection=exports.MediaPlayer=undefined;var _index_mediaplayerOnly=require('./index_mediaplayerOnly');var _MetricsReporting=require('./src/streaming/metrics/MetricsReporting');var _MetricsReporting2=_interopRequireDefault(_MetricsReporting);var _Protection=require('./src/streaming/protection/Protection');var _Protection2=_interopRequireDefault(_Protection);var _MediaPlayerFactory=require('./src/streaming/MediaPlayerFactory');var _MediaPlayerFactory2=_interopRequireDefault(_MediaPlayerFactory);var _Debug=require('./src/core/Debug');var _Debug2=_interopRequireDefault(_Debug);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}dashjs.Protection=_Protection2.default;/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,5 +27,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import{MediaPlayer}from'./index_mediaplayerOnly';import MetricsReporting from'./src/streaming/metrics/MetricsReporting';import Protection from'./src/streaming/protection/Protection';import MediaPlayerFactory from'./src/streaming/MediaPlayerFactory';import Debug from'./src/core/Debug';dashjs.Protection=Protection;dashjs.MetricsReporting=MetricsReporting;dashjs.MediaPlayerFactory=MediaPlayerFactory;dashjs.Debug=Debug;export default dashjs;export{MediaPlayer,Protection,MetricsReporting,MediaPlayerFactory,Debug};
+ */dashjs.MetricsReporting=_MetricsReporting2.default;dashjs.MediaPlayerFactory=_MediaPlayerFactory2.default;dashjs.Debug=_Debug2.default;exports.default=dashjs;exports.MediaPlayer=_index_mediaplayerOnly.MediaPlayer;exports.Protection=_Protection2.default;exports.MetricsReporting=_MetricsReporting2.default;exports.MediaPlayerFactory=_MediaPlayerFactory2.default;exports.Debug=_Debug2.default;
 //# sourceMappingURL=index.js.map

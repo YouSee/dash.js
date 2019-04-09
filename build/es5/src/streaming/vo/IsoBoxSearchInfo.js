@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,5 +30,5 @@
  *//**
  * @class
  * @ignore
- */class IsoBoxSearchInfo{constructor(lastCompletedOffset,found,size){this.lastCompletedOffset=lastCompletedOffset;this.found=found;this.size=size;}}export default IsoBoxSearchInfo;
+ */var IsoBoxSearchInfo=function IsoBoxSearchInfo(lastCompletedOffset,found,size){_classCallCheck(this,IsoBoxSearchInfo);this.lastCompletedOffset=lastCompletedOffset;this.found=found;this.size=size;};exports.default=IsoBoxSearchInfo;
 //# sourceMappingURL=IsoBoxSearchInfo.js.map

@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -29,9 +29,9 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  *//**
  * @classdesc This Object holds reference to the manifest update information.
- */class ManifestUpdate{/**
+ */var ManifestUpdate=/**
      * @class
-     */constructor(){/**
+     */function ManifestUpdate(){_classCallCheck(this,ManifestUpdate);/**
          * Media Type Video | Audio | FragmentedText
          * @public
          */this.mediaType=null;/**
@@ -67,11 +67,11 @@
          */this.streamInfo=[];/**
          * Array holding list of RepresentationInfo VO Objects
          * @public
-         */this.representationInfo=[];}}/**
+         */this.representationInfo=[];};/**
  * @classdesc This Object holds reference to the current period's stream information when the manifest was updated.
- */class ManifestUpdateStreamInfo{/**
+ */var ManifestUpdateStreamInfo=/**
      * @class
-     */constructor(){/**
+     */function ManifestUpdateStreamInfo(){_classCallCheck(this,ManifestUpdateStreamInfo);/**
          * Stream@id
          * @public
          */this.id=null;/**
@@ -83,11 +83,11 @@
          */this.start=null;/**
          * Stream@duration
          * @public
-         */this.duration=null;}}/**
+         */this.duration=null;};/**
  * @classdesc This Object holds reference to the current representation's info when the manifest was updated.
- */class ManifestUpdateRepresentationInfo{/**
+ */var ManifestUpdateRepresentationInfo=/**
      * @class
-     */constructor(){/**
+     */function ManifestUpdateRepresentationInfo(){_classCallCheck(this,ManifestUpdateRepresentationInfo);/**
          * Track@id
          * @public
          */this.id=null;/**
@@ -108,5 +108,5 @@
          */this.startNumber=null;/**
          * list|template|timeline
          * @public
-         */this.fragmentInfoType=null;}}export{ManifestUpdate,ManifestUpdateStreamInfo,ManifestUpdateRepresentationInfo};
+         */this.fragmentInfoType=null;};exports.ManifestUpdate=ManifestUpdate;exports.ManifestUpdateStreamInfo=ManifestUpdateStreamInfo;exports.ManifestUpdateRepresentationInfo=ManifestUpdateRepresentationInfo;
 //# sourceMappingURL=ManifestUpdate.js.map

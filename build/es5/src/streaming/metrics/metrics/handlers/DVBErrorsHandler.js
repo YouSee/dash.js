@@ -1,4 +1,8 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _MetricsReportingEvents=require('../../MetricsReportingEvents');var _MetricsReportingEvents2=_interopRequireDefault(_MetricsReportingEvents);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function DVBErrorsHandler(config){config=config||{};var instance=void 0,reportingController=void 0;var eventBus=config.eventBus;var metricsConstants=config.metricsConstants;function onInitialisationComplete(){// we only want to report this once per call to initialize
+eventBus.off(_MetricsReportingEvents2.default.METRICS_INITIALISATION_COMPLETE,onInitialisationComplete,this);// Note: A Player becoming a reporting Player is itself
+// something which is recorded by the DVBErrors metric.
+eventBus.trigger(_MetricsReportingEvents2.default.BECAME_REPORTING_PLAYER);}function initialize(unused,rc){if(rc){reportingController=rc;eventBus.on(_MetricsReportingEvents2.default.METRICS_INITIALISATION_COMPLETE,onInitialisationComplete,this);}}function reset(){reportingController=null;}function handleNewMetric(metric,vo){// simply pass metric straight through
+if(metric===metricsConstants.DVB_ERRORS){if(reportingController){reportingController.report(metric,vo);}}}instance={initialize:initialize,reset:reset,handleNewMetric:handleNewMetric};return instance;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,9 +31,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import MetricsReportingEvents from'../../MetricsReportingEvents';function DVBErrorsHandler(config){config=config||{};let instance,reportingController;let eventBus=config.eventBus;const metricsConstants=config.metricsConstants;function onInitialisationComplete(){// we only want to report this once per call to initialize
-eventBus.off(MetricsReportingEvents.METRICS_INITIALISATION_COMPLETE,onInitialisationComplete,this);// Note: A Player becoming a reporting Player is itself
-// something which is recorded by the DVBErrors metric.
-eventBus.trigger(MetricsReportingEvents.BECAME_REPORTING_PLAYER);}function initialize(unused,rc){if(rc){reportingController=rc;eventBus.on(MetricsReportingEvents.METRICS_INITIALISATION_COMPLETE,onInitialisationComplete,this);}}function reset(){reportingController=null;}function handleNewMetric(metric,vo){// simply pass metric straight through
-if(metric===metricsConstants.DVB_ERRORS){if(reportingController){reportingController.report(metric,vo);}}}instance={initialize:initialize,reset:reset,handleNewMetric:handleNewMetric};return instance;}export default dashjs.FactoryMaker.getClassFactory(DVBErrorsHandler);/* jshint ignore:line */
+ */exports.default=dashjs.FactoryMaker.getClassFactory(DVBErrorsHandler);/* jshint ignore:line */
 //# sourceMappingURL=DVBErrorsHandler.js.map

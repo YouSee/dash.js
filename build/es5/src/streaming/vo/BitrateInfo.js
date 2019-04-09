@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,5 +30,5 @@
  *//**
  * @class
  * @ignore
- */class BitrateInfo{constructor(){this.mediaType=null;this.bitrate=null;this.width=null;this.height=null;this.scanType=null;this.qualityIndex=NaN;}}export default BitrateInfo;
+ */var BitrateInfo=function BitrateInfo(){_classCallCheck(this,BitrateInfo);this.mediaType=null;this.bitrate=null;this.width=null;this.height=null;this.scanType=null;this.qualityIndex=NaN;};exports.default=BitrateInfo;
 //# sourceMappingURL=BitrateInfo.js.map

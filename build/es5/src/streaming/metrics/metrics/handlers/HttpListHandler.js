@@ -1,4 +1,6 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _HandlerHelpers=require('../../utils/HandlerHelpers');var _HandlerHelpers2=_interopRequireDefault(_HandlerHelpers);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function HttpListHandler(config){config=config||{};var instance=void 0,reportingController=void 0,n=void 0,type=void 0,name=void 0,interval=void 0;var storedVos=[];var handlerHelpers=(0,_HandlerHelpers2.default)(this.context).getInstance();var metricsConstants=config.metricsConstants;function intervalCallback(){var vos=storedVos;if(vos.length){if(reportingController){reportingController.report(name,vos);}}storedVos=[];}function initialize(basename,rc,n_ms,requestType){if(rc){// this will throw if n is invalid, to be
+// caught by the initialize caller.
+n=handlerHelpers.validateN(n_ms);reportingController=rc;if(requestType&&requestType.length){type=requestType;}name=handlerHelpers.reconstructFullMetricName(basename,n_ms,requestType);interval=setInterval(intervalCallback,n);}}function reset(){clearInterval(interval);interval=null;n=null;type=null;storedVos=[];reportingController=null;}function handleNewMetric(metric,vo){if(metric===metricsConstants.HTTP_REQUEST){if(!type||type===vo.type){storedVos.push(vo);}}}instance={initialize:initialize,reset:reset,handleNewMetric:handleNewMetric};return instance;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,7 +29,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import HandlerHelpers from'../../utils/HandlerHelpers';function HttpListHandler(config){config=config||{};let instance,reportingController,n,type,name,interval;let storedVos=[];let handlerHelpers=HandlerHelpers(this.context).getInstance();const metricsConstants=config.metricsConstants;function intervalCallback(){var vos=storedVos;if(vos.length){if(reportingController){reportingController.report(name,vos);}}storedVos=[];}function initialize(basename,rc,n_ms,requestType){if(rc){// this will throw if n is invalid, to be
-// caught by the initialize caller.
-n=handlerHelpers.validateN(n_ms);reportingController=rc;if(requestType&&requestType.length){type=requestType;}name=handlerHelpers.reconstructFullMetricName(basename,n_ms,requestType);interval=setInterval(intervalCallback,n);}}function reset(){clearInterval(interval);interval=null;n=null;type=null;storedVos=[];reportingController=null;}function handleNewMetric(metric,vo){if(metric===metricsConstants.HTTP_REQUEST){if(!type||type===vo.type){storedVos.push(vo);}}}instance={initialize:initialize,reset:reset,handleNewMetric:handleNewMetric};return instance;}HttpListHandler.__dashjs_factory_name='HttpListHandler';export default dashjs.FactoryMaker.getClassFactory(HttpListHandler);/* jshint ignore:line */
+ */HttpListHandler.__dashjs_factory_name='HttpListHandler';exports.default=dashjs.FactoryMaker.getClassFactory(HttpListHandler);/* jshint ignore:line */
 //# sourceMappingURL=HttpListHandler.js.map

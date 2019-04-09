@@ -1,4 +1,8 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _MetricsHandlerFactory=require('../metrics/MetricsHandlerFactory');var _MetricsHandlerFactory2=_interopRequireDefault(_MetricsHandlerFactory);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function MetricsHandlersController(config){config=config||{};var handlers=[];var instance=void 0;var context=this.context;var eventBus=config.eventBus;var Events=config.events;var metricsHandlerFactory=(0,_MetricsHandlerFactory2.default)(context).getInstance({debug:config.debug,eventBus:config.eventBus,metricsConstants:config.metricsConstants});function handle(e){handlers.forEach(function(handler){handler.handleNewMetric(e.metric,e.value,e.mediaType);});}function initialize(metrics,reportingController){metrics.split(',').forEach(function(m,midx,ms){var handler=void 0;// there is a bug in ISO23009-1 where the metrics attribute
+// is a comma-separated list but HttpList key can contain a
+// comma enclosed by ().
+if(m.indexOf('(')!==-1&&m.indexOf(')')===-1){var nextm=ms[midx+1];if(nextm&&nextm.indexOf('(')===-1&&nextm.indexOf(')')!==-1){m+=','+nextm;// delete the next metric so forEach does not visit.
+delete ms[midx+1];}}handler=metricsHandlerFactory.create(m,reportingController);if(handler){handlers.push(handler);}});eventBus.on(Events.METRIC_ADDED,handle,instance);eventBus.on(Events.METRIC_UPDATED,handle,instance);}function reset(){eventBus.off(Events.METRIC_ADDED,handle,instance);eventBus.off(Events.METRIC_UPDATED,handle,instance);handlers.forEach(function(handler){return handler.reset();});handlers=[];}instance={initialize:initialize,reset:reset};return instance;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,9 +31,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import MetricsHandlerFactory from'../metrics/MetricsHandlerFactory';function MetricsHandlersController(config){config=config||{};let handlers=[];let instance;const context=this.context;const eventBus=config.eventBus;const Events=config.events;let metricsHandlerFactory=MetricsHandlerFactory(context).getInstance({debug:config.debug,eventBus:config.eventBus,metricsConstants:config.metricsConstants});function handle(e){handlers.forEach(handler=>{handler.handleNewMetric(e.metric,e.value,e.mediaType);});}function initialize(metrics,reportingController){metrics.split(',').forEach((m,midx,ms)=>{let handler;// there is a bug in ISO23009-1 where the metrics attribute
-// is a comma-separated list but HttpList key can contain a
-// comma enclosed by ().
-if(m.indexOf('(')!==-1&&m.indexOf(')')===-1){let nextm=ms[midx+1];if(nextm&&nextm.indexOf('(')===-1&&nextm.indexOf(')')!==-1){m+=','+nextm;// delete the next metric so forEach does not visit.
-delete ms[midx+1];}}handler=metricsHandlerFactory.create(m,reportingController);if(handler){handlers.push(handler);}});eventBus.on(Events.METRIC_ADDED,handle,instance);eventBus.on(Events.METRIC_UPDATED,handle,instance);}function reset(){eventBus.off(Events.METRIC_ADDED,handle,instance);eventBus.off(Events.METRIC_UPDATED,handle,instance);handlers.forEach(handler=>handler.reset());handlers=[];}instance={initialize:initialize,reset:reset};return instance;}MetricsHandlersController.__dashjs_factory_name='MetricsHandlersController';export default dashjs.FactoryMaker.getClassFactory(MetricsHandlersController);/* jshint ignore:line */
+ */MetricsHandlersController.__dashjs_factory_name='MetricsHandlersController';exports.default=dashjs.FactoryMaker.getClassFactory(MetricsHandlersController);/* jshint ignore:line */
 //# sourceMappingURL=MetricsHandlersController.js.map

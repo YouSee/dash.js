@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _FactoryMaker=require('../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);var _SupervisorTools=require('../utils/SupervisorTools');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}/**
 * The copyright in this software is being made available under the BSD License,
 * included below. This software may be subject to other third party and contributor
 * rights, including patent rights, and no such rights are granted under this license.
@@ -27,7 +27,7 @@
 *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 *  POSSIBILITY OF SUCH DAMAGE.
-*/import FactoryMaker from'../../core/FactoryMaker';import{checkInteger}from'../utils/SupervisorTools';function CustomTimeRanges()/*config*/{let customTimeRangeArray=[];let length=0;function add(start,end){let i=0;for(i=0;i<this.customTimeRangeArray.length&&start>this.customTimeRangeArray[i].start;i++);this.customTimeRangeArray.splice(i,0,{start:start,end:end});for(i=0;i<this.customTimeRangeArray.length-1;i++){if(this.mergeRanges(i,i+1)){i--;}}this.length=this.customTimeRangeArray.length;}function clear(){this.customTimeRangeArray=[];this.length=0;}function remove(start,end){for(let i=0;i<this.customTimeRangeArray.length;i++){if(start<=this.customTimeRangeArray[i].start&&end>=this.customTimeRangeArray[i].end){//      |--------------Range i-------|
+*/function CustomTimeRanges()/*config*/{var customTimeRangeArray=[];var length=0;function add(start,end){var i=0;for(i=0;i<this.customTimeRangeArray.length&&start>this.customTimeRangeArray[i].start;i++){}this.customTimeRangeArray.splice(i,0,{start:start,end:end});for(i=0;i<this.customTimeRangeArray.length-1;i++){if(this.mergeRanges(i,i+1)){i--;}}this.length=this.customTimeRangeArray.length;}function clear(){this.customTimeRangeArray=[];this.length=0;}function remove(start,end){for(var i=0;i<this.customTimeRangeArray.length;i++){if(start<=this.customTimeRangeArray[i].start&&end>=this.customTimeRangeArray[i].end){//      |--------------Range i-------|
 //|---------------Range to remove ---------------|
 //    or
 //|--------------Range i-------|
@@ -47,7 +47,7 @@ this.customTimeRangeArray[i].end=start;}else if(end>this.customTimeRangeArray[i]
 //            or
 //|-----------------Range i----------------|
 //|-------Range to remove -----|
-this.customTimeRangeArray[i].start=end;}}this.length=this.customTimeRangeArray.length;}function mergeRanges(rangeIndex1,rangeIndex2){let range1=this.customTimeRangeArray[rangeIndex1];let range2=this.customTimeRangeArray[rangeIndex2];if(range1.start<=range2.start&&range2.start<=range1.end&&range1.end<=range2.end){//|-----------Range1----------|
+this.customTimeRangeArray[i].start=end;}}this.length=this.customTimeRangeArray.length;}function mergeRanges(rangeIndex1,rangeIndex2){var range1=this.customTimeRangeArray[rangeIndex1];var range2=this.customTimeRangeArray[rangeIndex2];if(range1.start<=range2.start&&range2.start<=range1.end&&range1.end<=range2.end){//|-----------Range1----------|
 //                    |-----------Range2----------|
 range1.end=range2.end;this.customTimeRangeArray.splice(rangeIndex2,1);return true;}else if(range2.start<=range1.start&&range1.start<=range2.end&&range2.end<=range1.end){//                |-----------Range1----------|
 //|-----------Range2----------|
@@ -55,5 +55,5 @@ range1.start=range2.start;this.customTimeRangeArray.splice(rangeIndex2,1);return
 //|---------------Range2--------------|
 this.customTimeRangeArray.splice(rangeIndex1,1);return true;}else if(range1.start<=range2.start&&range2.start<=range1.end&&range2.end<=range1.end){//|-----------------Range1--------------|
 //        |-----------Range2----------|
-this.customTimeRangeArray.splice(rangeIndex2,1);return true;}return false;}function start(index){checkInteger(index);if(index>=this.customTimeRangeArray.length||index<0){return NaN;}return this.customTimeRangeArray[index].start;}function end(index){checkInteger(index);if(index>=this.customTimeRangeArray.length||index<0){return NaN;}return this.customTimeRangeArray[index].end;}return{customTimeRangeArray:customTimeRangeArray,length:length,add:add,clear:clear,remove:remove,mergeRanges:mergeRanges,start:start,end:end};}CustomTimeRanges.__dashjs_factory_name='CustomTimeRanges';export default FactoryMaker.getClassFactory(CustomTimeRanges);
+this.customTimeRangeArray.splice(rangeIndex2,1);return true;}return false;}function start(index){(0,_SupervisorTools.checkInteger)(index);if(index>=this.customTimeRangeArray.length||index<0){return NaN;}return this.customTimeRangeArray[index].start;}function end(index){(0,_SupervisorTools.checkInteger)(index);if(index>=this.customTimeRangeArray.length||index<0){return NaN;}return this.customTimeRangeArray[index].end;}return{customTimeRangeArray:customTimeRangeArray,length:length,add:add,clear:clear,remove:remove,mergeRanges:mergeRanges,start:start,end:end};}CustomTimeRanges.__dashjs_factory_name='CustomTimeRanges';exports.default=_FactoryMaker2.default.getClassFactory(CustomTimeRanges);
 //# sourceMappingURL=CustomTimeRanges.js.map

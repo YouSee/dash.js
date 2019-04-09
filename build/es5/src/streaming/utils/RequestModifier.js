@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _FactoryMaker=require('../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function RequestModifier(){var instance=void 0;function modifyRequestURL(url){return url;}function modifyRequestHeader(request){return request;}instance={modifyRequestURL:modifyRequestURL,modifyRequestHeader:modifyRequestHeader};return instance;}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,5 +27,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import FactoryMaker from'../../core/FactoryMaker';function RequestModifier(){let instance;function modifyRequestURL(url){return url;}function modifyRequestHeader(request){return request;}instance={modifyRequestURL:modifyRequestURL,modifyRequestHeader:modifyRequestHeader};return instance;}RequestModifier.__dashjs_factory_name='RequestModifier';export default FactoryMaker.getSingletonFactory(RequestModifier);
+ */RequestModifier.__dashjs_factory_name='RequestModifier';exports.default=_FactoryMaker2.default.getSingletonFactory(RequestModifier);
 //# sourceMappingURL=RequestModifier.js.map

@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -32,12 +32,12 @@
  * given piece of content and key system requirements.  Used to initialize license
  * acquisition operations.
  * @ignore
- */class KeySystemAccess{/**
+ */var KeySystemAccess=/**
      * @param {MediaPlayer.dependencies.protection.KeySystem} keySystem the key system
      * @param {KeySystemConfiguration} ksConfiguration the
      * subset of configurations passed to the key system access request that are supported
      * by this user agent
      * @class
      * @ignore
-     */constructor(keySystem,ksConfiguration){this.keySystem=keySystem;this.ksConfiguration=ksConfiguration;}}export default KeySystemAccess;
+     */function KeySystemAccess(keySystem,ksConfiguration){_classCallCheck(this,KeySystemAccess);this.keySystem=keySystem;this.ksConfiguration=ksConfiguration;};exports.default=KeySystemAccess;
 //# sourceMappingURL=KeySystemAccess.js.map

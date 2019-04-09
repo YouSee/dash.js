@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,5 +30,5 @@
  *//**
  * @class
  * @ignore
- */class ErrorsBase{extend(errors,config){if(!errors)return;let override=config?config.override:false;let publicOnly=config?config.publicOnly:false;for(const err in errors){if(!errors.hasOwnProperty(err)||this[err]&&!override)continue;if(publicOnly&&errors[err].indexOf('public_')===-1)continue;this[err]=errors[err];}}}export default ErrorsBase;
+ */var ErrorsBase=function(){function ErrorsBase(){_classCallCheck(this,ErrorsBase);}_createClass(ErrorsBase,[{key:'extend',value:function extend(errors,config){if(!errors)return;var override=config?config.override:false;var publicOnly=config?config.publicOnly:false;for(var err in errors){if(!errors.hasOwnProperty(err)||this[err]&&!override)continue;if(publicOnly&&errors[err].indexOf('public_')===-1)continue;this[err]=errors[err];}}}]);return ErrorsBase;}();exports.default=ErrorsBase;
 //# sourceMappingURL=ErrorsBase.js.map

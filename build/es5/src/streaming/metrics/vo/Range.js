@@ -1,4 +1,4 @@
-/**
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,7 +30,7 @@
  *//**
  * @class
  * @ignore
- */class Range{constructor(){// as defined in ISO23009-1
+ */var Range=function Range(){_classCallCheck(this,Range);// as defined in ISO23009-1
 this.starttime=0;this.duration=Infinity;// for internal use
-this._useWallClockTime=false;}}export default Range;
+this._useWallClockTime=false;};exports.default=Range;
 //# sourceMappingURL=Range.js.map

@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _FactoryMaker=require('../../core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var NO_CHANGE=-1;/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,9 +27,9 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import FactoryMaker from'../../core/FactoryMaker';const NO_CHANGE=-1;const PRIORITY={DEFAULT:0.5,STRONG:1,WEAK:0};function SwitchRequest(q,r,p){//TODO refactor all the calls to this to use config to be like everything else.
-let instance,quality,priority,reason;// check priority value
-function getPriority(p){let ret=PRIORITY.DEFAULT;// check that p is one of declared priority value
+ */var PRIORITY={DEFAULT:0.5,STRONG:1,WEAK:0};function SwitchRequest(q,r,p){//TODO refactor all the calls to this to use config to be like everything else.
+var instance=void 0,quality=void 0,priority=void 0,reason=void 0;// check priority value
+function getPriority(p){var ret=PRIORITY.DEFAULT;// check that p is one of declared priority value
 if(p===PRIORITY.DEFAULT||p===PRIORITY.STRONG||p===PRIORITY.WEAK){ret=p;}return ret;}// init attributes
-quality=q===undefined?NO_CHANGE:q;priority=getPriority(p);reason=r===undefined?null:r;instance={quality:quality,reason:reason,priority:priority};return instance;}SwitchRequest.__dashjs_factory_name='SwitchRequest';const factory=FactoryMaker.getClassFactory(SwitchRequest);factory.NO_CHANGE=NO_CHANGE;factory.PRIORITY=PRIORITY;FactoryMaker.updateClassFactory(SwitchRequest.__dashjs_factory_name,factory);export default factory;
+quality=q===undefined?NO_CHANGE:q;priority=getPriority(p);reason=r===undefined?null:r;instance={quality:quality,reason:reason,priority:priority};return instance;}SwitchRequest.__dashjs_factory_name='SwitchRequest';var factory=_FactoryMaker2.default.getClassFactory(SwitchRequest);factory.NO_CHANGE=NO_CHANGE;factory.PRIORITY=PRIORITY;_FactoryMaker2.default.updateClassFactory(SwitchRequest.__dashjs_factory_name,factory);exports.default=factory;
 //# sourceMappingURL=SwitchRequest.js.map

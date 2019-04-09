@@ -1,4 +1,7 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _CommonEncryption=require('./../CommonEncryption');var _CommonEncryption2=_interopRequireDefault(_CommonEncryption);var _KeySystemClearKey=require('./../drm/KeySystemClearKey');var _KeySystemClearKey2=_interopRequireDefault(_KeySystemClearKey);var _KeySystemW3CClearKey=require('./../drm/KeySystemW3CClearKey');var _KeySystemW3CClearKey2=_interopRequireDefault(_KeySystemW3CClearKey);var _KeySystemWidevine=require('./../drm/KeySystemWidevine');var _KeySystemWidevine2=_interopRequireDefault(_KeySystemWidevine);var _KeySystemPlayReady=require('./../drm/KeySystemPlayReady');var _KeySystemPlayReady2=_interopRequireDefault(_KeySystemPlayReady);var _DRMToday=require('./../servers/DRMToday');var _DRMToday2=_interopRequireDefault(_DRMToday);var _PlayReady=require('./../servers/PlayReady');var _PlayReady2=_interopRequireDefault(_PlayReady);var _Widevine=require('./../servers/Widevine');var _Widevine2=_interopRequireDefault(_Widevine);var _ClearKey=require('./../servers/ClearKey');var _ClearKey2=_interopRequireDefault(_ClearKey);var _ProtectionConstants=require('../../constants/ProtectionConstants');var _ProtectionConstants2=_interopRequireDefault(_ProtectionConstants);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}/**
+ * @module ProtectionKeyController
+ * @description Media protection key system functionality that can be modified/overridden by applications
+ *//**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -27,14 +30,11 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import CommonEncryption from'./../CommonEncryption';import KeySystemClearKey from'./../drm/KeySystemClearKey';import KeySystemW3CClearKey from'./../drm/KeySystemW3CClearKey';import KeySystemWidevine from'./../drm/KeySystemWidevine';import KeySystemPlayReady from'./../drm/KeySystemPlayReady';import DRMToday from'./../servers/DRMToday';import PlayReady from'./../servers/PlayReady';import Widevine from'./../servers/Widevine';import ClearKey from'./../servers/ClearKey';import ProtectionConstants from'../../constants/ProtectionConstants';/**
- * @module ProtectionKeyController
- * @description Media protection key system functionality that can be modified/overridden by applications
- */function ProtectionKeyController(){let context=this.context;let instance,debug,logger,keySystems,BASE64,clearkeyKeySystem,clearkeyW3CKeySystem;function setConfig(config){if(!config)return;if(config.debug){debug=config.debug;logger=debug.getLogger(instance);}if(config.BASE64){BASE64=config.BASE64;}}function initialize(){keySystems=[];let keySystem;// PlayReady
-keySystem=KeySystemPlayReady(context).getInstance({BASE64:BASE64});keySystems.push(keySystem);// Widevine
-keySystem=KeySystemWidevine(context).getInstance({BASE64:BASE64});keySystems.push(keySystem);// ClearKey
-keySystem=KeySystemClearKey(context).getInstance({BASE64:BASE64});keySystems.push(keySystem);clearkeyKeySystem=keySystem;// W3C ClearKey
-keySystem=KeySystemW3CClearKey(context).getInstance({BASE64:BASE64,debug:debug});keySystems.push(keySystem);clearkeyW3CKeySystem=keySystem;}/**
+ */function ProtectionKeyController(){var context=this.context;var instance=void 0,debug=void 0,logger=void 0,keySystems=void 0,BASE64=void 0,clearkeyKeySystem=void 0,clearkeyW3CKeySystem=void 0;function setConfig(config){if(!config)return;if(config.debug){debug=config.debug;logger=debug.getLogger(instance);}if(config.BASE64){BASE64=config.BASE64;}}function initialize(){keySystems=[];var keySystem=void 0;// PlayReady
+keySystem=(0,_KeySystemPlayReady2.default)(context).getInstance({BASE64:BASE64});keySystems.push(keySystem);// Widevine
+keySystem=(0,_KeySystemWidevine2.default)(context).getInstance({BASE64:BASE64});keySystems.push(keySystem);// ClearKey
+keySystem=(0,_KeySystemClearKey2.default)(context).getInstance({BASE64:BASE64});keySystems.push(keySystem);clearkeyKeySystem=keySystem;// W3C ClearKey
+keySystem=(0,_KeySystemW3CClearKey2.default)(context).getInstance({BASE64:BASE64,debug:debug});keySystems.push(keySystem);clearkeyW3CKeySystem=keySystem;}/**
      * Returns a prioritized list of key systems supported
      * by this player (not necessarily those supported by the
      * user agent)
@@ -53,7 +53,7 @@ keySystem=KeySystemW3CClearKey(context).getInstance({BASE64:BASE64,debug:debug})
      * system string
      * @memberof module:ProtectionKeyController
      * @instance
-     */function getKeySystemBySystemString(systemString){for(let i=0;i<keySystems.length;i++){if(keySystems[i].systemString===systemString){return keySystems[i];}}return null;}/**
+     */function getKeySystemBySystemString(systemString){for(var i=0;i<keySystems.length;i++){if(keySystems[i].systemString===systemString){return keySystems[i];}}return null;}/**
      * Determines whether the given key system is ClearKey.  This is
      * necessary because the EME spec defines ClearKey and its method
      * for providing keys to the key session; and this method has changed
@@ -75,7 +75,7 @@ keySystem=KeySystemW3CClearKey(context).getInstance({BASE64:BASE64,debug:debug})
      * contents, false otherwise
      * @memberof module:ProtectionKeyController
      * @instance
-     */function initDataEquals(initData1,initData2){if(initData1.byteLength===initData2.byteLength){let data1=new Uint8Array(initData1);let data2=new Uint8Array(initData2);for(let j=0;j<data1.length;j++){if(data1[j]!==data2[j]){return false;}}return true;}return false;}/**
+     */function initDataEquals(initData1,initData2){if(initData1.byteLength===initData2.byteLength){var data1=new Uint8Array(initData1);var data2=new Uint8Array(initData2);for(var j=0;j<data1.length;j++){if(data1[j]!==data2[j]){return false;}}return true;}return false;}/**
      * Returns a set of supported key systems and CENC initialization data
      * from the given array of ContentProtection elements.  Only
      * key systems that are supported by this player will be returned.
@@ -88,8 +88,8 @@ keySystem=KeySystemW3CClearKey(context).getInstance({BASE64:BASE64,debug:debug})
      * supported key systems were found
      * @memberof module:ProtectionKeyController
      * @instance
-     */function getSupportedKeySystemsFromContentProtection(cps){let cp,ks,ksIdx,cpIdx;let supportedKS=[];if(cps){for(ksIdx=0;ksIdx<keySystems.length;++ksIdx){ks=keySystems[ksIdx];for(cpIdx=0;cpIdx<cps.length;++cpIdx){cp=cps[cpIdx];if(cp.schemeIdUri.toLowerCase()===ks.schemeIdURI){// Look for DRM-specific ContentProtection
-let initData=ks.getInitData(cp);if(!!initData){supportedKS.push({ks:keySystems[ksIdx],initData:initData,cdmData:ks.getCDMData(),sessionId:ks.getSessionId(cp)});}else if(this.isClearKey(ks)){supportedKS.push({ks:ks,initData:null});}}}}}return supportedKS;}/**
+     */function getSupportedKeySystemsFromContentProtection(cps){var cp=void 0,ks=void 0,ksIdx=void 0,cpIdx=void 0;var supportedKS=[];if(cps){for(ksIdx=0;ksIdx<keySystems.length;++ksIdx){ks=keySystems[ksIdx];for(cpIdx=0;cpIdx<cps.length;++cpIdx){cp=cps[cpIdx];if(cp.schemeIdUri.toLowerCase()===ks.schemeIdURI){// Look for DRM-specific ContentProtection
+var initData=ks.getInitData(cp);if(!!initData){supportedKS.push({ks:keySystems[ksIdx],initData:initData,cdmData:ks.getCDMData(),sessionId:ks.getSessionId(cp)});}else if(this.isClearKey(ks)){supportedKS.push({ks:ks,initData:null});}}}}}return supportedKS;}/**
      * Returns key systems supported by this player for the given PSSH
      * initializationData. Only key systems supported by this player
      * that have protection data present will be returned.  Key systems are returned in priority order
@@ -104,7 +104,7 @@ let initData=ks.getInitData(cp);if(!!initData){supportedKS.push({ks:keySystems[k
      * supported key systems were found
      * @memberof module:ProtectionKeyController
      * @instance
-     */function getSupportedKeySystems(initData,protDataSet){let supportedKS=[];let pssh=CommonEncryption.parsePSSHList(initData);let ks,keySystemString,shouldNotFilterOutKeySystem;for(let ksIdx=0;ksIdx<keySystems.length;++ksIdx){ks=keySystems[ksIdx];keySystemString=ks.systemString;shouldNotFilterOutKeySystem=protDataSet?keySystemString in protDataSet:true;if(ks.uuid in pssh&&shouldNotFilterOutKeySystem){supportedKS.push({ks:ks,initData:pssh[ks.uuid],cdmData:ks.getCDMData(),sessionId:ks.getSessionId()});}}return supportedKS;}/**
+     */function getSupportedKeySystems(initData,protDataSet){var supportedKS=[];var pssh=_CommonEncryption2.default.parsePSSHList(initData);var ks=void 0,keySystemString=void 0,shouldNotFilterOutKeySystem=void 0;for(var ksIdx=0;ksIdx<keySystems.length;++ksIdx){ks=keySystems[ksIdx];keySystemString=ks.systemString;shouldNotFilterOutKeySystem=protDataSet?keySystemString in protDataSet:true;if(ks.uuid in pssh&&shouldNotFilterOutKeySystem){supportedKS.push({ks:ks,initData:pssh[ks.uuid],cdmData:ks.getCDMData(),sessionId:ks.getSessionId()});}}return supportedKS;}/**
      * Returns the license server implementation data that should be used for this request.
      *
      * @param {KeySystem} keySystem the key system
@@ -122,7 +122,7 @@ let initData=ks.getInitData(cp);if(!!initData){supportedKS.push({ks:keySystems[k
      *
      */function getLicenseServer(keySystem,protData,messageType){// Our default server implementations do not do anything with "license-release" or
 // "individualization-request" messages, so we just send a success event
-if(messageType==='license-release'||messageType==='individualization-request'){return null;}let licenseServerData=null;if(protData&&protData.hasOwnProperty('drmtoday')){licenseServerData=DRMToday(context).getInstance({BASE64:BASE64});}else if(keySystem.systemString===ProtectionConstants.WIDEVINE_KEYSTEM_STRING){licenseServerData=Widevine(context).getInstance();}else if(keySystem.systemString===ProtectionConstants.PLAYREADY_KEYSTEM_STRING){licenseServerData=PlayReady(context).getInstance();}else if(keySystem.systemString===ProtectionConstants.CLEARKEY_KEYSTEM_STRING){licenseServerData=ClearKey(context).getInstance();}return licenseServerData;}/**
+if(messageType==='license-release'||messageType==='individualization-request'){return null;}var licenseServerData=null;if(protData&&protData.hasOwnProperty('drmtoday')){licenseServerData=(0,_DRMToday2.default)(context).getInstance({BASE64:BASE64});}else if(keySystem.systemString===_ProtectionConstants2.default.WIDEVINE_KEYSTEM_STRING){licenseServerData=(0,_Widevine2.default)(context).getInstance();}else if(keySystem.systemString===_ProtectionConstants2.default.PLAYREADY_KEYSTEM_STRING){licenseServerData=(0,_PlayReady2.default)(context).getInstance();}else if(keySystem.systemString===_ProtectionConstants2.default.CLEARKEY_KEYSTEM_STRING){licenseServerData=(0,_ClearKey2.default)(context).getInstance();}return licenseServerData;}/**
      * Allows application-specific retrieval of ClearKey keys.
      *
      * @param {KeySystem} clearkeyKeySystem They exact ClearKey System to be used
@@ -133,5 +133,5 @@ if(messageType==='license-release'||messageType==='individualization-request'){r
      * the request or null if no keys can be returned by this function
      * @memberof module:ProtectionKeyController
      * @instance
-     */function processClearKeyLicenseRequest(clearkeyKeySystem,protData,message){try{return clearkeyKeySystem.getClearKeysFromProtectionData(protData,message);}catch(error){logger.error('Failed to retrieve clearkeys from ProtectionData');return null;}}function setProtectionData(protectionDataSet){var getProtectionData=function(keySystemString){var protData=null;if(protectionDataSet){protData=keySystemString in protectionDataSet?protectionDataSet[keySystemString]:null;}return protData;};for(var i=0;i<keySystems.length;i++){var keySystem=keySystems[i];if(keySystem.hasOwnProperty('init')){keySystem.init(getProtectionData(keySystem.systemString));}}}instance={initialize:initialize,setProtectionData:setProtectionData,isClearKey:isClearKey,initDataEquals:initDataEquals,getKeySystems:getKeySystems,getKeySystemBySystemString:getKeySystemBySystemString,getSupportedKeySystemsFromContentProtection:getSupportedKeySystemsFromContentProtection,getSupportedKeySystems:getSupportedKeySystems,getLicenseServer:getLicenseServer,processClearKeyLicenseRequest:processClearKeyLicenseRequest,setConfig:setConfig};return instance;}ProtectionKeyController.__dashjs_factory_name='ProtectionKeyController';export default dashjs.FactoryMaker.getSingletonFactory(ProtectionKeyController);/* jshint ignore:line */
+     */function processClearKeyLicenseRequest(clearkeyKeySystem,protData,message){try{return clearkeyKeySystem.getClearKeysFromProtectionData(protData,message);}catch(error){logger.error('Failed to retrieve clearkeys from ProtectionData');return null;}}function setProtectionData(protectionDataSet){var getProtectionData=function getProtectionData(keySystemString){var protData=null;if(protectionDataSet){protData=keySystemString in protectionDataSet?protectionDataSet[keySystemString]:null;}return protData;};for(var i=0;i<keySystems.length;i++){var keySystem=keySystems[i];if(keySystem.hasOwnProperty('init')){keySystem.init(getProtectionData(keySystem.systemString));}}}instance={initialize:initialize,setProtectionData:setProtectionData,isClearKey:isClearKey,initDataEquals:initDataEquals,getKeySystems:getKeySystems,getKeySystemBySystemString:getKeySystemBySystemString,getSupportedKeySystemsFromContentProtection:getSupportedKeySystemsFromContentProtection,getSupportedKeySystems:getSupportedKeySystems,getLicenseServer:getLicenseServer,processClearKeyLicenseRequest:processClearKeyLicenseRequest,setConfig:setConfig};return instance;}ProtectionKeyController.__dashjs_factory_name='ProtectionKeyController';exports.default=dashjs.FactoryMaker.getSingletonFactory(ProtectionKeyController);/* jshint ignore:line */
 //# sourceMappingURL=ProtectionKeyController.js.map

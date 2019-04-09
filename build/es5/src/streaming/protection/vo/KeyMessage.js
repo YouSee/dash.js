@@ -1,4 +1,4 @@
-/**
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}/**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
  * rights, including patent rights, and no such rights are granted under this license.
@@ -30,7 +30,7 @@
  *//**
  * @classdesc EME-independent KeyMessage
  * @ignore
- */class KeyMessage{/**
+ */var KeyMessage=/**
      * @param {SessionToken} sessionToken the session
      * to which the key message is associated
      * @param {ArrayBuffer} message the key message
@@ -38,5 +38,5 @@
      * @param {string} messageType Supported message types can be found
      * {@link https://w3c.github.io/encrypted-media/#idl-def-MediaKeyMessageType|here}.
      * @class
-     */constructor(sessionToken,message,defaultURL,messageType){this.sessionToken=sessionToken;this.message=message;this.defaultURL=defaultURL;this.messageType=messageType?messageType:'license-request';}}export default KeyMessage;
+     */function KeyMessage(sessionToken,message,defaultURL,messageType){_classCallCheck(this,KeyMessage);this.sessionToken=sessionToken;this.message=message;this.defaultURL=defaultURL;this.messageType=messageType?messageType:'license-request';};exports.default=KeyMessage;
 //# sourceMappingURL=KeyMessage.js.map

@@ -1,3 +1,4 @@
+'use strict';Object.defineProperty(exports,"__esModule",{value:true});exports.Debug=exports.FactoryMaker=exports.MediaPlayer=undefined;var _MediaPlayer=require('./src/streaming/MediaPlayer');var _MediaPlayer2=_interopRequireDefault(_MediaPlayer);var _FactoryMaker=require('./src/core/FactoryMaker');var _FactoryMaker2=_interopRequireDefault(_FactoryMaker);var _Debug=require('./src/core/Debug');var _Debug2=_interopRequireDefault(_Debug);var _Version=require('./src/core/Version');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}// Shove both of these into the global scope
 /**
  * The copyright in this software is being made available under the BSD License,
  * included below. This software may be subject to other third party and contributor
@@ -27,6 +28,5 @@
  *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
- */import MediaPlayer from'./src/streaming/MediaPlayer';import FactoryMaker from'./src/core/FactoryMaker';import Debug from'./src/core/Debug';import{getVersionString}from'./src/core/Version';// Shove both of these into the global scope
-var context=typeof window!=='undefined'&&window||global;var dashjs=context.dashjs;if(!dashjs){dashjs=context.dashjs={};}dashjs.MediaPlayer=MediaPlayer;dashjs.FactoryMaker=FactoryMaker;dashjs.Debug=Debug;dashjs.Version=getVersionString();export default dashjs;export{MediaPlayer,FactoryMaker,Debug};
+ */var context=typeof window!=='undefined'&&window||global;var dashjs=context.dashjs;if(!dashjs){dashjs=context.dashjs={};}dashjs.MediaPlayer=_MediaPlayer2.default;dashjs.FactoryMaker=_FactoryMaker2.default;dashjs.Debug=_Debug2.default;dashjs.Version=(0,_Version.getVersionString)();exports.default=dashjs;exports.MediaPlayer=_MediaPlayer2.default;exports.FactoryMaker=_FactoryMaker2.default;exports.Debug=_Debug2.default;
 //# sourceMappingURL=index_mediaplayerOnly.js.map

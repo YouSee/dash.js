@@ -52063,7 +52063,7 @@ function TextTracks() {
 
     function displayCConTop(value) {
         displayCCOnTop = value;
-        if (!captionContainer || document[fullscreenAttribute]) {
+        if (!captionContainer) {
             return;
         }
         captionContainer.style.zIndex = value ? topZIndex : null;
@@ -52212,7 +52212,7 @@ function TextTracks() {
                 containerStyle.top = actualVideoTop + 'px';
                 containerStyle.width = actualVideoWidth + 'px';
                 containerStyle.height = actualVideoHeight + 'px';
-                containerStyle.zIndex = fullscreenAttribute && document[fullscreenAttribute] || displayCCOnTop ? topZIndex : null;
+                containerStyle.zIndex = displayCCOnTop ? topZIndex : null;
                 eventBus.trigger(_coreEventsEvents2['default'].CAPTION_CONTAINER_RESIZE, {});
             }
 

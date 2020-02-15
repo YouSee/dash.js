@@ -2812,7 +2812,9 @@ function MssParser(config) {
                         if (!segments[j].tManifest) {
                             segments[j].tManifest = segments[j].t;
                         }
-                        segments[j].t -= timestampOffset * adaptations[i].SegmentTemplate.timescale;
+                        if (adaptations[i].contentType !== 'text') {
+                            segments[j].t -= timestampOffset * adaptations[i].SegmentTemplate.timescale;
+                        }
                     }
                     if (adaptations[i].contentType === 'audio' || adaptations[i].contentType === 'video') {
                         period.start = Math.max(segments[0].t, period.start);

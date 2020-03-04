@@ -306,6 +306,17 @@ function TextSourceBuffer() {
         textTracks.addTextTrack(textTrackInfo, totalNrTracks);
     }
 
+    function get_video_start_time(manifestModel) {
+        const { timescale, Period: { AdaptationSet } } = manifestModel;
+        const videoAdaptationsSet = AdaptationSet.find(set => set.id === 'video');
+        if (videoAdaptationsSet) {
+            const { SegmentTemplate: { SegmentTimeline: { S: [firstSegment] } } } = videoAdaptationsSet;
+            const { tManifest } = firstSegment || {};
+            return tManifest ? tManifest / timescale : 0;
+        }
+        return 0;
+    }
+
     function append(bytes, chunk) {
         let result,
             sampleList,
@@ -351,9 +362,10 @@ function TextSourceBuffer() {
                         try {
                             // Only used for Miscrosoft Smooth Streaming support - caption time is relative to sample time. In this case, we apply an offset.
                             const manifest = manifestModel.getValue();
+                            const manifestOffsetTime = get_video_start_time(manifest);
                             const offsetTime = manifest.ttmlTimeIsRelative ? sampleStart / timescale : 0;
                             result = parser.parse(ccContent, offsetTime, sampleStart / timescale, (sampleStart + sample.duration) / timescale, images);
-                            textTracks.addCaptions(currFragmentedTrackIdx, firstFragmentedSubtitleStart / timescale, result);
+                            textTracks.addCaptions(currFragmentedTrackIdx, manifestOffsetTime, result);
                         } catch (e) {
                             fragmentedFragmentModel.removeExecutedRequestsBeforeTime();
                             this.remove();
